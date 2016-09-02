@@ -1,0 +1,15 @@
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.pdb
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\MvvmCross.Binding.dll
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\MvvmCross.Core.dll
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\MvvmCross.Localization.dll
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\MvvmCross.Platform.dll
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.csprojResolveAssemblyReference.cache
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.pdb
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+D:\Dropbox\Dropbox\IAB330\Telstra\TestraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb

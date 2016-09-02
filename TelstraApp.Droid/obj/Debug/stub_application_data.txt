@@ -1,0 +1,2 @@
+android.app.Application
+TelstraApp.Droid.TelstraApp.Droid
