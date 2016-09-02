@@ -5,6 +5,7 @@ using Android.Widget;
 using MvvmCross.Droid.Views;
 using TelstraApp.Core.ViewModels;
 
+//Author: Michael Kath (n9293833)
 namespace TelstraApp.Droid.Views
 {
     [Activity(Label = "View for RequestsView")]

@@ -1,5 +1,6 @@
 using MvvmCross.Core.ViewModels;
 
+//Author: Michael Kath (n9293833)
 namespace TelstraApp.Core.ViewModels
 {
 
