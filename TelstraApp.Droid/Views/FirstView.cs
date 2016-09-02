@@ -28,7 +28,7 @@ namespace TelstraApp.Droid.Views
 
     }
 
-    //wednesday
+    //Test1
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity
     {
