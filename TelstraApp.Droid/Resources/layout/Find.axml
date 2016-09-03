@@ -2,9 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+    <TextView
+        android:text="Outstanding Requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="27dp"
+        android:id="@+id/textView1"
+        android:textColor="#00B1EB"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
+
+  <EditText
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="40dp"
+      android:hint="Find User"
+      local:MvxBind="Text UserNameReq" /> 
+  <Button
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    local:MvxBind="Click ButtonCommand"
+    android:text="Send Request"/>
+  <Mvx.MvxListView
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    local:MvxItemTemplate="@layout/requestitemlayout"
+    local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectUnitCommand" />
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        local:MvxBind="Text Bar" />
+        android:layout_height="50dp"
+        android:textSize="40dp"
+        android:background="#ffa500"
+        local:MvxBind="Text Bar"
+        android:id="@+id/textView3" />
 </LinearLayout>

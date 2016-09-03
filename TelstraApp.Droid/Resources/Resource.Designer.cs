@@ -111,6 +111,12 @@ namespace TelstraApp.Droid
 			// aapt resource value: 0x7f040001
 			public const int MvxBindingTagUnique = 2130968577;
 			
+			// aapt resource value: 0x7f040002
+			public const int textView1 = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int textView3 = 2130968579;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -131,10 +137,16 @@ namespace TelstraApp.Droid
 			public const int FirstView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Requests = 2130903042;
+			public const int RequestItemLayout = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int SplashScreen = 2130903043;
+			public const int Requests = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int SplashScreen = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int ViewResponse = 2130903045;
 			
 			static Layout()
 			{

@@ -5,7 +5,7 @@ using Android.Widget;
 using MvvmCross.Droid.Views;
 using TelstraApp.Core.ViewModels;
 
-//Author: Michael Kath (n9293833)
+
 namespace TelstraApp.Droid.Views
 {
     [Activity(Label = "View for RequestsView")]
@@ -18,6 +18,7 @@ namespace TelstraApp.Droid.Views
         }
 
     }
+    //Author: Michael Kath (n9293833)
     [Activity(Label = "View for FindView")]
     public class FindView: MvxActivity
     {
@@ -25,11 +26,12 @@ namespace TelstraApp.Droid.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Find);
+
         }
 
     }
 
-    //wednesday
+    //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity
     {
