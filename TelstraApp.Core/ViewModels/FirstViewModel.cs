@@ -2,13 +2,15 @@ using MvvmCross.Core.ViewModels;
 
 namespace TelstraApp.Core.ViewModels
 {
-
+    
 
     public class FirstViewModel 
         : MvxViewModel
     {
+
         private RequestsViewModel _requests;
         private FindViewModel _find;
+        
 
         public FirstViewModel()
         {
@@ -33,26 +35,20 @@ namespace TelstraApp.Core.ViewModels
 
     public class RequestsViewModel : MvxViewModel
     {
-        private string _foo = "hello foo";
-
-        public string Foo {
-            get { return _foo; }
-            set { _foo = value; RaisePropertyChanged(() => Foo); }
-                
-        }
-
+        //Author Brenton Wheeler - n9294601
+        //private string[] _requestCheckBoxes = { "User 1 - 5 Minutes Ago", "User 2 - 3 Hours Ago", "User 3 - Yesterday"};
 
     }
     public class FindViewModel : MvxViewModel
     {
-        private string _bar = "hello bar";
+        //private string _bar = "hello bar";
 
-        public string Bar
-        {
-            get { return _bar; }
-            set { _bar = value; RaisePropertyChanged(() => Bar); }
+        //public string Bar
+        //{
+            //get { return _bar; }
+            //set { _bar = value; RaisePropertyChanged(() => Bar); }
 
-        }
+        //}
     }
 }
 

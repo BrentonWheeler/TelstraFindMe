@@ -9,9 +9,3 @@ C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraA
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.pdb
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb

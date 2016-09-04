@@ -73,8 +73,6 @@ containing a value of this type.
     public static final class id {
         public static final int MvvmCrossTagId=0x7f040000;
         public static final int MvxBindingTagUnique=0x7f040001;
-        public static final int checkbox_cheese=0x7f040003;
-        public static final int checkbox_meat=0x7f040002;
     }
     public static final class layout {
         public static final int find=0x7f030000;
