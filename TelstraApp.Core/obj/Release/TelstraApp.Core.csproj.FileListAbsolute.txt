@@ -1,0 +1,17 @@
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.pdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\MvvmCross.Binding.dll
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\MvvmCross.Core.dll
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\MvvmCross.Localization.dll
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\MvvmCross.Platform.dll
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.csprojResolveAssemblyReference.cache
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.pdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb

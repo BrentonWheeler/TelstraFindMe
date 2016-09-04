@@ -11,7 +11,7 @@ namespace TelstraApp.Droid.Views
     public class RequestsView : MvxActivity
     {
         protected override void OnCreate(Bundle bundle)
-        {
+        {   
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Requests);
         }
