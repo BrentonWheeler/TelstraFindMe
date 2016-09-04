@@ -9,8 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Select All"
         android:textSize="20sp"
-        android:padding="20dp"
-        local:MvxBind="Click SelectAll" />
+        android:padding="20dp" />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
