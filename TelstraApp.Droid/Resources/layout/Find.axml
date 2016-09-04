@@ -4,7 +4,19 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#000000">
+    android:background="#ffffff">
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:hint="Search User here"
+        android:background="#00B1EB"
+        local:MvxBind="Text UserNameReq" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Click ButtonCommand"
+        android:text="Send Request" />
     <TextView
         android:text="Outstanding Requests"
         android:layout_width="match_parent"
@@ -16,28 +28,17 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="15dp" />
-
-  <EditText
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:textSize="40dp"
-      android:hint="Find User"
-      local:MvxBind="Text UserNameReq" /> 
-  <Button
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    local:MvxBind="Click ButtonCommand"
-    android:text="Send Request"/>
-  <Mvx.MvxListView
-    android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    local:MvxItemTemplate="@layout/requestitemlayout"
-    local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectUnitCommand" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:textSize="40dp"
-        android:background="#ffa500"
-        local:MvxBind="Text Bar"
-        android:id="@+id/textView3" />
+        android:background="#000000"
+        local:MvxBind="Text Bar" />
+    <Mvx.MvxListView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        local:MvxItemTemplate="@layout/requestitemlayout"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectUnitCommand" />
 </LinearLayout>

@@ -50,7 +50,7 @@ namespace TelstraApp.Core.ViewModels
     //Author: Michael Kath (n9293833)
     public class FindViewModel : MvxViewModel
     {
-        private string _bar = "Click a response";
+        private string _bar = "Debug menu:";
 
         public string Bar
         {
@@ -98,7 +98,7 @@ namespace TelstraApp.Core.ViewModels
 
         public ICommand ButtonCommand { get; private set; }
 
-        public ICommand SelectUnitCommand { get; private set; }
+        public ICommand SelectUnitCommand { get; private set; }       // public ICommand SelectRemove { get; private set; }
         //author: Michael Kath (n9293833)
         public FindViewModel()
         {
@@ -116,20 +116,35 @@ namespace TelstraApp.Core.ViewModels
                 RaisePropertyChanged(() => ListOutStandingReq);
             });
 
+        /*    SelectRemove = new MvxCommand<AddRequest>(req =>
+            {
+                var copy = new ObservableCollection<AddRequest>(outStandingReq);
+                foreach (var item in copy)
+                {
+                    if (item.UserNameReq == req.UserNameReq)
+                    {
+                        outStandingReq.Remove(item);
+                        Bar = "Debug:Deleted request for: " + item;
+                    }
+                }
 
+            }); */
 
             SelectUnitCommand = new MvxCommand<AddRequest>(req =>
             {
+               Bar = "Debug: select" + req.UserNameReq;
 
-               if (req.UserStatus == "Has not responded")
-                {
-                    Bar = "Has responded";
-                 
-                } else
-                {
+                var copy = new ObservableCollection<AddRequest>(outStandingReq);
 
-                    Bar = "Has not responded";
-                }
+                foreach (var item in copy)
+                {
+                    if (item.UserNameReq == req.UserNameReq)
+                    {
+                        outStandingReq.Remove(item);
+                        Bar = "Debug:Deleted request for: " + item;
+                    }
+                } 
+
                 RaisePropertyChanged(() => Bar);
             });
         }
@@ -142,7 +157,7 @@ namespace TelstraApp.Core.ViewModels
             }
             else
             {
-                //Note this code just removes spaces from the EditText if that is all was in them
+              
                 UserNameReq = req.UserNameReq;
                 ReqStatus = req.UserStatus;
             }
