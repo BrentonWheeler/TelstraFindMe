@@ -1,4 +1,7 @@
+using Android.App;
 using Android.Graphics;
+using Android.Views;
+using Android.Views.InputMethods;
 using MvvmCross.Core.ViewModels;
 using MvvmCrossDemo.Core.Models;
 using MvvmCrossDemo.Core.Services;
@@ -163,9 +166,12 @@ namespace TelstraApp.Core.ViewModels
             SendReq(new AddRequest("User10"));
             SendReq(new AddRequest("User11", "Has ignored request"));
 
-            ButtonCommand = new MvxCommand(() =>
+            SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(req =>
             {
-                SendReq(new AddRequest(UserNameReq));
+                SendReq(new AddRequest(req.LocalizedName));
+                Locations = new ObservableCollection<LocationAutoCompleteResult>();
+                searchTerm = "";
+                RaisePropertyChanged(() => SearchTerm);
                 RaisePropertyChanged(() => ListOutStandingReq);
             });
 
