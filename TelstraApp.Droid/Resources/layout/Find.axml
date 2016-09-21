@@ -9,10 +9,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:hint="Search User here"
+        android:hint="remove"
         android:background="#00B1EB"
         local:MvxBind="Text UserNameReq" />
-    <Button
+  <EditText
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="30dp"
+      android:hint="Search User here"
+      android:background="#00B1EB"
+      local:MvxBind="Text SearchTerm" />
+  <MvxListView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textSize="40dp"
+      local:MvxBind="ItemsSource Locations; ItemClick SelectLocationCommand"
+      local:MvxItemTemplate="@layout/locationsearchlayout" />
+  <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         local:MvxBind="Click ButtonCommand"
