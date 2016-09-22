@@ -108,6 +108,8 @@ class MonoPackageManager_Resources {
 		"MvvmCross.Localization.dll",
 		"MvvmCross.Platform.dll",
 		"MvvmCross.Platform.Droid.dll",
+		"SQLite.Net.dll",
+		"SQLite.Net.Platform.XamarinAndroid.dll",
 		"TelstraApp.Core.dll",
 		"System.Threading.dll",
 		"System.Runtime.dll",
@@ -126,6 +128,7 @@ class MonoPackageManager_Resources {
 		"System.Threading.Tasks.dll",
 		"System.Resources.ResourceManager.dll",
 		"System.IO.dll",
+		"System.Text.Encoding.dll",
 		"System.Net.Requests.dll",
 		"Newtonsoft.Json.dll",
 		"System.Xml.XDocument.dll",
@@ -133,7 +136,6 @@ class MonoPackageManager_Resources {
 		"System.Dynamic.Runtime.dll",
 		"System.Text.RegularExpressions.dll",
 		"System.Xml.ReaderWriter.dll",
-		"System.Text.Encoding.dll",
 		"System.Text.Encoding.Extensions.dll",
 	};
 	public static final String[] Dependencies = new String[]{

@@ -3,8 +3,11 @@ using Android.Graphics;
 using Android.Views;
 using Android.Views.InputMethods;
 using MvvmCross.Core.ViewModels;
+using MvvmCrossDemo.Core.Database;
+using MvvmCrossDemo.Core.Interfaces;
 using MvvmCrossDemo.Core.Models;
 using MvvmCrossDemo.Core.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -19,10 +22,10 @@ namespace TelstraApp.Core.ViewModels
         private RequestsViewModel _requests;
         private FindViewModel _find;
 
-        public FirstViewModel()
+        public FirstViewModel(ISqlite sqlite, IDialogService dialog)
         {
             Requests = new RequestsViewModel();
-            Find = new FindViewModel();
+            Find = new FindViewModel(sqlite, dialog);
 
         }
        
@@ -144,33 +147,30 @@ namespace TelstraApp.Core.ViewModels
             }
         }
 
+        //Database Stuff
+        LocationsDatabase database;
+        private ISqlite sqlite;
+        private IEnumerable<LocationAutoCompleteResult> Users; 
+
         //author: Michael Kath (n9293833)
-        public FindViewModel()
+        public FindViewModel(ISqlite sqlite, IDialogService dialog)
         {
 
-            //Start search button
-
-            //gets the list of locations binding
+        //gets the list of locations binding
             Locations = new ObservableCollection<LocationAutoCompleteResult>();
-            // if the user clicks on 1 of the items on the list
-            
-            //goto results later on TODO
-            //SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(selectedLocation => ShowViewModel<SecondViewModel>(selectedLocation));
-            
-            //Endf search
+            this.database = new LocationsDatabase(sqlite);
+            this.sqlite = sqlite;
+            this.Users = database.GetLocations();
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
+            GetUsers();
 
-            //add dummy requests
-            SendReq(new AddRequest("User12", "Has responded"));
-            SendReq(new AddRequest("User10"));
-            SendReq(new AddRequest("User11", "Has ignored request"));
-
-            SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(req =>
+            SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(selectedLocation =>
             {
-                SendReq(new AddRequest(req.LocalizedName));
+                //SendReq(new AddRequest(req.LocalizedName));
+                SelectLocation(selectedLocation, dialog);
                 Locations = new ObservableCollection<LocationAutoCompleteResult>();
-                searchTerm = "";
+                SearchTerm = string.Empty;
                 RaisePropertyChanged(() => SearchTerm);
                 RaisePropertyChanged(() => ListOutStandingReq);
             });
@@ -178,23 +178,70 @@ namespace TelstraApp.Core.ViewModels
             SelectUnitCommand = new MvxCommand<AddRequest>(req =>
             {
                Bar = "Debug: select" + req.UserNameReq;
-
-                var copy = new ObservableCollection<AddRequest>(outStandingReq);
-
-                foreach (var item in copy)
+               foreach (var user in Users)
                 {
-                    if (item.UserNameReq == req.UserNameReq)
+                    if (req.UserNameReq == user.LocalizedName)
                     {
-                        outStandingReq.Remove(item);
-                        Bar = "Debug:Deleted request for: " + item;
+                        database.DeleteLocation(user.Id);
                     }
-                } 
+                }
+
+                GetUsers();
 
                 RaisePropertyChanged(() => Bar);
             });
         }
 
+        public void GetUsers()
+        {
+            ListOutStandingReq = new ObservableCollection<AddRequest>();
+            //var locations = database.GetLocations();
+            Users = database.GetLocations();
+            foreach (var user in Users)
+            {
+                SendReq(new AddRequest(user.LocalizedName));
+            }
+            RaisePropertyChanged(() => ListOutStandingReq);
+            //return ListOutStandingReq;
+        }
 
+        public void SelectLocation(LocationAutoCompleteResult selectedLocation, IDialogService dialog)
+        {
+            //var azuredatabase = Mvx.Resolve<IAzureDatabase>().GetMobileServiceClient();
+            var database = new LocationsDatabase(sqlite);
+
+            if (!database.CheckIfExists(selectedLocation))
+            {
+                database.InsertLocation(selectedLocation);
+                GetUsers();
+                //SendReq(new AddRequest(selectedLocation.LocalizedName));
+
+                Bar = "Debug:Added: ";
+                RaisePropertyChanged(() => Bar);
+                /* await azuredatabase.GetTable<Location>().InsertAsync(new Location
+                 {
+                     Key = selectedLocation.Key,
+                     LocalizedName = selectedLocation.LocalizedName,
+                     Rank = selectedLocation.Rank
+                 }); */
+                //Close(this);
+            }
+            else
+            {
+                Bar = "Debug:Already been added: ";
+                RaisePropertyChanged(() => Bar);
+
+                /* if (await dialog.Show("This location has already been added", "Location Exists", "Keep Searching", "Go Back"))
+                 {
+                     SearchTerm = string.Empty;
+                     Locations.Clear();
+                 }
+                 else
+                 {
+                    // Close(this);
+                 }  */
+            }
+        }
 
 
         //author: Michael Kath (n9293833)
@@ -212,8 +259,6 @@ namespace TelstraApp.Core.ViewModels
             }
             
         }
-
-
 
 
     }

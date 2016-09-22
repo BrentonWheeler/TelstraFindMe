@@ -58,5 +58,7 @@ namespace TelstraApp.Droid.Views
             TabHost.AddTab(tabspec);
 
         }
+
+
     }
 }

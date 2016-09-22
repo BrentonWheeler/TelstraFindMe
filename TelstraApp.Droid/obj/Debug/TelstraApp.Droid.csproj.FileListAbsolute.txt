@@ -197,5 +197,7 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Microsoft.CSharp.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Mono.CSharp.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\SQLite.Net.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\SQLite.Net.Platform.XamarinAndroid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb
