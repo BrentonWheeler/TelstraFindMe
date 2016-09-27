@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvvmCrossDemo.Core.Interfaces
+namespace TelstraApp.Core.Interfaces
 {
     public interface IDialogService
     {

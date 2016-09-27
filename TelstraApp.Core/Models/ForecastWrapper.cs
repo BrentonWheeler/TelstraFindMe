@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvvmCrossDemo.Core.Models
+namespace TelstraApp.Core.Models
 {
     public class ForecastWrapper : Forecast
     {

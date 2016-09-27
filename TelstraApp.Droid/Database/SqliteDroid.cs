@@ -9,11 +9,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MvvmCrossDemo.Core.Interfaces;
+using TelstraApp.Core.Interfaces;
 using SQLite.Net;
 using System.IO;
 using SQLite.Net.Platform.XamarinAndroid;
-namespace MvvmCrossDemo.Droid.Database
+namespace TelstraApp.Droid.Database
 {
     public class SqliteDroid : ISqlite
     {

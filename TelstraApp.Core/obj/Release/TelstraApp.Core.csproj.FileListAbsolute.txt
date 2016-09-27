@@ -11,12 +11,7 @@ D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Release\TelstraApp.Core.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Release\TelstraApp.Core.pdb
 D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Release\Newtonsoft.Json.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Release\Newtonsoft.Json.xml
-D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Release\SQLite.Net.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Release\TelstraApp.Core.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Release\TelstraApp.Core.dll.mdb

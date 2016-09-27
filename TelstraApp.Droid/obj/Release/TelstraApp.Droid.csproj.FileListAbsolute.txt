@@ -67,5 +67,8 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Release\Mono.CSharp.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\Microsoft.CSharp.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\Mono.CSharp.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\System.Xml.Linq.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Release\SQLite.Net.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Release\SQLite.Net.Platform.XamarinAndroid.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\res\layout\pendingrequestitemlayout.xml
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\TelstraApp.Droid.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Release\TelstraApp.Droid.dll.mdb

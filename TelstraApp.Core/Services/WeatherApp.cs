@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvvmCrossDemo.Core.Services
+namespace TelstraApp.Core.Services
 {
     public static class WeatherApp
     {

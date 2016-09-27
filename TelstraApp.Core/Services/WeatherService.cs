@@ -1,4 +1,4 @@
-﻿using MvvmCrossDemo.Core.Models;
+﻿using TelstraApp.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,8 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using TelstraApp.Core.Services;
 
-namespace MvvmCrossDemo.Core.Services
+namespace TelstraApp.Core.Services
 {
     public class WeatherService
     {

@@ -79,10 +79,11 @@ containing a value of this type.
         public static final int find=0x7f030000;
         public static final int firstview=0x7f030001;
         public static final int locationsearchlayout=0x7f030002;
-        public static final int requestitemlayout=0x7f030003;
-        public static final int requests=0x7f030004;
-        public static final int splashscreen=0x7f030005;
-        public static final int viewresponse=0x7f030006;
+        public static final int pendingrequestitemlayout=0x7f030003;
+        public static final int requestitemlayout=0x7f030004;
+        public static final int requests=0x7f030005;
+        public static final int splashscreen=0x7f030006;
+        public static final int viewresponse=0x7f030007;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040001;

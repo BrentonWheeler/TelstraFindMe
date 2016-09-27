@@ -5,7 +5,7 @@ using System.Text;
 
 using SQLite.Net;
 
-namespace MvvmCrossDemo.Core.Interfaces
+namespace TelstraApp.Core.Interfaces
 {
     public interface ISqlite
     {

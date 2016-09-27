@@ -16,7 +16,7 @@
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:textSize="40dp"
-      local:MvxBind="ItemsSource Locations; ItemClick SelectLocationCommand"
+      local:MvxBind="ItemsSource User; ItemClick SelectLocationCommand"
       local:MvxItemTemplate="@layout/locationsearchlayout" />
     <TextView
         android:text="Outstanding Requests"
@@ -35,11 +35,21 @@
         android:textSize="40dp"
         android:background="#000000"
         local:MvxBind="Text Bar" />
-    <Mvx.MvxListView
+      <Mvx.MvxListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         local:MvxItemTemplate="@layout/requestitemlayout"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectUnitCommand" />
+    <Mvx.MvxListView
+     android:layout_width="match_parent"
+     android:layout_height="fill_parent"
+     local:MvxItemTemplate="@layout/pendingrequestitemlayout"
+     android:paddingLeft="20dp"
+     android:paddingRight="20dp"
+     local:MvxBind="ItemsSource ListPendingReq" />
+
+
+
 </LinearLayout>

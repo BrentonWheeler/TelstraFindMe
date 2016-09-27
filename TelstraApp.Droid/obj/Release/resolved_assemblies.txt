@@ -15,6 +15,8 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\MvvmCros
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\MvvmCross.Localization.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\MvvmCross.Platform.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\MvvmCross.Platform.Droid.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\SQLite.Net.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\SQLite.Net.Platform.XamarinAndroid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\TelstraApp.Core.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\System.Runtime.Serialization.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Release\android\assets\System.ServiceModel.Internals.dll

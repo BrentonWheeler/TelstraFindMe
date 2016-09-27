@@ -139,14 +139,10 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Localization.dl
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Platform.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Platform.Droid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Core.dll
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Newtonsoft.Json.dll
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Core.pdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Binding.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Localization.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Platform.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Newtonsoft.Json.xml
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.csprojResolveAssemblyReference.cache
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.pdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\bin\TelstraApp.Droid.TelstraApp.Droid.apk
@@ -199,5 +195,10 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Microsoft.
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\SQLite.Net.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\SQLite.Net.Platform.XamarinAndroid.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\res\layout\pendingrequestitemlayout.xml
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Newtonsoft.Json.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Core.pdb
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Newtonsoft.Json.xml
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.csprojResolveAssemblyReference.cache
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

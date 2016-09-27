@@ -108,6 +108,8 @@ class MonoPackageManager_Resources {
 		"MvvmCross.Localization.dll",
 		"MvvmCross.Platform.dll",
 		"MvvmCross.Platform.Droid.dll",
+		"SQLite.Net.dll",
+		"SQLite.Net.Platform.XamarinAndroid.dll",
 		"TelstraApp.Core.dll",
 		"System.ServiceModel.Internals.dll",
 		"Newtonsoft.Json.dll",

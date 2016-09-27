@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite.Net.Attributes;
 
-namespace MvvmCrossDemo.Core.Models
+namespace TelstraApp.Core.Models
 {
     public class LocationAutoCompleteResult
     {
