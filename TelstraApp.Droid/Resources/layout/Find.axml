@@ -49,4 +49,5 @@
      android:paddingLeft="20dp"
      android:paddingRight="20dp"
      local:MvxBind="ItemsSource ListPendingReq" />
+
 </LinearLayout>

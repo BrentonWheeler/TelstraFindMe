@@ -12,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
+using Android.Views;
+using Android.Views.InputMethods;
+using Android.Widget;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -75,7 +78,7 @@ namespace TelstraApp.Core.ViewModels
 
         public ICommand ButtonCommand { get; private set; }
 
-        public ICommand SelectUnitCommand { get; private set; }
+        public ICommand SelectReqCommand { get; private set; }
         //public ICommand SelectPendingCommand { get; private set; }
 
         private string searchTerm;
@@ -142,24 +145,34 @@ namespace TelstraApp.Core.ViewModels
                 SelectLocation(selectedLocation, currentUser, dialog);
                 User = new ObservableCollection<LocationAutoCompleteResult>();
                 SearchTerm = string.Empty;
+                //var Window = new UIWindow(UIScreen.MainScreen.Bounds);
+                //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
                 RetrieveRequests();
+
+
                 RaisePropertyChanged(() => SearchTerm);
+             
                 //RaisePropertyChanged(() => ListOutStandingReq);
             });
 
-            SelectUnitCommand = new MvxCommand<AddRequest>( req =>
+            SelectReqCommand = new  MvxCommand<AddRequest> (async req =>
             {
                 Bar = "Debug: select" + req.UserNameReq;
 
+                var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
 
                 // Users = GetLocations();
-                 /*  foreach (var user in Users)
+                foreach (var user in curerntReq)
                    {
                        if (req.UserNameReq == user.LocalizedName)
                        {
-                           database.DeleteLocation(user.Id);
+                        if (user.HasResponded)
+                        {
+                            //ShowViewModel<FindViewModel>();
+                            //TODO go to viewResponse page
+                        }
                        }
-                   } */
+                   }
                    
 
                 RetrieveRequests();
@@ -191,6 +204,7 @@ namespace TelstraApp.Core.ViewModels
             {
                 SendReq(new AddRequest(user.ReqTo, user.HasResponded));
             }
+            //ShowViewModel<FindViewModel>();
             RaisePropertyChanged(() => ListOutStandingReq);
             
         }

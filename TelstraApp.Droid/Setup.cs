@@ -26,6 +26,7 @@ namespace TelstraApp.Droid
             return new DebugTrace();
         }
 
+
         protected override void InitializeFirstChance()
         {
             Mvx.LazyConstructAndRegisterSingleton<ISqlite, SqliteDroid>();
