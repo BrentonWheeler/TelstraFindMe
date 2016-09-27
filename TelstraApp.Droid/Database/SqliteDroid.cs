@@ -19,7 +19,7 @@ namespace TelstraApp.Droid.Database
     {
         public SQLiteConnection GetConnection()
         {
-            var sqliteFilename = "UsersTestSQLite.db3";
+            var sqliteFilename = "UsersTest1SQLite.db3";
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
             var path = Path.Combine(documentsPath, sqliteFilename);
             // Create the connection

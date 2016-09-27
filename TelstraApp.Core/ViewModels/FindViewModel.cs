@@ -115,13 +115,14 @@ namespace TelstraApp.Core.ViewModels
         }
 
         //Database Stuff
-        ILocationsDatabase database;
+        //ILocationsDatabase database;
         private ISqlite sqlite;
-        private ILocationsDatabase Users;
-        private readonly ILocationsDatabase locationsDatabase;
+        //private ILocationsDatabase Users;
+        private readonly IUsersDatabase UsersDatabase;
+        private string currentUser = "User10";
 
         //author: Michael Kath (n9293833)
-        public FindViewModel(ISqlite sqlite, IDialogService dialog, ILocationsDatabase locationsDatabase)
+        public FindViewModel(ISqlite sqlite, IDialogService dialog, IUsersDatabase locationsDatabase)
         {
 
            
@@ -129,7 +130,7 @@ namespace TelstraApp.Core.ViewModels
             User = new ObservableCollection<LocationAutoCompleteResult>();
             //this.database = new LocationsDatabase(sqlite);
             this.sqlite = sqlite;
-            this.locationsDatabase = locationsDatabase;
+            this.UsersDatabase = locationsDatabase;
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
             ListPendingReq = new ObservableCollection<AddRequest>();
@@ -138,7 +139,7 @@ namespace TelstraApp.Core.ViewModels
             SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(selectedLocation =>
             {
                 //SendReq(new AddRequest(req.LocalizedName));
-                SelectLocation(selectedLocation, dialog);
+                SelectLocation(selectedLocation, currentUser, dialog);
                 User = new ObservableCollection<LocationAutoCompleteResult>();
                 SearchTerm = string.Empty;
                 RetrieveRequests();
@@ -182,10 +183,13 @@ namespace TelstraApp.Core.ViewModels
         {
             ListOutStandingReq = new ObservableCollection<AddRequest>();
             //var locations = database.GetLocations();
-            var Users1 = await locationsDatabase.GetLocations();
-            foreach (var user in Users1)
+            //var allUsers = await UsersDatabase.GetLocations();
+
+            var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
+
+            foreach (var user in curerntReq)
             {
-                SendReq(new AddRequest(user.LocalizedName));
+                SendReq(new AddRequest(user.ReqTo, user.HasResponded));
             }
             RaisePropertyChanged(() => ListOutStandingReq);
             
@@ -195,7 +199,7 @@ namespace TelstraApp.Core.ViewModels
         {
             ListPendingReq = new ObservableCollection<AddRequest>();
             //var locations = database.GetLocations();
-            var Users1 = locationsDatabase.GetLocations();
+            var Users1 = UsersDatabase.GetLocations();
           /*  foreach (var user in Users)
             {
                 AddReqToList(new AddRequest(user.LocalizedName));
@@ -204,15 +208,15 @@ namespace TelstraApp.Core.ViewModels
             */
         }
 
-        public async void SelectLocation(LocationAutoCompleteResult selectedLocation, IDialogService dialog)
+        public async void SelectLocation(LocationAutoCompleteResult selectedLocation, string currentUser, IDialogService dialog)
         {
             //var azuredatabase = Mvx.Resolve<IAzureDatabase>().GetMobileServiceClient();
             //var database = new LocationsDatabase(sqlite);
            // database = locationsDatabase;
-            if (!await locationsDatabase.CheckIfExists(selectedLocation))
+            if (!await UsersDatabase.CheckIfExists(selectedLocation, currentUser))
             {
                 //database.InsertLocation(selectedLocation);
-                await locationsDatabase.InsertLocation(selectedLocation);
+                await UsersDatabase.InsertLocation(selectedLocation, currentUser);
                 RetrievePendingRequests();
                 //SendReq(new AddRequest(selectedLocation.LocalizedName));
 
@@ -260,7 +264,7 @@ namespace TelstraApp.Core.ViewModels
             }
 
         }
-        public void AddReqToList(AddRequest req)
+ /*       public void AddReqToList(AddRequest req)
         {
             if (req.UserNameReq != null && req.UserNameReq.Trim() != string.Empty)
             {
@@ -275,6 +279,7 @@ namespace TelstraApp.Core.ViewModels
             }
 
         }
+        */
 
     }
 }

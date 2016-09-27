@@ -25,5 +25,6 @@ namespace TelstraApp.Core.Models
         public string AdministrativeAreaId { get; set; }
         [JsonProperty("AdministrativeArea.LocalizedName")]
         public string AdministrativeAreaLocalizedName { get; set; }
+  
     }
 }

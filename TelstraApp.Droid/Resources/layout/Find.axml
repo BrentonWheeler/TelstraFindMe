@@ -41,7 +41,7 @@
         local:MvxItemTemplate="@layout/requestitemlayout"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectUnitCommand" />
+        local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectReqCommand" />
     <Mvx.MvxListView
      android:layout_width="match_parent"
      android:layout_height="fill_parent"
@@ -49,7 +49,4 @@
      android:paddingLeft="20dp"
      android:paddingRight="20dp"
      local:MvxBind="ItemsSource ListPendingReq" />
-
-
-
 </LinearLayout>

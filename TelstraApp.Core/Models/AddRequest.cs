@@ -11,16 +11,24 @@ namespace TelstraApp.Core.ViewModels
         public string UserNameReq { get; set; }
         public string UserStatus { get; set; }
 
+        public string ReqStatus(bool status)
+        {
+            if (status)
+            {
+                return "Has responded";
+            }
+            return "Has not responded";
+        }
 
         public AddRequest() { }
-        public AddRequest(string unitCode, string unitName)
+        public AddRequest(string userReq, bool userStatus)
         {
-            UserNameReq = unitCode;
-            UserStatus = unitName;
+            UserNameReq = userReq;
+            UserStatus = ReqStatus(userStatus);
         }
-        public AddRequest(string unitCode)
+        public AddRequest(string userReq)
         {
-            UserNameReq = unitCode;
+            UserNameReq = userReq;
             UserStatus = "Has not responded";
         }
     }
