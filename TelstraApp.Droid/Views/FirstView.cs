@@ -30,7 +30,18 @@ namespace TelstraApp.Droid.Views
         }
 
     }
+    //Author: Michael Kath (n9293833)
+    [Activity(Label = "View for FindView")]
+    public class LoginView : MvxActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Login);
 
+        }
+
+    }
     //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity

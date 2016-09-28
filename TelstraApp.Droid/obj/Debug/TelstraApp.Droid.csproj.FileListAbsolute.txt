@@ -200,5 +200,6 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Newtonsoft.Json.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Core.pdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\Newtonsoft.Json.xml
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.csprojResolveAssemblyReference.cache
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\res\layout\login.xml
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

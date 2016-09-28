@@ -49,6 +49,7 @@
     <Compile Include="ViewModels\FindViewModel.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="Models\AddRequest.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Android">

@@ -15,6 +15,7 @@ using MvvmCross.Core.ViewModels;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
+using static TelstraApp.Core.ViewModels.FirstViewModel;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -119,30 +120,29 @@ namespace TelstraApp.Core.ViewModels
 
         //Database Stuff
         //ILocationsDatabase database;
-        private ISqlite sqlite;
         //private ILocationsDatabase Users;
         private readonly IUsersDatabase UsersDatabase;
-        private string currentUser = "User10";
+        private string currentUser;
 
         //author: Michael Kath (n9293833)
-        public FindViewModel(ISqlite sqlite, IDialogService dialog, IUsersDatabase locationsDatabase)
+        public FindViewModel(IDialogService dialog, IUsersDatabase locationsDatabase, string currentUser)
         {
 
-           
-            //gets the list of locations binding
-            User = new ObservableCollection<LocationAutoCompleteResult>();
+            this.currentUser = currentUser;
+             //gets the list of locations binding
+             User = new ObservableCollection<LocationAutoCompleteResult>();
             //this.database = new LocationsDatabase(sqlite);
-            this.sqlite = sqlite;
+           // this.sqlite = sqlite;
             this.UsersDatabase = locationsDatabase;
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
-            ListPendingReq = new ObservableCollection<AddRequest>();
-            RetrieveAllRequests();
+            //ListPendingReq = new ObservableCollection<AddRequest>();
+            RetrieveRequests();
 
             SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(selectedLocation =>
             {
                 //SendReq(new AddRequest(req.LocalizedName));
-                SelectLocation(selectedLocation, currentUser, dialog);
+                SelectLocation(selectedLocation, dialog);
                 User = new ObservableCollection<LocationAutoCompleteResult>();
                 SearchTerm = string.Empty;
                 //var Window = new UIWindow(UIScreen.MainScreen.Bounds);
@@ -166,9 +166,9 @@ namespace TelstraApp.Core.ViewModels
                    {
                        if (req.UserNameReq == user.LocalizedName)
                        {
-                        if (user.HasResponded)
+                        if (!user.HasResponded)
                         {
-                            //ShowViewModel<FindViewModel>();
+                            ShowViewModel<FindViewModel>();
                             //TODO go to viewResponse page
                         }
                        }
@@ -222,7 +222,7 @@ namespace TelstraApp.Core.ViewModels
             */
         }
 
-        public async void SelectLocation(LocationAutoCompleteResult selectedLocation, string currentUser, IDialogService dialog)
+        public async void SelectLocation(LocationAutoCompleteResult selectedLocation, IDialogService dialog)
         {
             //var azuredatabase = Mvx.Resolve<IAzureDatabase>().GetMobileServiceClient();
             //var database = new LocationsDatabase(sqlite);
