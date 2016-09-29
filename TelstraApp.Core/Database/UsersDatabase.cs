@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace TelstraApp.Core.Database
 {
 
-        public class UsersDatabase : IUsersDatabase
+        public class UsersDatabase : IUserDatabase
     {
             private SQLiteConnection database;
             public UsersDatabase()

@@ -12,9 +12,9 @@ namespace TelstraApp.Core.ViewModels
         private FindViewModel _find;
         private string cuser;
         private IDialogService dialog;
-        private IUsersDatabase locationsDatabase;
+        private IUserDatabase locationsDatabase;
 
-        public FirstViewModel(ISqlite sqlite, IDialogService dialog, IUsersDatabase locationsDatabase)
+        public FirstViewModel(IDialogService dialog, IUserDatabase locationsDatabase)
         {
             Requests = new RequestsViewModel();
             this.dialog = dialog;

@@ -56,7 +56,7 @@ namespace TelstraApp.Droid.Views
             SetContentView(Resource.Layout.FirstView);
 
             TabHost.TabSpec tabspec;
-            Intent intent;
+            //Intent intent;
 
             tabspec = TabHost.NewTabSpec("requests");
             tabspec.SetIndicator("Requests");

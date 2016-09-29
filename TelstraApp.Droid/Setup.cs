@@ -31,7 +31,10 @@ namespace TelstraApp.Droid
         {
             Mvx.LazyConstructAndRegisterSingleton<ISqlite, SqliteDroid>();
             Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
-            Mvx.LazyConstructAndRegisterSingleton<IUsersDatabase, UsersDatabase>();
+            Mvx.LazyConstructAndRegisterSingleton<IAzureDB, AzureDatabase>();
+
+            Mvx.LazyConstructAndRegisterSingleton<IUserDatabase, AzureDB>();
+
             // Mvx.LazyConstructAndRegisterSingleton<IAzureDatabase, AzureDatabase>();
             base.InitializeFirstChance();
         }

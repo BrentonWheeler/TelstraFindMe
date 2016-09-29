@@ -121,11 +121,11 @@ namespace TelstraApp.Core.ViewModels
         //Database Stuff
         //ILocationsDatabase database;
         //private ILocationsDatabase Users;
-        private readonly IUsersDatabase UsersDatabase;
+        private readonly IUserDatabase UsersDatabase;
         private string currentUser;
 
         //author: Michael Kath (n9293833)
-        public FindViewModel(IDialogService dialog, IUsersDatabase locationsDatabase, string currentUser)
+        public FindViewModel(IDialogService dialog, IUserDatabase locationsDatabase, string currentUser)
         {
 
             this.currentUser = currentUser;
@@ -145,8 +145,6 @@ namespace TelstraApp.Core.ViewModels
                 SelectLocation(selectedLocation, dialog);
                 User = new ObservableCollection<LocationAutoCompleteResult>();
                 SearchTerm = string.Empty;
-                //var Window = new UIWindow(UIScreen.MainScreen.Bounds);
-                //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
                 RetrieveRequests();
 
 
@@ -161,7 +159,6 @@ namespace TelstraApp.Core.ViewModels
 
                 var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
 
-                // Users = GetLocations();
                 foreach (var user in curerntReq)
                    {
                        if (req.UserNameReq == user.LocalizedName)
@@ -231,7 +228,7 @@ namespace TelstraApp.Core.ViewModels
             {
                 //database.InsertLocation(selectedLocation);
                 await UsersDatabase.InsertLocation(selectedLocation, currentUser);
-                RetrievePendingRequests();
+                RetrieveRequests();
                 //SendReq(new AddRequest(selectedLocation.LocalizedName));
 
                 Bar = "Debug:Added: ";

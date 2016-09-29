@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TelstraApp.Core.Interfaces
 {
-    public interface IUsersDatabase
+    public interface IUserDatabase
     {
         Task<IEnumerable<Users>> GetLocations();
 
