@@ -12,6 +12,11 @@
       android:hint="Search User here"
       android:background="#00B1EB"
       local:MvxBind="Text SearchTerm" />
+  <Button
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     local:MvxBind="Click RespTest"
+     android:text="DEBUG RESP" /> 
   <MvxListView
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
@@ -42,12 +47,5 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectReqCommand" />
-    <Mvx.MvxListView
-     android:layout_width="match_parent"
-     android:layout_height="fill_parent"
-     local:MvxItemTemplate="@layout/pendingrequestitemlayout"
-     android:paddingLeft="20dp"
-     android:paddingRight="20dp"
-     local:MvxBind="ItemsSource ListPendingReq" />
 
 </LinearLayout>

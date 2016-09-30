@@ -7,6 +7,7 @@ using TelstraApp.Core.Interfaces;
 using TelstraApp.Core.Models;
 using MvvmCross.Platform;
 using System.Threading.Tasks;
+using TelstraApp.Core.ViewModels;
 
 namespace TelstraApp.Core.Database
 {
@@ -65,5 +66,10 @@ namespace TelstraApp.Core.Database
             {
                 return await CheckIfExists(new Users(location, currentUser), currentUser);
             }
+
+        public Task<int> AddResponse(AddRequest Requests, string currentUser)
+        {
+            throw new NotImplementedException();
         }
+    }
     }

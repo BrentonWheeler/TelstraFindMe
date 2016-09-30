@@ -20,6 +20,13 @@ namespace TelstraApp.Core.Models
             ReqDate = DateTime.Now.ToString("DD/MM/YYYY");
             HasResponded = false;
         }
+
+        public void CreateResponse(bool meeting, string currentlyAt)
+        {
+            this.RespMeeting = meeting;
+            this.RespCurrentlyAt = currentlyAt;
+            this.HasResponded = true;
+        }
         public string Id { get; set; }
         public string LocalizedName { get; set; }
         public int Rank { get; set; }

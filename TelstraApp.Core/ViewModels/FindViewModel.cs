@@ -30,7 +30,6 @@ namespace TelstraApp.Core.ViewModels
             {
                 _bar = value; RaisePropertyChanged(() => Bar);
             }
-
         }
 
         private ObservableCollection<AddRequest> outStandingReq;
@@ -40,12 +39,7 @@ namespace TelstraApp.Core.ViewModels
             set { SetProperty(ref outStandingReq, value); }
         }
 
-        private ObservableCollection<AddRequest> outPendingReq;
-        public ObservableCollection<AddRequest> ListPendingReq
-        {
-            get { return outPendingReq; }
-            set { SetProperty(ref outPendingReq, value); }
-        }
+     
 
         //author: Michael Kath (n9293833)
         private string userNameReq;
@@ -84,6 +78,7 @@ namespace TelstraApp.Core.ViewModels
 
         private string searchTerm;
 
+        //calls the search location(employees later) based on typing 3 chars
         public string SearchTerm
         {
             get { return searchTerm; }
@@ -106,8 +101,10 @@ namespace TelstraApp.Core.ViewModels
         }
         public ICommand SelectLocationCommand { get; private set; }
 
+        //Currently searches the weather locations. Will be used to implement searching employees
         public async void SearchLocations(string searchTerm)
         {
+            //TODO remove this to allow searching via user
             WeatherService weatherService = new WeatherService();
             User.Clear();
             var locationResults = await weatherService.GetLocations(searchTerm);
@@ -119,8 +116,6 @@ namespace TelstraApp.Core.ViewModels
         }
 
         //Database Stuff
-        //ILocationsDatabase database;
-        //private ILocationsDatabase Users;
         private readonly IUserDatabase UsersDatabase;
         private string currentUser;
 
@@ -129,51 +124,29 @@ namespace TelstraApp.Core.ViewModels
         {
 
             this.currentUser = currentUser;
-             //gets the list of locations binding
-             User = new ObservableCollection<LocationAutoCompleteResult>();
-            //this.database = new LocationsDatabase(sqlite);
-           // this.sqlite = sqlite;
+            User = new ObservableCollection<LocationAutoCompleteResult>();
             this.UsersDatabase = locationsDatabase;
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
-            //ListPendingReq = new ObservableCollection<AddRequest>();
             RetrieveRequests();
 
+            //create the search dropdown. TODO Needs to be changed to search all the employees
             SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(selectedLocation =>
             {
-                //SendReq(new AddRequest(req.LocalizedName));
-                SelectLocation(selectedLocation, dialog);
+                SelectUserFromSearch(selectedLocation, dialog);
                 User = new ObservableCollection<LocationAutoCompleteResult>();
                 SearchTerm = string.Empty;
-                RetrieveRequests();
-
-
                 RaisePropertyChanged(() => SearchTerm);
              
-                //RaisePropertyChanged(() => ListOutStandingReq);
             });
 
-            SelectReqCommand = new  MvxCommand<AddRequest> (async req =>
+            // if a request item on the list is pressed (USED FOR TESTING ATM)
+            SelectReqCommand = new  MvxCommand<AddRequest> ( req =>
             {
                 Bar = "Debug: select" + req.UserNameReq;
 
-                var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
-
-                foreach (var user in curerntReq)
-                   {
-                       if (req.UserNameReq == user.ReqTo)
-                       {
-                        
-                        await UsersDatabase.DeleteRequest(user.Id, currentUser);
-                       /* if (!user.HasResponded)
-                        {
-                            ShowViewModel<FindViewModel>();
-                            //TODO go to viewResponse page
-                        } */
-                       }
-                   }
-                   
-
+                //Testing updates a request with a response. Will be used to display the responses
+                var result = UsersDatabase.AddResponse(req, currentUser);
                 RetrieveRequests();
 
                 RaisePropertyChanged(() => Bar);
@@ -184,20 +157,13 @@ namespace TelstraApp.Core.ViewModels
         }
 
 
-
-        public void RetrieveAllRequests()
-        {
-            RetrieveRequests();
-            RetrievePendingRequests();
-        }
-
+        //Displays all the outstanding requests
         public async void RetrieveRequests()
         {
             ListOutStandingReq = new ObservableCollection<AddRequest>();
-            //var locations = database.GetLocations();
-            //var allUsers = await UsersDatabase.GetLocations();
 
             var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
+            //var test = 
 
             foreach (var user in curerntReq)
             {
@@ -208,55 +174,22 @@ namespace TelstraApp.Core.ViewModels
             
         }
 
-        public void RetrievePendingRequests()
+        //Adds User to list if he doesnt exist
+        public async void SelectUserFromSearch(LocationAutoCompleteResult selectedLocation, IDialogService dialog)
         {
-            ListPendingReq = new ObservableCollection<AddRequest>();
-            //var locations = database.GetLocations();
-            var Users1 = UsersDatabase.GetLocations();
-          /*  foreach (var user in Users)
-            {
-                AddReqToList(new AddRequest(user.LocalizedName));
-            }
-            RaisePropertyChanged(() => ListPendingReq);
-            */
-        }
 
-        public async void SelectLocation(LocationAutoCompleteResult selectedLocation, IDialogService dialog)
-        {
-            //var azuredatabase = Mvx.Resolve<IAzureDatabase>().GetMobileServiceClient();
-            //var database = new LocationsDatabase(sqlite);
-           // database = locationsDatabase;
             if (!await UsersDatabase.CheckIfExists(selectedLocation, currentUser))
             {
-                //database.InsertLocation(selectedLocation);
-                await UsersDatabase.InsertLocation(selectedLocation, currentUser);
-                RetrieveRequests();
-                //SendReq(new AddRequest(selectedLocation.LocalizedName));
+                UsersDatabase.InsertLocation(selectedLocation, currentUser);
 
+                SendReq(new AddRequest(selectedLocation.LocalizedName));
                 Bar = "Debug:Added: ";
                 RaisePropertyChanged(() => Bar);
-                /* await azuredatabase.GetTable<Location>().InsertAsync(new Location
-                 {
-                     Key = selectedLocation.Key,
-                     LocalizedName = selectedLocation.LocalizedName,
-                     Rank = selectedLocation.Rank
-                 }); */
-                //Close(this);
             }
             else
             {
                 Bar = "Debug:Already been added: ";
                 RaisePropertyChanged(() => Bar);
-
-                /* if (await dialog.Show("This location has already been added", "Location Exists", "Keep Searching", "Go Back"))
-                 {
-                     SearchTerm = string.Empty;
-                     Locations.Clear();
-                 }
-                 else
-                 {
-                    // Close(this);
-                 }  */
             }
         }
 
@@ -277,22 +210,6 @@ namespace TelstraApp.Core.ViewModels
             }
 
         }
- /*       public void AddReqToList(AddRequest req)
-        {
-            if (req.UserNameReq != null && req.UserNameReq.Trim() != string.Empty)
-            {
-                //ListOutStandingReq.Add(req);
-                ListPendingReq.Add(req);
-            }
-            else
-            {
-
-                UserNameReq = req.UserNameReq;
-                ReqStatus = req.UserStatus;
-            }
-
-        }
-        */
 
     }
 }

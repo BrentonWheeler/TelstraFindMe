@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelstraApp.Core.ViewModels;
 
 namespace TelstraApp.Core.Interfaces
 {
@@ -18,7 +19,7 @@ namespace TelstraApp.Core.Interfaces
         Task<IEnumerable<Users>> SelectViaUser( string currentUser);
         Task<bool> CheckIfExists(Users location, string currentUser);
         Task<bool> CheckIfExists(LocationAutoCompleteResult location, string currentUser);
-
+       Task<int> AddResponse(AddRequest Requests, string currentUser);
 
     }
 }
