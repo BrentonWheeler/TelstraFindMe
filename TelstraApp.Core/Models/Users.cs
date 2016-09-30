@@ -16,8 +16,9 @@ namespace TelstraApp.Core.Models
             Key = location.Key;
             ReqFrom = currentUser;
             ReqTo = location.LocalizedName;
-            ReqTime = DateTime.Now.ToString("h:mm:ss tt");
+            ReqTime = DateTime.Now;
             ReqDate = DateTime.Now.ToString("DD/MM/YYYY");
+            HasResponded = false;
         }
         public string Id { get; set; }
         public string LocalizedName { get; set; }
@@ -25,7 +26,7 @@ namespace TelstraApp.Core.Models
         public string Key { get; set; }
         public string ReqTo { get; set; }
         public string ReqFrom { get; set; }
-        public string ReqTime { get; set; }
+        public DateTime ReqTime { get; set; }
 
         public bool HasResponded { get; set; }
 

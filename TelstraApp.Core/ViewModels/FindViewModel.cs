@@ -161,13 +161,15 @@ namespace TelstraApp.Core.ViewModels
 
                 foreach (var user in curerntReq)
                    {
-                       if (req.UserNameReq == user.LocalizedName)
+                       if (req.UserNameReq == user.ReqTo)
                        {
-                        if (!user.HasResponded)
+                        
+                        await UsersDatabase.DeleteRequest(user.Id, currentUser);
+                       /* if (!user.HasResponded)
                         {
                             ShowViewModel<FindViewModel>();
                             //TODO go to viewResponse page
-                        }
+                        } */
                        }
                    }
                    

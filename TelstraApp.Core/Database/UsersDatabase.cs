@@ -26,7 +26,7 @@ namespace TelstraApp.Core.Database
                 return database.Table<Users>().ToList();
             }
 
-            public async Task<int> DeleteLocation(object id)
+            public async Task<int> DeleteRequest(object id, string currentUser)
             {
                 return database.Delete<Users>(Convert.ToInt16(id));
             }

@@ -26,7 +26,7 @@ namespace TelstraApp.Droid.Database
             CurrentPlatform.Init();
 
             //azureDatabase = new MobileServiceClient("http://qutmadsem22016wednesday3.azurewebsites.net/");
-            azureDatabase = new MobileServiceClient("http://appindustries1.azurewebsites.net/");
+            azureDatabase = new MobileServiceClient("http://appindustries.azurewebsites.net/");
             InitializeLocal();
             return azureDatabase;
         }

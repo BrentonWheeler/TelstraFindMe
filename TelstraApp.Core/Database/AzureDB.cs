@@ -30,19 +30,19 @@ namespace TelstraApp.Core.Database
 
         public async Task<bool> CheckIfExists(Users location, string currentUser)
         {
-            await SyncAsync(true);
+            await SyncAsync(currentUser, true);
             var locations = await azureSyncTable.Where(x => x.ReqTo == location.ReqTo && x.ReqFrom == currentUser).ToListAsync();
             return locations.Any();
         }
 
-        public async Task<int> DeleteLocation(object id)
+        public async Task<int> DeleteRequest(object id, string currentUser)
         {
-            await SyncAsync(true);
-            var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
+            await SyncAsync(currentUser, true );
+            var location = await azureSyncTable.Where(x => x.Id == id.ToString()).ToListAsync();
             if (location.Any())
             {
                 await azureSyncTable.DeleteAsync(location.FirstOrDefault());
-                await SyncAsync();
+                await SyncAsync(currentUser);
                 return 1;
             }
             else
@@ -54,7 +54,8 @@ namespace TelstraApp.Core.Database
 
         public async Task<IEnumerable<Users>> GetLocations()
         {
-            await SyncAsync(true);
+            await SyncAsync("user1", true);
+   
             var locations = await azureSyncTable.ToListAsync();
             return locations;
         }
@@ -64,22 +65,22 @@ namespace TelstraApp.Core.Database
             return await InsertLocation(new Users(location, currentUser), currentUser);
         }
 
-        public async Task<int> InsertLocation(Users location, string currentUsers)
+        public async Task<int> InsertLocation(Users location, string currentUser)
         {
-            await SyncAsync(true);
+            await SyncAsync(currentUser, true);
             await azureSyncTable.InsertAsync(location);
-            await SyncAsync();
+            await SyncAsync(currentUser);
             return 1;
         }
 
         public async Task<IEnumerable<Users>> SelectViaUser(string currentUser)
         {
-            await SyncAsync(true);
+            await SyncAsync(currentUser, true);
             var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser).ToListAsync();
             return Reqs;
         }
 
-        private async Task SyncAsync(bool pullData = false)
+        private async Task SyncAsync(string curerntUser, bool pullData = false)
         {
             try
             {
@@ -87,7 +88,8 @@ namespace TelstraApp.Core.Database
 
                 if (pullData)
                 {
-                    await azureSyncTable.PullAsync("allLocations", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                    //await azureSyncTable.PullAsync("allLocations", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                    await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery());
                 }
             }
 
