@@ -1,6 +1,8 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using MvvmCross.Droid.Views;
 using TelstraApp.Core.ViewModels;
@@ -13,6 +15,7 @@ namespace TelstraApp.Droid.Views
     {
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Requests);
         }
@@ -24,6 +27,7 @@ namespace TelstraApp.Droid.Views
     {
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Find);
 
@@ -36,6 +40,7 @@ namespace TelstraApp.Droid.Views
     {
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Login);
 
@@ -52,9 +57,9 @@ namespace TelstraApp.Droid.Views
         }
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.FirstView);
-
             TabHost.TabSpec tabspec;
             //Intent intent;
 

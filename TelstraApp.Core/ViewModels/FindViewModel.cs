@@ -19,10 +19,12 @@ using static TelstraApp.Core.ViewModels.FirstViewModel;
 
 namespace TelstraApp.Core.ViewModels
 {
+    //author: Michael Kath (n9293833)
     public class FindViewModel : MvxViewModel
     {
         private string _bar = "Debug menu:";
 
+        //Debug display TODO remove later
         public string Bar
         {
             get { return _bar; }
@@ -101,6 +103,7 @@ namespace TelstraApp.Core.ViewModels
         }
         public ICommand SelectLocationCommand { get; private set; }
 
+        //author: Michael Kath (n9293833)
         //Currently searches the weather locations. Will be used to implement searching employees
         public async void SearchLocations(string searchTerm)
         {
@@ -137,7 +140,8 @@ namespace TelstraApp.Core.ViewModels
                 User = new ObservableCollection<LocationAutoCompleteResult>();
                 SearchTerm = string.Empty;
                 RaisePropertyChanged(() => SearchTerm);
-             
+
+
             });
 
             // if a request item on the list is pressed (USED FOR TESTING ATM)
@@ -156,7 +160,7 @@ namespace TelstraApp.Core.ViewModels
 
         }
 
-
+        //author: Michael Kath (n9293833)
         //Displays all the outstanding requests
         public async void RetrieveRequests()
         {
@@ -174,6 +178,7 @@ namespace TelstraApp.Core.ViewModels
             
         }
 
+        //author: Michael Kath (n9293833)
         //Adds User to list if he doesnt exist
         public async void SelectUserFromSearch(LocationAutoCompleteResult selectedLocation, IDialogService dialog)
         {
@@ -183,6 +188,8 @@ namespace TelstraApp.Core.ViewModels
                 UsersDatabase.InsertLocation(selectedLocation, currentUser);
 
                 SendReq(new AddRequest(selectedLocation.LocalizedName));
+                //ShowViewModel<FirstViewModel>();
+                //FindViewModel
                 Bar = "Debug:Added: ";
                 RaisePropertyChanged(() => Bar);
             }
@@ -200,13 +207,6 @@ namespace TelstraApp.Core.ViewModels
             if (req.UserNameReq != null && req.UserNameReq.Trim() != string.Empty)
             {
                 ListOutStandingReq.Add(req);
-                
-                //ListPendingReq.Add(req);
-            }
-            else
-            {
-                UserNameReq = req.UserNameReq;
-                ReqStatus = req.UserStatus;
             }
 
         }

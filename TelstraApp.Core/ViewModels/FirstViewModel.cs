@@ -1,5 +1,7 @@
 using TelstraApp.Core.Interfaces;
 using MvvmCross.Core.ViewModels;
+using System;
+using System.Threading.Tasks;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -14,14 +16,33 @@ namespace TelstraApp.Core.ViewModels
         private IDialogService dialog;
         private IUserDatabase locationsDatabase;
 
+
+
+
         public FirstViewModel(IDialogService dialog, IUserDatabase locationsDatabase)
         {
             Requests = new RequestsViewModel();
             this.dialog = dialog;
             this.locationsDatabase = locationsDatabase;
 
+            DateTime currentTimer = DateTime.Now;
+            DateTime syncTimer = currentTimer.AddSeconds(30);
+
+ /*           Task<int> SyncData()
+            (
+                ()=>
+ 
+            {
+                currentTimer = DateTime.Now;
+                if (currentTimer >= syncTimer)
+                {
+                    string hello = "helo";
+                    syncTimer = DateTime.Now.AddSeconds(30);
+                }
+
+            }
            
-            //User = user;
+       ));*/
 
         }
 
