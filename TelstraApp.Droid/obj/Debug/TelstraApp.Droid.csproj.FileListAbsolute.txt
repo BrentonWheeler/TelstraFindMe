@@ -260,7 +260,6 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\zh-Hans\System.Spatial.re
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\zh-Hant\System.Spatial.resources.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\System.IO.Compression.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.IO.Compression.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.config
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.pdb
@@ -396,4 +395,5 @@ D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Xm
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.dll.mdb
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
-D:\mobiles\source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

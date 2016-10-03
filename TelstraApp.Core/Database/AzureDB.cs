@@ -57,7 +57,7 @@ namespace TelstraApp.Core.Database
 
         public async Task<IEnumerable<Users>> GetLocations()
         {
-            await SyncAsync("user1", true);
+            await SyncAsync("user111111", true);
    
             var locations = await azureSyncTable.ToListAsync();
             return locations;
@@ -76,20 +76,7 @@ namespace TelstraApp.Core.Database
             return 1;
         }
 
-        public async Task<int> InsertEmployee(Employees employee)
-        {
-            await SyncAsyncEmp(true);
-            try{
-                await employeeSyncTable.InsertAsync(employee);
-                await SyncAsyncEmp();
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }
 
-            return 1;
-        }
 
         public async Task<int> AddResponse(AddRequest Requests, string currentUser)
         {
@@ -109,18 +96,49 @@ namespace TelstraApp.Core.Database
                 return 0;
             }
         }
-
-        public async Task<IEnumerable<Employees>> GetEmployees(string currentUser)
+        public async Task<int> InsertEmployee(Employees employee)
         {
-            await InsertEmployee(new Employees("User1") );
-            var emp = await employeeSyncTable.Where(x => x.userName != currentUser).ToListAsync();
-            return emp;
+            
+            try
+            {
+                await SyncAsyncEmp(true);
+                await employeeSyncTable.InsertAsync(employee);
+                await SyncAsyncEmp();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            return 1;
+        }
+
+        public async Task<IEnumerable<Employees>> GetEmployees(string searchterm, string currentUser)
+        {
+            //await InsertEmployee(new Users(loc, currentUser));
+            //await SyncAsyncEmp(true);
+           // await InsertEmployee(emp);
+            //await SyncAsyncEmp();
+            IEnumerable<Employees> emp1 = null;
+            try
+            {
+                await SyncAsyncEmp(true);
+                emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).ToListAsync();
+
+                //emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+                return emp1;
         }
 
         public async Task<IEnumerable<Users>> SelectViaUser(string currentUser)
         {
-            //await SyncAsync(currentUser, true);
-            var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderBy(x => x.ReqTime).ToListAsync();
+            await SyncAsync(currentUser, true);
+           // await SyncAsyncEmp(true);
+            var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
             return Reqs;
         }
 

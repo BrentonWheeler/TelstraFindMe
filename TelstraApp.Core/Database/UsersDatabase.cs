@@ -20,7 +20,8 @@ namespace TelstraApp.Core.Database
                 var sqlite = Mvx.Resolve<ISqlite>();
                 database = sqlite.GetConnection();
                 database.CreateTable<Users>();
-            }
+                database.CreateTable<Employees>();
+        }
 
             public async Task<IEnumerable<Users>> GetLocations()
             {
@@ -77,7 +78,12 @@ namespace TelstraApp.Core.Database
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Employees>> GetEmployees(string currentUser)
+        public Task<IEnumerable<Employees>> GetEmployees(string searchTerm, string currentUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> InsertEmployee(Employees employee)
         {
             throw new NotImplementedException();
         }

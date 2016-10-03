@@ -16,12 +16,12 @@ namespace TelstraApp.Core.Models
 
         public Employees(string userName)
         {
-            this.userName = userName;
+            this.UserName = userName;
         }
 
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public string userName { get; set; }
+        public string Id { get; set; }
+        public string UserName { get; set; }
+        public string Favourites { get; set; }
 
 
 

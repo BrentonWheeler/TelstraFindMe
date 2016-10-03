@@ -90,6 +90,8 @@ namespace TelstraApp.Core.ViewModels
                 if (searchTerm.Length > 3)
                 {
                     SearchLocations(searchTerm);
+                    RaisePropertyChanged(() => User);
+
                 }
             }
         }
@@ -115,15 +117,32 @@ namespace TelstraApp.Core.ViewModels
         public async void SearchLocations(string searchTerm)
         {
             //TODO remove this to allow searching via user
-            Employees emp = new Employees();
+            //Employees emp = new Employees("test333");
+
+            //SelectUserFromSearch(emp, dialog);
+
+
+
             User.Clear();
-            var result = await UsersDatabase.GetEmployees(currentUser);   //AddResponse(req, currentUser);
+            //WeatherService weatherService = new WeatherService();
+            //AddResponse(req, currentUser);
+
             //var locationResults = await weatherService.GetLocations(searchTerm);
+            //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
+            // var result = await UsersDatabase.GetEmployees(currentUser);
+            WeatherService weatherService = new WeatherService();
+            var locationResults = await weatherService.GetLocations(searchTerm);
+            var bestLocationResults = locationResults.Where(location => location.Rank > 80);
+
+            var result = await UsersDatabase.GetEmployees(searchTerm, currentUser);
+
+         
             //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
             foreach (var item in result)
             {
-                User.Add(item);
+               User.Add(item);
             }
+
         }
         /*   public async void SearchLocations(string searchTerm)
            {
@@ -141,11 +160,12 @@ namespace TelstraApp.Core.ViewModels
         //Database Stuff
         private readonly IUserDatabase UsersDatabase;
         private string currentUser;
+        private IDialogService dialog;
 
         //author: Michael Kath (n9293833)
         public FindViewModel(IDialogService dialog, IUserDatabase locationsDatabase, string currentUser)
         {
-
+            this.dialog = dialog;
             this.currentUser = currentUser;
             User = new ObservableCollection<Employees>();
             this.UsersDatabase = locationsDatabase;
@@ -157,7 +177,7 @@ namespace TelstraApp.Core.ViewModels
             SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
             {
                 SelectUserFromSearch(selectedLocation, dialog);
-                User = new ObservableCollection<Employees>();
+                //User = new ObservableCollection<Employees>();
                 SearchTerm = string.Empty;
                 RaisePropertyChanged(() => SearchTerm);
 
@@ -200,16 +220,17 @@ namespace TelstraApp.Core.ViewModels
 
         //author: Michael Kath (n9293833)
         //Adds User to list if he doesnt exist
-        public async void SelectUserFromSearch(Employees selectedLocation, IDialogService dialog)
+        public async void SelectUserFromSearch(Employees selectedUser, IDialogService dialog)
         {
 
-            if (!await UsersDatabase.CheckIfExists(selectedLocation, currentUser))
+            if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
             {
-                UsersDatabase.InsertLocation(selectedLocation, currentUser);
-
-                SendReq(new AddRequest(selectedLocation.userName));
+                UsersDatabase.InsertLocation(selectedUser, currentUser);
+                //UsersDatabase.InsertEmployee(selectedUser);
+                SendReq(new AddRequest(selectedUser.UserName));
                 //ShowViewModel<FirstViewModel>();
                 //FindViewModel
+                User.Clear();
                 Bar = "Debug:Added: ";
                 RaisePropertyChanged(() => Bar);
             }

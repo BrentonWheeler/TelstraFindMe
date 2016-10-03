@@ -11,11 +11,11 @@ namespace TelstraApp.Core.Models
         public Users() { }
         public Users(Employees location, string currentUser)
         {
-            LocalizedName = location.userName;
+          
             //Rank = location.Rank;
            // Key = location.Key;
             ReqFrom = currentUser;
-            ReqTo = location.userName;
+            ReqTo = location.UserName;
             ReqTime = DateTime.Now;
             ReqDate = DateTime.Now.ToString("DD/MM/YYYY");
             HasResponded = false;

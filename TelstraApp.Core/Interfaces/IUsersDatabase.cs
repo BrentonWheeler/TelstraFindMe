@@ -21,7 +21,7 @@ namespace TelstraApp.Core.Interfaces
         Task<bool> CheckIfExists(Employees location, string currentUser);
         Task<int> AddResponse(AddRequest Requests, string currentUser);
         Task RunSync(string currentUser);
-        Task<IEnumerable<Employees>> GetEmployees(string currentUser);
-
+        Task<IEnumerable<Employees>> GetEmployees(string searchTerm, string currentUser);
+        Task<int> InsertEmployee(Employees employee);
     }
 }
