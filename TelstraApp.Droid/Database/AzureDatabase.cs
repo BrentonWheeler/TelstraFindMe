@@ -41,6 +41,7 @@ namespace TelstraApp.Droid.Database
             }
             var store = new MobileServiceSQLiteStore(path);
             store.DefineTable<Users>();
+            store.DefineTable<Employees>();
             azureDatabase.SyncContext.InitializeAsync(store);
         }
 

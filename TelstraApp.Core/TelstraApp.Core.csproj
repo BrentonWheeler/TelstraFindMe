@@ -41,6 +41,7 @@
     <Compile Include="Interfaces\IDialogService.cs" />
     <Compile Include="Interfaces\IUsersDatabase.cs" />
     <Compile Include="Interfaces\ISqlite.cs" />
+    <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\Forecast.cs" />
     <Compile Include="Models\ForecastWrapper.cs" />
     <Compile Include="Models\Users.cs" />

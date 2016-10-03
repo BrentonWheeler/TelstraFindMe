@@ -15,11 +15,13 @@ namespace TelstraApp.Core.Interfaces
         Task<int> DeleteRequest(object id, string currentUser);
 
         Task<int> InsertLocation(Users location, string currentUser);
-        Task<int> InsertLocation(LocationAutoCompleteResult location, string currentUser);
+        Task<int> InsertLocation(Employees location, string currentUser);
         Task<IEnumerable<Users>> SelectViaUser( string currentUser);
         Task<bool> CheckIfExists(Users location, string currentUser);
-        Task<bool> CheckIfExists(LocationAutoCompleteResult location, string currentUser);
-       Task<int> AddResponse(AddRequest Requests, string currentUser);
+        Task<bool> CheckIfExists(Employees location, string currentUser);
+        Task<int> AddResponse(AddRequest Requests, string currentUser);
+        Task RunSync(string currentUser);
+        Task<IEnumerable<Employees>> GetEmployees(string currentUser);
 
     }
 }

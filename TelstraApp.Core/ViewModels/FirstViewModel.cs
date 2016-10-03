@@ -1,6 +1,8 @@
 using TelstraApp.Core.Interfaces;
 using MvvmCross.Core.ViewModels;
 using System;
+
+using Android.OS;
 using System.Threading.Tasks;
 
 namespace TelstraApp.Core.ViewModels
@@ -16,35 +18,44 @@ namespace TelstraApp.Core.ViewModels
         private IDialogService dialog;
         private IUserDatabase locationsDatabase;
 
+        private DateTime cTime;
+        private DateTime runTime;
 
 
-
+       
         public FirstViewModel(IDialogService dialog, IUserDatabase locationsDatabase)
         {
             Requests = new RequestsViewModel();
             this.dialog = dialog;
             this.locationsDatabase = locationsDatabase;
 
-            DateTime currentTimer = DateTime.Now;
-            DateTime syncTimer = currentTimer.AddSeconds(30);
+            //GetButton.Click += async (sender, e) => {
 
- /*           Task<int> SyncData()
-            (
-                ()=>
- 
-            {
-                currentTimer = DateTime.Now;
-                if (currentTimer >= syncTimer)
-                {
-                    string hello = "helo";
-                    syncTimer = DateTime.Now.AddSeconds(30);
-                }
+
+
+                // call your method to check for notifications here
+
+                // Returning true means you want to repeat this timer
+
+
+
+                /*           Task<int> SyncData()
+                           (
+                               ()=>
+
+                           {
+                               currentTimer = DateTime.Now;
+                               if (currentTimer >= syncTimer)
+                               {
+                                   string hello = "helo";
+                                   syncTimer = DateTime.Now.AddSeconds(30);
+                               }
+
+                           }
+
+                      ));*/
 
             }
-           
-       ));*/
-
-        }
 
         public string Current_User
         {
@@ -64,6 +75,21 @@ namespace TelstraApp.Core.ViewModels
         public void Init(CurrentUser theUser)
         {
             Current_User = theUser.currentUser;
+            Func<Task> test = async () =>
+             {
+                 cTime = DateTime.Now;
+                 runTime = DateTime.Now.AddSeconds(20);
+
+                 while (true)
+                 {
+                     cTime = DateTime.Now;
+                     if (cTime >= runTime)
+                     {
+                         await locationsDatabase.RunSync(Current_User);
+                         runTime = DateTime.Now.AddSeconds(20);
+                     }
+                 }
+             };
             Find = new FindViewModel(dialog, locationsDatabase, Current_User);
         }
        

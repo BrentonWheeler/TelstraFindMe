@@ -94,29 +94,49 @@ namespace TelstraApp.Core.ViewModels
             }
         }
 
-        private ObservableCollection<LocationAutoCompleteResult> user;
+        //private ObservableCollection<LocationAutoCompleteResult> user;
+        private ObservableCollection<Employees> user;
 
-        public ObservableCollection<LocationAutoCompleteResult> User
+        public ObservableCollection<Employees> User
         {
             get { return user; }
             set { SetProperty(ref user, value); }
         }
+      /*  public ObservableCollection<LocationAutoCompleteResult> User
+        {
+            get { return user; }
+            set { SetProperty(ref user, value); }
+        } */
         public ICommand SelectLocationCommand { get; private set; }
 
         //author: Michael Kath (n9293833)
         //Currently searches the weather locations. Will be used to implement searching employees
+
         public async void SearchLocations(string searchTerm)
         {
             //TODO remove this to allow searching via user
-            WeatherService weatherService = new WeatherService();
+            Employees emp = new Employees();
             User.Clear();
-            var locationResults = await weatherService.GetLocations(searchTerm);
-            var bestLocationResults = locationResults.Where(location => location.Rank > 80);
-            foreach (var item in bestLocationResults)
+            var result = await UsersDatabase.GetEmployees(currentUser);   //AddResponse(req, currentUser);
+            //var locationResults = await weatherService.GetLocations(searchTerm);
+            //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
+            foreach (var item in result)
             {
                 User.Add(item);
             }
         }
+        /*   public async void SearchLocations(string searchTerm)
+           {
+               //TODO remove this to allow searching via user
+               WeatherService weatherService = new WeatherService();
+               User.Clear();
+               var locationResults = await weatherService.GetLocations(searchTerm);
+               var bestLocationResults = locationResults.Where(location => location.Rank > 80);
+               foreach (var item in bestLocationResults)
+               {
+                   User.Add(item);
+               }
+           } */
 
         //Database Stuff
         private readonly IUserDatabase UsersDatabase;
@@ -127,17 +147,17 @@ namespace TelstraApp.Core.ViewModels
         {
 
             this.currentUser = currentUser;
-            User = new ObservableCollection<LocationAutoCompleteResult>();
+            User = new ObservableCollection<Employees>();
             this.UsersDatabase = locationsDatabase;
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
             RetrieveRequests();
 
             //create the search dropdown. TODO Needs to be changed to search all the employees
-            SelectLocationCommand = new MvxCommand<LocationAutoCompleteResult>(selectedLocation =>
+            SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
             {
                 SelectUserFromSearch(selectedLocation, dialog);
-                User = new ObservableCollection<LocationAutoCompleteResult>();
+                User = new ObservableCollection<Employees>();
                 SearchTerm = string.Empty;
                 RaisePropertyChanged(() => SearchTerm);
 
@@ -180,14 +200,14 @@ namespace TelstraApp.Core.ViewModels
 
         //author: Michael Kath (n9293833)
         //Adds User to list if he doesnt exist
-        public async void SelectUserFromSearch(LocationAutoCompleteResult selectedLocation, IDialogService dialog)
+        public async void SelectUserFromSearch(Employees selectedLocation, IDialogService dialog)
         {
 
             if (!await UsersDatabase.CheckIfExists(selectedLocation, currentUser))
             {
                 UsersDatabase.InsertLocation(selectedLocation, currentUser);
 
-                SendReq(new AddRequest(selectedLocation.LocalizedName));
+                SendReq(new AddRequest(selectedLocation.userName));
                 //ShowViewModel<FirstViewModel>();
                 //FindViewModel
                 Bar = "Debug:Added: ";

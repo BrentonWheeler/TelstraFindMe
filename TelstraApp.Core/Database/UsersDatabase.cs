@@ -57,17 +57,27 @@ namespace TelstraApp.Core.Database
             return Users.ToList();
         }
 
-        public async Task<int> InsertLocation(LocationAutoCompleteResult location, string currentUser)
+        public async Task<int> InsertLocation(Employees location, string currentUser)
             {
                 return await InsertLocation(new Users(location, currentUser), currentUser);
             }
 
-            public async Task<bool> CheckIfExists(LocationAutoCompleteResult location, string currentUser)
+            public async Task<bool> CheckIfExists(Employees location, string currentUser)
             {
                 return await CheckIfExists(new Users(location, currentUser), currentUser);
             }
 
         public Task<int> AddResponse(AddRequest Requests, string currentUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RunSync(string currentUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Employees>> GetEmployees(string currentUser)
         {
             throw new NotImplementedException();
         }

@@ -17,13 +17,15 @@ namespace TelstraApp.Core.Database
     {
         private MobileServiceClient azureDatabase;
         private IMobileServiceSyncTable<Users> azureSyncTable;
+        private IMobileServiceSyncTable<Employees> employeeSyncTable;
         public AzureDB()
         {
             azureDatabase = Mvx.Resolve<IAzureDB>().GetMobileServiceClient();
             azureSyncTable = azureDatabase.GetSyncTable<Users>();
+            employeeSyncTable = azureDatabase.GetSyncTable<Employees>();
         }
 
-        public async Task<bool> CheckIfExists(LocationAutoCompleteResult location, string currentUser)
+        public async Task<bool> CheckIfExists(Employees location, string currentUser)
         {
             var exists = await CheckIfExists(new Users(location, currentUser), currentUser);
             return exists;
@@ -61,7 +63,7 @@ namespace TelstraApp.Core.Database
             return locations;
         }
 
-        public async Task<int> InsertLocation(LocationAutoCompleteResult location, string currentUser)
+        public async Task<int> InsertLocation(Employees location, string currentUser)
         {
             return await InsertLocation(new Users(location, currentUser), currentUser);
         }
@@ -74,6 +76,20 @@ namespace TelstraApp.Core.Database
             return 1;
         }
 
+        public async Task<int> InsertEmployee(Employees employee)
+        {
+            await SyncAsyncEmp(true);
+            try{
+                await employeeSyncTable.InsertAsync(employee);
+                await SyncAsyncEmp();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            return 1;
+        }
 
         public async Task<int> AddResponse(AddRequest Requests, string currentUser)
         {
@@ -94,6 +110,13 @@ namespace TelstraApp.Core.Database
             }
         }
 
+        public async Task<IEnumerable<Employees>> GetEmployees(string currentUser)
+        {
+            await InsertEmployee(new Employees("User1") );
+            var emp = await employeeSyncTable.Where(x => x.userName != currentUser).ToListAsync();
+            return emp;
+        }
+
         public async Task<IEnumerable<Users>> SelectViaUser(string currentUser)
         {
             //await SyncAsync(currentUser, true);
@@ -101,6 +124,28 @@ namespace TelstraApp.Core.Database
             return Reqs;
         }
 
+        public async Task RunSync(string currentUser)
+        {
+            await SyncAsync(currentUser, true);
+        }
+
+        private async Task SyncAsyncEmp(bool pullData = false)
+        {
+            try
+            {
+                await azureDatabase.SyncContext.PushAsync();
+
+                if (pullData)
+                {
+                    await employeeSyncTable.PullAsync("Employee", employeeSyncTable.CreateQuery());
+                }
+            }
+
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
         private async Task SyncAsync(string curerntUser, bool pullData = false)
         {
             try
@@ -109,7 +154,6 @@ namespace TelstraApp.Core.Database
 
                 if (pullData)
                 {
-                    //await azureSyncTable.PullAsync("allLocations", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
                     await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x=>x.ReqFrom == curerntUser));
                 }
             }

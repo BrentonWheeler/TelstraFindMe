@@ -9,13 +9,13 @@ namespace TelstraApp.Core.Models
     public class Users
     {
         public Users() { }
-        public Users(LocationAutoCompleteResult location, string currentUser)
+        public Users(Employees location, string currentUser)
         {
-            LocalizedName = location.LocalizedName;
-            Rank = location.Rank;
-            Key = location.Key;
+            LocalizedName = location.userName;
+            //Rank = location.Rank;
+           // Key = location.Key;
             ReqFrom = currentUser;
-            ReqTo = location.LocalizedName;
+            ReqTo = location.userName;
             ReqTime = DateTime.Now;
             ReqDate = DateTime.Now.ToString("DD/MM/YYYY");
             HasResponded = false;
