@@ -530,5 +530,7 @@ D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Xml.dll.m
 D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.dll.mdb
 D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
+D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\rounded_corner.xml
+D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\reqlist.xml
 D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobiles\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

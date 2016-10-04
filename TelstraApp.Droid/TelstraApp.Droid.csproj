@@ -197,6 +197,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable\rounded_corner.xml" />
+    <AndroidResource Include="Resources\drawable\reqList.xml" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

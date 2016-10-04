@@ -130,12 +130,12 @@ namespace TelstraApp.Core.ViewModels
             //var locationResults = await weatherService.GetLocations(searchTerm);
             //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
             // var result = await UsersDatabase.GetEmployees(currentUser);
-           // WeatherService weatherService = new WeatherService();
-           // var locationResults = await weatherService.GetLocations(searchTerm);
-           // var bestLocationResults = locationResults.Where(location => location.Rank > 80);
-
+            // WeatherService weatherService = new WeatherService();
+            // var locationResults = await weatherService.GetLocations(searchTerm);
+            // var bestLocationResults = locationResults.Where(location => location.Rank > 80);
+            User.Add(new Employees("Searching..."));
             var result = await UsersDatabase.GetEmployees(searchTerm, currentUser);
-
+            User.Clear();
          
             //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
             foreach (var item in result)
@@ -173,7 +173,7 @@ namespace TelstraApp.Core.ViewModels
             ListOutStandingReq = new ObservableCollection<AddRequest>();
             RetrieveRequests();
 
-            //create the search dropdown. TODO Needs to be changed to search all the employees
+    
             SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
             {
                 SelectUserFromSearch(selectedLocation, dialog);
@@ -223,7 +223,8 @@ namespace TelstraApp.Core.ViewModels
         public async void SelectUserFromSearch(Employees selectedUser, IDialogService dialog)
         {
 
-            if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
+            if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser) && selectedUser.UserName != "Searching...")
+
             {
                 UsersDatabase.InsertLocation(selectedUser, currentUser);
                 //UsersDatabase.InsertEmployee(selectedUser);
