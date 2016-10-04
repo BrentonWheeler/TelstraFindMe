@@ -130,9 +130,9 @@ namespace TelstraApp.Core.ViewModels
             //var locationResults = await weatherService.GetLocations(searchTerm);
             //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
             // var result = await UsersDatabase.GetEmployees(currentUser);
-            WeatherService weatherService = new WeatherService();
-            var locationResults = await weatherService.GetLocations(searchTerm);
-            var bestLocationResults = locationResults.Where(location => location.Rank > 80);
+           // WeatherService weatherService = new WeatherService();
+           // var locationResults = await weatherService.GetLocations(searchTerm);
+           // var bestLocationResults = locationResults.Where(location => location.Rank > 80);
 
             var result = await UsersDatabase.GetEmployees(searchTerm, currentUser);
 

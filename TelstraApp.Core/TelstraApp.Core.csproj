@@ -53,6 +53,7 @@
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="Models\AddRequest.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RequestsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

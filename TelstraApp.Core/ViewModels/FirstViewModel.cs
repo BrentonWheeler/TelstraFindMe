@@ -25,7 +25,7 @@ namespace TelstraApp.Core.ViewModels
        
         public FirstViewModel(IDialogService dialog, IUserDatabase locationsDatabase)
         {
-            Requests = new RequestsViewModel();
+            
             this.dialog = dialog;
             this.locationsDatabase = locationsDatabase;
 
@@ -90,7 +90,9 @@ namespace TelstraApp.Core.ViewModels
                      }
                  }
              };
+            Requests = new RequestsViewModel(dialog, locationsDatabase, Current_User);
             Find = new FindViewModel(dialog, locationsDatabase, Current_User);
+            
         }
        
         public RequestsViewModel Requests
@@ -107,18 +109,6 @@ namespace TelstraApp.Core.ViewModels
         
     }
   
-    public class RequestsViewModel : MvxViewModel
-    {
-        private string _foo = "Requests page. Click the 'find' tab at the bottom to view Michael Kath's prototype";
-
-        public string Foo {
-            get { return _foo; }
-            set { _foo = value; RaisePropertyChanged(() => Foo); }
-                
-        }
-
-
-    }
    
 
 }
