@@ -122,7 +122,7 @@ namespace TelstraApp.Core.Database
             IEnumerable<Employees> emp1 = null;
             try
             {
-                await SyncAsyncEmp(true);
+                //await SyncAsyncEmp(true);
                 emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).ToListAsync();
 
                 //emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser).ToListAsync();

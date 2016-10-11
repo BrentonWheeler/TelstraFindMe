@@ -48,7 +48,7 @@ namespace TelstraApp.Droid.Services
                 {
                     Log.Debug("DemoService", "Runnings");
                     // this.
-                    var curerntReq = await UsersDatabase.SelectViaUser("User1");
+                    //var curerntReq = await UsersDatabase.SelectViaUser("User1");
                     Thread.Sleep(5000);
 
                 }

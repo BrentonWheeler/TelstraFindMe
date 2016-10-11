@@ -79,6 +79,7 @@ namespace TelstraApp.Core.ViewModels
         //public ICommand SelectPendingCommand { get; private set; }
 
         private string searchTerm;
+        private bool startedSearch = false;
 
         //calls the search location(employees later) based on typing 3 chars
         public string SearchTerm
@@ -87,12 +88,21 @@ namespace TelstraApp.Core.ViewModels
             set
             {
                 SetProperty(ref searchTerm, value);
+                
                 if (searchTerm.Length > 3)
                 {
+                    startedSearch = true;
                     SearchLocations(searchTerm);
                     RaisePropertyChanged(() => User);
 
                 }
+                if (startedSearch && searchTerm.Length < 3)
+                {
+                    User.Clear();
+                    startedSearch = false;
+                }
+
+                
             }
         }
 
@@ -136,12 +146,19 @@ namespace TelstraApp.Core.ViewModels
             User.Add(new Employees("Searching..."));
             var result = await UsersDatabase.GetEmployees(searchTerm, currentUser);
             User.Clear();
-         
-            //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
-            foreach (var item in result)
+            if (result.Any())
             {
-               User.Add(item);
+                foreach (var item in result)
+                {
+                    User.Add(item);
+                }
             }
+            else
+            {
+                User.Add(new Employees("No matches found"));
+            }
+            //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
+
 
         }
         /*   public async void SearchLocations(string searchTerm)
@@ -228,7 +245,7 @@ namespace TelstraApp.Core.ViewModels
         public async void SelectUserFromSearch(Employees selectedUser, IDialogService dialog)
         {
 
-            if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser) && selectedUser.UserName != "Searching...")
+            if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser) && (selectedUser.UserName != "Searching..." && selectedUser.UserName != "No matches found"))
 
             {
                 UsersDatabase.InsertLocation(selectedUser, currentUser);
