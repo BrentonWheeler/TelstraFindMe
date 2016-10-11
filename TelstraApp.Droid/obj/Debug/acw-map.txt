@@ -18,6 +18,14 @@ TelstraApp.Droid.Views.FirstView, TelstraApp.Droid;md542148431bcec0d6b72e9fef82d
 TelstraApp.Droid.Views.FirstView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md542148431bcec0d6b72e9fef82de3cdba.FirstView
 TelstraApp.Droid.Views.FirstView;md542148431bcec0d6b72e9fef82de3cdba.FirstView
 telstraapp.droid.views.FirstView;md542148431bcec0d6b72e9fef82de3cdba.FirstView
+TelstraApp.Droid.Services.MyService, TelstraApp.Droid;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+TelstraApp.Droid.Services.MyService, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+TelstraApp.Droid.Services.MyService;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+telstraapp.droid.services.MyService;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+TelstraApp.Droid.Services.MyService/DemoServiceBinder, TelstraApp.Droid;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
+TelstraApp.Droid.Services.MyService+DemoServiceBinder, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
+TelstraApp.Droid.Services.MyService.DemoServiceBinder;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
+telstraapp.droid.services.MyService_DemoServiceBinder;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
 Xamarin.Auth._MobileServices.AndroidAccountStore/SecretAccount, Microsoft.WindowsAzure.Mobile.Ext;md59ad6b75bc832b296b6784609cfbe7e98.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore+SecretAccount, Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md59ad6b75bc832b296b6784609cfbe7e98.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore.SecretAccount;md59ad6b75bc832b296b6784609cfbe7e98.AndroidAccountStore_SecretAccount

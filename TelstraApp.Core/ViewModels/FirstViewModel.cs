@@ -4,6 +4,8 @@ using System;
 
 using Android.OS;
 using System.Threading.Tasks;
+using Java.Lang;
+using Android.Util;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -22,40 +24,15 @@ namespace TelstraApp.Core.ViewModels
         private DateTime runTime;
 
 
-       
+
+
         public FirstViewModel(IDialogService dialog, IUserDatabase locationsDatabase)
         {
             
             this.dialog = dialog;
             this.locationsDatabase = locationsDatabase;
 
-            //GetButton.Click += async (sender, e) => {
-
-
-
-                // call your method to check for notifications here
-
-                // Returning true means you want to repeat this timer
-
-
-
-                /*           Task<int> SyncData()
-                           (
-                               ()=>
-
-                           {
-                               currentTimer = DateTime.Now;
-                               if (currentTimer >= syncTimer)
-                               {
-                                   string hello = "helo";
-                                   syncTimer = DateTime.Now.AddSeconds(30);
-                               }
-
-                           }
-
-                      ));*/
-
-            }
+        }
 
         public string Current_User
         {
@@ -75,21 +52,6 @@ namespace TelstraApp.Core.ViewModels
         public void Init(CurrentUser theUser)
         {
             Current_User = theUser.currentUser;
-            Func<Task> test = async () =>
-             {
-                 cTime = DateTime.Now;
-                 runTime = DateTime.Now.AddSeconds(20);
-
-                 while (true)
-                 {
-                     cTime = DateTime.Now;
-                     if (cTime >= runTime)
-                     {
-                         await locationsDatabase.RunSync(Current_User);
-                         runTime = DateTime.Now.AddSeconds(20);
-                     }
-                 }
-             };
             Requests = new RequestsViewModel(dialog, locationsDatabase, Current_User);
             Find = new FindViewModel(dialog, locationsDatabase, Current_User);
             

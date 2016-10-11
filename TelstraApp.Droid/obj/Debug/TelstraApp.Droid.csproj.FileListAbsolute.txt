@@ -128,8 +128,6 @@ D:\TelstraApps\TelstraApp.Droid\obj\Debug\res\layout\requestitemlayout.xml
 D:\TelstraApps\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.pdb
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.TelstraApp.Droid.apk
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.TelstraApp.Droid-Signed.apk
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Binding.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Binding.Droid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Core.dll
@@ -145,7 +143,6 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Localization.dl
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\MvvmCross.Platform.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.pdb
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\bin\TelstraApp.Droid.TelstraApp.Droid.apk
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\res\layout\splashscreen.xml
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\res\layout\firstview.xml
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\res\layout\requests.xml
@@ -395,7 +392,6 @@ D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Xm
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.dll.mdb
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
 D:\mobiles\source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
-D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobiles\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.config
 D:\mobiles\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll
 D:\mobiles\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.pdb
@@ -533,4 +529,10 @@ D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid
 D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\rounded_corner.xml
 D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\reqlist.xml
 D:\mobiles\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
-D:\mobiles\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\rounded_corner.xml
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\reqlist.xml
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.TelstraApp.apk
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.TelstraApp-Signed.apk
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\bin\TelstraApp.Droid.TelstraApp.apk
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

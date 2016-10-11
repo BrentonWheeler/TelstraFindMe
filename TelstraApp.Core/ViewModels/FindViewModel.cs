@@ -16,6 +16,7 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using static TelstraApp.Core.ViewModels.FirstViewModel;
+using Android.App;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -56,7 +57,6 @@ namespace TelstraApp.Core.ViewModels
                 }
             }
         }
-
 
 
         //author: Michael Kath (n9293833)
@@ -161,6 +161,11 @@ namespace TelstraApp.Core.ViewModels
         private readonly IUserDatabase UsersDatabase;
         private string currentUser;
         private IDialogService dialog;
+
+        public string getCurrentUser()
+        {
+            return currentUser;
+        }
 
         //author: Michael Kath (n9293833)
         public FindViewModel(IDialogService dialog, IUserDatabase locationsDatabase, string currentUser)
