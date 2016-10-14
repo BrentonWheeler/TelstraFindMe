@@ -44,6 +44,7 @@
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\Forecast.cs" />
     <Compile Include="Models\ForecastWrapper.cs" />
+    <Compile Include="Models\GeoLocation.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\LocationAutoCompleteResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="Models\AddRequest.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RequestResponseViewModel.cs" />
     <Compile Include="ViewModels\RequestsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

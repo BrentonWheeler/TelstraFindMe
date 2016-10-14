@@ -2,7 +2,7 @@ package md542148431bcec0d6b72e9fef82de3cdba;
 
 
 public class FirstView
-	extends md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity
+	extends mvvmcross.droid.views.MvxTabActivity
 	implements
 		mono.android.IGCUserPeer
 {

@@ -2,7 +2,7 @@ package md542148431bcec0d6b72e9fef82de3cdba;
 
 
 public class LoginView
-	extends md5c293e307133ee8f46151deed2480c6a8.MvxActivity
+	extends mvvmcross.droid.views.MvxActivity
 	implements
 		mono.android.IGCUserPeer
 {

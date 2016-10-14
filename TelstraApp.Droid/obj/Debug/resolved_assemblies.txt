@@ -33,6 +33,10 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\SQLitePCL.
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Net.Http.Extensions.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Net.Http.Primitives.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Spatial.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Xamarin.GooglePlayServices.Base.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Xamarin.GooglePlayServices.Basement.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Xamarin.GooglePlayServices.Maps.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Threading.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\System.Runtime.dll
