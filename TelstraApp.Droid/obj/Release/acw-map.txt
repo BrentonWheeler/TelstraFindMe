@@ -10,10 +10,46 @@ TelstraApp.Droid.Views.FindView, TelstraApp.Droid;md542148431bcec0d6b72e9fef82de
 TelstraApp.Droid.Views.FindView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md542148431bcec0d6b72e9fef82de3cdba.FindView
 TelstraApp.Droid.Views.FindView;md542148431bcec0d6b72e9fef82de3cdba.FindView
 telstraapp.droid.views.FindView;md542148431bcec0d6b72e9fef82de3cdba.FindView
+TelstraApp.Droid.Views.LoginView, TelstraApp.Droid;md542148431bcec0d6b72e9fef82de3cdba.LoginView
+TelstraApp.Droid.Views.LoginView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md542148431bcec0d6b72e9fef82de3cdba.LoginView
+TelstraApp.Droid.Views.LoginView;md542148431bcec0d6b72e9fef82de3cdba.LoginView
+telstraapp.droid.views.LoginView;md542148431bcec0d6b72e9fef82de3cdba.LoginView
 TelstraApp.Droid.Views.FirstView, TelstraApp.Droid;md542148431bcec0d6b72e9fef82de3cdba.FirstView
 TelstraApp.Droid.Views.FirstView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md542148431bcec0d6b72e9fef82de3cdba.FirstView
 TelstraApp.Droid.Views.FirstView;md542148431bcec0d6b72e9fef82de3cdba.FirstView
 telstraapp.droid.views.FirstView;md542148431bcec0d6b72e9fef82de3cdba.FirstView
+TelstraApp.Droid.Services.MyService, TelstraApp.Droid;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+TelstraApp.Droid.Services.MyService, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+TelstraApp.Droid.Services.MyService;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+telstraapp.droid.services.MyService;md59ac3ea355d654c0ff72d2ef41149144b.MyService
+TelstraApp.Droid.Services.MyService/DemoServiceBinder, TelstraApp.Droid;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
+TelstraApp.Droid.Services.MyService+DemoServiceBinder, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
+TelstraApp.Droid.Services.MyService.DemoServiceBinder;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
+telstraapp.droid.services.MyService_DemoServiceBinder;md59ac3ea355d654c0ff72d2ef41149144b.MyService_DemoServiceBinder
+Xamarin.Auth._MobileServices.AndroidAccountStore/SecretAccount, Microsoft.WindowsAzure.Mobile.Ext;md59ad6b75bc832b296b6784609cfbe7e98.AndroidAccountStore_SecretAccount
+Xamarin.Auth._MobileServices.AndroidAccountStore+SecretAccount, Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md59ad6b75bc832b296b6784609cfbe7e98.AndroidAccountStore_SecretAccount
+Xamarin.Auth._MobileServices.AndroidAccountStore.SecretAccount;md59ad6b75bc832b296b6784609cfbe7e98.AndroidAccountStore_SecretAccount
+xamarin.auth._mobileservices.AndroidAccountStore_SecretAccount;md59ad6b75bc832b296b6784609cfbe7e98.AndroidAccountStore_SecretAccount
+Xamarin.Auth._MobileServices.FormAuthenticatorActivity, Microsoft.WindowsAzure.Mobile.Ext;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity
+Xamarin.Auth._MobileServices.FormAuthenticatorActivity, Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity
+Xamarin.Auth._MobileServices.FormAuthenticatorActivity;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity
+xamarin.auth._mobileservices.FormAuthenticatorActivity;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity
+Xamarin.Auth._MobileServices.FormAuthenticatorActivity/State, Microsoft.WindowsAzure.Mobile.Ext;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity_State
+Xamarin.Auth._MobileServices.FormAuthenticatorActivity+State, Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity_State
+Xamarin.Auth._MobileServices.FormAuthenticatorActivity.State;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity_State
+xamarin.auth._mobileservices.FormAuthenticatorActivity_State;md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity_State
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity, Microsoft.WindowsAzure.Mobile.Ext;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity, Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity
+xamarin.auth._mobileservices.WebAuthenticatorActivity;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity/State, Microsoft.WindowsAzure.Mobile.Ext;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_State
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity+State, Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_State
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity.State;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_State
+xamarin.auth._mobileservices.WebAuthenticatorActivity_State;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_State
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity/Client, Microsoft.WindowsAzure.Mobile.Ext;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_Client
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity+Client, Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_Client
+Xamarin.Auth._MobileServices.WebAuthenticatorActivity.Client;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_Client
+xamarin.auth._mobileservices.WebAuthenticatorActivity_Client;md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity_Client
 MvvmCross.Binding.Droid.Views.MvxBaseListItemView, MvvmCross.Binding.Droid;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxBaseListItemView
 MvvmCross.Binding.Droid.Views.MvxBaseListItemView, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxBaseListItemView
 MvvmCross.Binding.Droid.Views.MvxBaseListItemView;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxBaseListItemView
@@ -46,14 +82,14 @@ MvvmCross.Binding.Droid.Views.MvxAutoCompleteTextView, MvvmCross.Binding.Droid;m
 MvvmCross.Binding.Droid.Views.MvxAutoCompleteTextView, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.binding.droid.views.MvxAutoCompleteTextView
 MvvmCross.Binding.Droid.Views.MvxAutoCompleteTextView;mvvmcross.binding.droid.views.MvxAutoCompleteTextView
 mvvmcross.binding.droid.views.MvxAutoCompleteTextView;mvvmcross.binding.droid.views.MvxAutoCompleteTextView
-MvvmCross.Binding.Droid.Views.MvxLayoutInflater, MvvmCross.Binding.Droid;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater
-MvvmCross.Binding.Droid.Views.MvxLayoutInflater, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater
-MvvmCross.Binding.Droid.Views.MvxLayoutInflater;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater
-mvvmcross.binding.droid.views.MvxLayoutInflater;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater
-MvvmCross.Binding.Droid.Views.MvxLayoutInflater/PrivateFactoryWrapper2, MvvmCross.Binding.Droid;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater_PrivateFactoryWrapper2
-MvvmCross.Binding.Droid.Views.MvxLayoutInflater+PrivateFactoryWrapper2, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater_PrivateFactoryWrapper2
-MvvmCross.Binding.Droid.Views.MvxLayoutInflater.PrivateFactoryWrapper2;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater_PrivateFactoryWrapper2
-mvvmcross.binding.droid.views.MvxLayoutInflater_PrivateFactoryWrapper2;md5bf0126c95bf9fc0db24c02c9adb4cfa7.MvxLayoutInflater_PrivateFactoryWrapper2
+MvvmCross.Binding.Droid.Views.MvxLayoutInflater, MvvmCross.Binding.Droid;mvvmcross.binding.droid.views.MvxLayoutInflater
+MvvmCross.Binding.Droid.Views.MvxLayoutInflater, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.binding.droid.views.MvxLayoutInflater
+MvvmCross.Binding.Droid.Views.MvxLayoutInflater;mvvmcross.binding.droid.views.MvxLayoutInflater
+mvvmcross.binding.droid.views.MvxLayoutInflater;mvvmcross.binding.droid.views.MvxLayoutInflater
+MvvmCross.Binding.Droid.Views.MvxLayoutInflater/PrivateFactoryWrapper2, MvvmCross.Binding.Droid;mvvmcross.binding.droid.views.MvxLayoutInflater_PrivateFactoryWrapper2
+MvvmCross.Binding.Droid.Views.MvxLayoutInflater+PrivateFactoryWrapper2, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.binding.droid.views.MvxLayoutInflater_PrivateFactoryWrapper2
+MvvmCross.Binding.Droid.Views.MvxLayoutInflater.PrivateFactoryWrapper2;mvvmcross.binding.droid.views.MvxLayoutInflater_PrivateFactoryWrapper2
+mvvmcross.binding.droid.views.MvxLayoutInflater_PrivateFactoryWrapper2;mvvmcross.binding.droid.views.MvxLayoutInflater_PrivateFactoryWrapper2
 MvvmCross.Binding.Droid.Views.MvxRadioGroup, MvvmCross.Binding.Droid;mvvmcross.binding.droid.views.MvxRadioGroup
 MvvmCross.Binding.Droid.Views.MvxRadioGroup, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.binding.droid.views.MvxRadioGroup
 MvvmCross.Binding.Droid.Views.MvxRadioGroup;mvvmcross.binding.droid.views.MvxRadioGroup
@@ -122,30 +158,38 @@ MvvmCross.Binding.Droid.Binders.MvxLayoutInflaterCompat/FactoryWrapper2, MvvmCro
 MvvmCross.Binding.Droid.Binders.MvxLayoutInflaterCompat+FactoryWrapper2, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md59292f1b7dcad9ff99bb047144087b6e8.MvxLayoutInflaterCompat_FactoryWrapper2
 MvvmCross.Binding.Droid.Binders.MvxLayoutInflaterCompat.FactoryWrapper2;md59292f1b7dcad9ff99bb047144087b6e8.MvxLayoutInflaterCompat_FactoryWrapper2
 mvvmcross.binding.droid.binders.MvxLayoutInflaterCompat_FactoryWrapper2;md59292f1b7dcad9ff99bb047144087b6e8.MvxLayoutInflaterCompat_FactoryWrapper2
-MvvmCross.Droid.Simple.MvxSimpleBindingActivity, MvvmCross.Droid;md55af947163f94b172904091a101a0a125.MvxSimpleBindingActivity
-MvvmCross.Droid.Simple.MvxSimpleBindingActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md55af947163f94b172904091a101a0a125.MvxSimpleBindingActivity
-MvvmCross.Droid.Simple.MvxSimpleBindingActivity;md55af947163f94b172904091a101a0a125.MvxSimpleBindingActivity
-mvvmcross.droid.simple.MvxSimpleBindingActivity;md55af947163f94b172904091a101a0a125.MvxSimpleBindingActivity
-MvvmCross.Droid.Views.MvxSplashScreenActivity, MvvmCross.Droid;md5c293e307133ee8f46151deed2480c6a8.MvxSplashScreenActivity
-MvvmCross.Droid.Views.MvxSplashScreenActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5c293e307133ee8f46151deed2480c6a8.MvxSplashScreenActivity
-MvvmCross.Droid.Views.MvxSplashScreenActivity;md5c293e307133ee8f46151deed2480c6a8.MvxSplashScreenActivity
-mvvmcross.droid.views.MvxSplashScreenActivity;md5c293e307133ee8f46151deed2480c6a8.MvxSplashScreenActivity
-MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity
-MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity
-MvvmCross.Droid.Views.MvxTabActivity;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity
-mvvmcross.droid.views.MvxTabActivity;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity
+MvvmCross.Droid.Simple.MvxSimpleBindingActivity, MvvmCross.Droid;mvvmcross.droid.simple.MvxSimpleBindingActivity
+MvvmCross.Droid.Simple.MvxSimpleBindingActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.droid.simple.MvxSimpleBindingActivity
+MvvmCross.Droid.Simple.MvxSimpleBindingActivity;mvvmcross.droid.simple.MvxSimpleBindingActivity
+mvvmcross.droid.simple.MvxSimpleBindingActivity;mvvmcross.droid.simple.MvxSimpleBindingActivity
+MvvmCross.Droid.Views.MvxSplashScreenActivity, MvvmCross.Droid;mvvmcross.droid.views.MvxSplashScreenActivity
+MvvmCross.Droid.Views.MvxSplashScreenActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.droid.views.MvxSplashScreenActivity
+MvvmCross.Droid.Views.MvxSplashScreenActivity;mvvmcross.droid.views.MvxSplashScreenActivity
+mvvmcross.droid.views.MvxSplashScreenActivity;mvvmcross.droid.views.MvxSplashScreenActivity
+MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid;mvvmcross.droid.views.MvxTabActivity
+MvvmCross.Droid.Views.MvxTabActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.droid.views.MvxTabActivity
+MvvmCross.Droid.Views.MvxTabActivity;mvvmcross.droid.views.MvxTabActivity
+mvvmcross.droid.views.MvxTabActivity;mvvmcross.droid.views.MvxTabActivity
 MvvmCross.Droid.Views.MvxTabActivity`1, MvvmCross.Droid;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity_1
 MvvmCross.Droid.Views.MvxTabActivity`1, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity_1
 MvvmCross.Droid.Views.MvxTabActivity`1;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity_1
 mvvmcross.droid.views.MvxTabActivity_1;md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity_1
-MvvmCross.Droid.Views.MvxActivity, MvvmCross.Droid;md5c293e307133ee8f46151deed2480c6a8.MvxActivity
-MvvmCross.Droid.Views.MvxActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5c293e307133ee8f46151deed2480c6a8.MvxActivity
-MvvmCross.Droid.Views.MvxActivity;md5c293e307133ee8f46151deed2480c6a8.MvxActivity
-mvvmcross.droid.views.MvxActivity;md5c293e307133ee8f46151deed2480c6a8.MvxActivity
+MvvmCross.Droid.Views.MvxActivity, MvvmCross.Droid;mvvmcross.droid.views.MvxActivity
+MvvmCross.Droid.Views.MvxActivity, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.droid.views.MvxActivity
+MvvmCross.Droid.Views.MvxActivity;mvvmcross.droid.views.MvxActivity
+mvvmcross.droid.views.MvxActivity;mvvmcross.droid.views.MvxActivity
 MvvmCross.Droid.Views.MvxActivity`1, MvvmCross.Droid;md5c293e307133ee8f46151deed2480c6a8.MvxActivity_1
 MvvmCross.Droid.Views.MvxActivity`1, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5c293e307133ee8f46151deed2480c6a8.MvxActivity_1
 MvvmCross.Droid.Views.MvxActivity`1;md5c293e307133ee8f46151deed2480c6a8.MvxActivity_1
 mvvmcross.droid.views.MvxActivity_1;md5c293e307133ee8f46151deed2480c6a8.MvxActivity_1
+MvvmCross.Droid.Services.MvxBroadcastReceiver, MvvmCross.Droid;mvvmcross.droid.services.MvxBroadcastReceiver
+MvvmCross.Droid.Services.MvxBroadcastReceiver, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.droid.services.MvxBroadcastReceiver
+MvvmCross.Droid.Services.MvxBroadcastReceiver;mvvmcross.droid.services.MvxBroadcastReceiver
+mvvmcross.droid.services.MvxBroadcastReceiver;mvvmcross.droid.services.MvxBroadcastReceiver
+MvvmCross.Droid.Services.MvxIntentService, MvvmCross.Droid;mvvmcross.droid.services.MvxIntentService
+MvvmCross.Droid.Services.MvxIntentService, MvvmCross.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.droid.services.MvxIntentService
+MvvmCross.Droid.Services.MvxIntentService;mvvmcross.droid.services.MvxIntentService
+mvvmcross.droid.services.MvxIntentService;mvvmcross.droid.services.MvxIntentService
 MvvmCross.Platform.Droid.MvxJavaContainer, MvvmCross.Platform.Droid;md5fbdfe15bdb740bba08c1f621e9dd1063.MvxJavaContainer
 MvvmCross.Platform.Droid.MvxJavaContainer, MvvmCross.Platform.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5fbdfe15bdb740bba08c1f621e9dd1063.MvxJavaContainer
 MvvmCross.Platform.Droid.MvxJavaContainer;md5fbdfe15bdb740bba08c1f621e9dd1063.MvxJavaContainer
@@ -158,11 +202,11 @@ MvvmCross.Platform.Droid.MvxReplaceableJavaContainer, MvvmCross.Platform.Droid;m
 MvvmCross.Platform.Droid.MvxReplaceableJavaContainer, MvvmCross.Platform.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5fbdfe15bdb740bba08c1f621e9dd1063.MvxReplaceableJavaContainer
 MvvmCross.Platform.Droid.MvxReplaceableJavaContainer;md5fbdfe15bdb740bba08c1f621e9dd1063.MvxReplaceableJavaContainer
 mvvmcross.platform.droid.MvxReplaceableJavaContainer;md5fbdfe15bdb740bba08c1f621e9dd1063.MvxReplaceableJavaContainer
-MvvmCross.Platform.Droid.Views.MvxEventSourceActivity, MvvmCross.Platform.Droid;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceActivity
-MvvmCross.Platform.Droid.Views.MvxEventSourceActivity, MvvmCross.Platform.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceActivity
-MvvmCross.Platform.Droid.Views.MvxEventSourceActivity;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceActivity
-mvvmcross.platform.droid.views.MvxEventSourceActivity;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceActivity
-MvvmCross.Platform.Droid.Views.MvxEventSourceTabActivity, MvvmCross.Platform.Droid;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceTabActivity
-MvvmCross.Platform.Droid.Views.MvxEventSourceTabActivity, MvvmCross.Platform.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceTabActivity
-MvvmCross.Platform.Droid.Views.MvxEventSourceTabActivity;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceTabActivity
-mvvmcross.platform.droid.views.MvxEventSourceTabActivity;md5f60cb25cf67aec87462671c9e2811eb9.MvxEventSourceTabActivity
+MvvmCross.Platform.Droid.Views.MvxEventSourceActivity, MvvmCross.Platform.Droid;mvvmcross.platform.droid.views.MvxEventSourceActivity
+MvvmCross.Platform.Droid.Views.MvxEventSourceActivity, MvvmCross.Platform.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.platform.droid.views.MvxEventSourceActivity
+MvvmCross.Platform.Droid.Views.MvxEventSourceActivity;mvvmcross.platform.droid.views.MvxEventSourceActivity
+mvvmcross.platform.droid.views.MvxEventSourceActivity;mvvmcross.platform.droid.views.MvxEventSourceActivity
+MvvmCross.Platform.Droid.Views.MvxEventSourceTabActivity, MvvmCross.Platform.Droid;mvvmcross.platform.droid.views.MvxEventSourceTabActivity
+MvvmCross.Platform.Droid.Views.MvxEventSourceTabActivity, MvvmCross.Platform.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null;mvvmcross.platform.droid.views.MvxEventSourceTabActivity
+MvvmCross.Platform.Droid.Views.MvxEventSourceTabActivity;mvvmcross.platform.droid.views.MvxEventSourceTabActivity
+mvvmcross.platform.droid.views.MvxEventSourceTabActivity;mvvmcross.platform.droid.views.MvxEventSourceTabActivity

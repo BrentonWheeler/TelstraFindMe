@@ -114,6 +114,8 @@ class MonoPackageManager_Resources {
 		"MvvmCross.Localization.dll",
 		"MvvmCross.Platform.dll",
 		"MvvmCross.Platform.Droid.dll",
+		"MvvmCross.Plugins.Color.dll",
+		"MvvmCross.Plugins.Color.Droid.dll",
 		"Newtonsoft.Json.dll",
 		"SQLite.Net.dll",
 		"SQLite.Net.Platform.XamarinAndroid.dll",

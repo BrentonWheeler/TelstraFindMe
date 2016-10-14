@@ -1,3 +1,4 @@
+using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -42,6 +43,7 @@ namespace TelstraApp.Droid.Views
 
         }
 
+
     }
 
 
@@ -57,7 +59,10 @@ namespace TelstraApp.Droid.Views
 
         }
 
+
     }
+
+
     //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity
@@ -83,8 +88,13 @@ namespace TelstraApp.Droid.Views
             tabspec.SetIndicator("Find");
             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Find));
             TabHost.AddTab(tabspec);
-
         }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            //finish();
+        }//end onBackPressed()
 
     }
 }

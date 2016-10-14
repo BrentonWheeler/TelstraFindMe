@@ -92,5 +92,14 @@ D:\mobiles\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll
 D:\mobiles\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.pdb
 D:\mobiles\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 D:\mobiles\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Debug\MvvmCross.Plugins.Color.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\Source\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb

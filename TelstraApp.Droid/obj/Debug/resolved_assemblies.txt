@@ -23,6 +23,8 @@ D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\MvvmCross.
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\MvvmCross.Localization.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\MvvmCross.Platform.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\MvvmCross.Platform.Droid.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\MvvmCross.Plugins.Color.dll
+D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\MvvmCross.Plugins.Color.Droid.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Newtonsoft.Json.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\SQLite.Net.dll
 D:\mobile\Source\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\SQLite.Net.Platform.XamarinAndroid.dll

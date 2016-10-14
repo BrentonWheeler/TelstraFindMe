@@ -20,10 +20,6 @@ namespace TelstraApp.Core.ViewModels
         private IDialogService dialog;
         private IUserDatabase locationsDatabase;
 
-        private DateTime cTime;
-        private DateTime runTime;
-
-
 
 
         public FirstViewModel(IDialogService dialog, IUserDatabase locationsDatabase)

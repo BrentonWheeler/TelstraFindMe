@@ -49,7 +49,7 @@ namespace TelstraApp.Core.Database
 
             }
 
-        public async Task<IEnumerable<Users>> SelectViaUser(string currentUser)
+        public async Task<IEnumerable<Users>> SelectViaUser(string currentUser, bool pushSync = false)
         {
             var Users = from users in database.Table<Users>()
                         orderby users.ReqTime descending
@@ -87,5 +87,17 @@ namespace TelstraApp.Core.Database
         {
             throw new NotImplementedException();
         }
+
+        public Task SyncAsyncEmp(bool pullData = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string[]> GetFavourites(string currentUser)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
-    }
+ }

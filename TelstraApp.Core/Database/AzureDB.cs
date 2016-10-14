@@ -65,13 +65,17 @@ namespace TelstraApp.Core.Database
 
         public async Task<int> InsertLocation(Employees location, string currentUser)
         {
-            return await InsertLocation(new Users(location, currentUser), currentUser);
+            Users findReq = new Users(location, currentUser);
+            return await InsertLocation(findReq, currentUser);
+
+           
         }
 
         public async Task<int> InsertLocation(Users reqLocation, string currentUser)
         {
             await SyncAsync(currentUser, true);
             await azureSyncTable.InsertAsync(reqLocation);
+            await InsertFavourite(currentUser, reqLocation.ReqTo);
             await SyncAsync(currentUser);
             return 1;
         }
@@ -113,19 +117,43 @@ namespace TelstraApp.Core.Database
             return 1;
         }
 
+        private async Task<int> InsertFavourite(string currentUser, string searchEmployee)
+        {
+            var currentEmployees = await employeeSyncTable.Where(x => x.UserName == currentUser).ToListAsync();
+            try
+            {
+                Employees currentEmployee = currentEmployees.FirstOrDefault();
+                currentEmployee.UpdateFavourites(searchEmployee);
+                await SyncAsync(currentUser, true);
+                await employeeSyncTable.UpdateAsync(currentEmployee);
+                await SyncAsync(currentUser);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            return 1;
+        }
+
+        public async Task<String[]> GetFavourites(string currentUser)
+        {
+            var emp1 = await employeeSyncTable.Where(x => x.UserName == currentUser).ToListAsync();
+            Employees employee = emp1.FirstOrDefault();
+            return employee.RetrieveFavourites();
+        }
+
         public async Task<IEnumerable<Employees>> GetEmployees(string searchterm, string currentUser)
         {
-            //await InsertEmployee(new Users(loc, currentUser));
-            //await SyncAsyncEmp(true);
-           // await InsertEmployee(emp);
-            //await SyncAsyncEmp();
             IEnumerable<Employees> emp1 = null;
             try
             {
-                //await SyncAsyncEmp(true);
-                emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).ToListAsync();
+                emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName == searchterm).ToListAsync();
+                if (!emp1.Any())
+                {
+                    emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).ToListAsync();
+                }
 
-                //emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser).ToListAsync();
             }
             catch (Exception e)
             {
@@ -134,14 +162,19 @@ namespace TelstraApp.Core.Database
                 return emp1;
         }
 
-        public async Task<IEnumerable<Users>> SelectViaUser(string currentUser)
-        {
-            await SyncAsync(currentUser, true);
+        public async Task<IEnumerable<Users>> SelectViaUser(string currentUser, bool pushSync = false)
+        {   
+            if (pushSync)
+            {
+                await SyncAsync(currentUser, pushSync);
+            }
+          
             // await SyncAsyncEmp(true);
-            //var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
-            var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser && x.HasResponded == true).OrderByDescending(x => x.ReqTime).ToListAsync();
-            var Reqs1 = await azureSyncTable.Where(x => x.ReqFrom == currentUser && x.HasResponded == false).OrderByDescending(x => x.ReqTime).ToListAsync();
-            var result = Reqs.Union(Reqs1);
+            var result = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
+            //var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser && x.HasResponded == true).OrderByDescending(x => x.ReqTime).ToListAsync();
+           // var Reqs1 = await azureSyncTable.Where(x => x.ReqFrom == currentUser && x.HasResponded == false).OrderByDescending(x => x.ReqTime).ToListAsync();
+            //var result = Reqs.Union(Reqs1);
+
             return result;
         }
 
@@ -150,7 +183,7 @@ namespace TelstraApp.Core.Database
             await SyncAsync(currentUser, true);
         }
 
-        private async Task SyncAsyncEmp(bool pullData = false)
+        public async Task SyncAsyncEmp(bool pullData = false)
         {
             try
             {

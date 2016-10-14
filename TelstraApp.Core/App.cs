@@ -14,5 +14,6 @@ namespace TelstraApp.Core
             //RegisterAppStart<ViewModels.FirstViewModel>();
             RegisterAppStart<ViewModels.LoginViewModel>();
         }
+
     }
 }
