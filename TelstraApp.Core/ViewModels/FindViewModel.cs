@@ -108,8 +108,6 @@ namespace TelstraApp.Core.ViewModels
             set { SetProperty(ref user, value); }
         }
 
-
-
         public ICommand SelectLocationCommand { get; private set; }
 
 
@@ -118,6 +116,7 @@ namespace TelstraApp.Core.ViewModels
         private readonly IUserDatabase UsersDatabase;
         private string currentUser;
         private IDialogService dialog;
+        private int ResReqCount = 0;
 
         public string getCurrentUser()
         {
@@ -144,8 +143,6 @@ namespace TelstraApp.Core.ViewModels
                 SelectUserFromSearch(selectedLocation, dialog);
                 SearchTerm = string.Empty;
                 RaisePropertyChanged(() => SearchTerm);
-                
-
 
             });
 
@@ -167,59 +164,84 @@ namespace TelstraApp.Core.ViewModels
 
         //author: Michael Kath (n9293833)
         //Displays all the outstanding requests
+
+
+
         public async void RetrieveRequests()
         {
             ListOutStandingReq = new ObservableCollection<AddRequest>();
 
+            //Get current find Requests
             var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
-            //var test = 
+            AddRequests(curerntReq);
 
-            foreach (var user in curerntReq)
-            {
-                if (user.HasResponded)
-                {
-                    SendReq(new AddRequest(user.ReqTo, user.HasResponded));
-                }
-                
-            }
-
-            foreach (var user in curerntReq)
-            {
-                if (!user.HasResponded)
-                {
-                    SendReq(new AddRequest(user.ReqTo, user.HasResponded));
-                }
-
-            }
-            RaisePropertyChanged(() => ListOutStandingReq);
-
+            //meanwhile push from the database and check to see if they have changed
             var newRequests = await UsersDatabase.SelectViaUser(currentUser, true);
 
-            if (!newRequests.Equals(curerntReq))
+            //if the counts are different then there must be a database change
+            if (newRequests.Count() != curerntReq.Count())
             {
-                foreach (var user in newRequests)
+                //update the list
+                AddRequests(newRequests);
+            }
+            else
+            {
+                var newReq = newRequests.ToList();
+                var curReq = newRequests.ToList();
+                // compare every new request received from DB against the current DB
+                for (int i = 0; i < newRequests.Count(); i++)
                 {
-                    if (user.HasResponded)
+                    // if there is a change
+                    if (newReq[i] != curReq[i])
                     {
-                        SendReq(new AddRequest(user.ReqTo, user.HasResponded));
+                        //Update the entire list
+                        AddRequests(newRequests);
+                        break;
                     }
-
                 }
-
-                foreach (var user in newRequests)
-                {
-                    if (!user.HasResponded)
-                    {
-                        SendReq(new AddRequest(user.ReqTo, user.HasResponded));
-                    }
-
-                }
-
-                RaisePropertyChanged(() => ListOutStandingReq);
             }
             
         }
 
+        private void AddRequests(IEnumerable<Users> newRequests)
+        {
+            ListOutStandingReq = new ObservableCollection<AddRequest>();
+            ResReqCount = 0;
+            foreach (var user in newRequests)
+            {
+                
+                if (user.HasResponded)
+                {
+                    ResReqCount++;
+                    TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
+
+                    SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                }
+
+            }
+
+            foreach (var user in newRequests)
+            {
+                if (!user.HasResponded)
+                {
+                    TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
+                    SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                }
+
+            }
+
+            RaisePropertyChanged(() => ListOutStandingReq);
+        }
+
+
+        private void InsertReqDB(Employees selectedUser)
+        {
+            UsersDatabase.InsertLocation(selectedUser, currentUser);
+
+            TimeFormatter TimeTimer = new TimeFormatter();
+            SendReq(new AddRequest(selectedUser.UserName, TimeTimer.reqTime), false);
+            User.Clear();
+        }
         //author: Michael Kath (n9293833)
         //Adds User to list if he doesnt exist
         public async void SelectUserFromSearch(Employees selectedUser, IDialogService dialog)
@@ -228,20 +250,15 @@ namespace TelstraApp.Core.ViewModels
             {
                if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
                 {
-                    UsersDatabase.InsertLocation(selectedUser, currentUser);
-                    SendReq(new AddRequest(selectedUser.UserName));
-                    User.Clear();
+                    InsertReqDB(selectedUser);
                 }
                 else
                 {
-                    if (await dialog.Show("This location has already been added", "Location Exists", "Keep Searching", "Go Back"))
+                    if (await dialog.Show("You have already added a request", "Request Exists", "Send Another", "Go Back"))
                     {
-                        SearchTerm = string.Empty;
-                        User.Clear();
-                    }
-                    else
-                    {
-                        
+                        await UsersDatabase.DeleteRequest(selectedUser.UserName, currentUser);
+                        InsertReqDB(selectedUser);
+                        RetrieveRequests();
                     }
                 }
             }
@@ -249,11 +266,20 @@ namespace TelstraApp.Core.ViewModels
 
 
         //author: Michael Kath (n9293833)
-        public void SendReq(AddRequest req)
+        public void SendReq(AddRequest req, bool AddLast = true)
         {
             if (req.UserNameReq != null && req.UserNameReq.Trim() != string.Empty)
             {
-                ListOutStandingReq.Add(req);
+               if (AddLast)
+                {
+                    ListOutStandingReq.Add(req);
+                }
+                else
+                {
+                    
+                    ListOutStandingReq.Insert(ResReqCount, req);
+                }
+               
             }
 
         }

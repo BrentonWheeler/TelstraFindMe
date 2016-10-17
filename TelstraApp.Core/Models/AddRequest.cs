@@ -12,6 +12,7 @@ namespace TelstraApp.Core.ViewModels
     {
         private string userNameReq;
         private string userStatus;
+        private string userDate;
         private int rbg_red;
         private int rbg_green;
         private int rbg_blue;
@@ -22,20 +23,31 @@ namespace TelstraApp.Core.ViewModels
 
             set {
                 SetProperty(ref userNameReq, value);
-                //UpdateColor();
             }
         }
         public string UserStatus
         {
             get
             {
-                //UpdateColor();
                 return userStatus;
             }
             set {
                     SetProperty(ref userStatus, value);
                 }
             }
+
+        public string UserDate
+        {
+            get
+            {
+                return userDate;
+            }
+            set
+            {
+                SetProperty(ref userDate, value);
+            }
+        }
+
         private MvxColor _color;
 
         public MvxColor CurrentColor
@@ -79,16 +91,19 @@ namespace TelstraApp.Core.ViewModels
         }
 
         public AddRequest() { }
-        public AddRequest(string userReq, bool userStatus)
+        public AddRequest(string userReq, bool userStatus, string userDate)
         {
             UserStatus = ReqStatus(userStatus);
             UserNameReq = userReq;
+            UserDate = userDate;
             RaisePropertyChanged(() => UserStatus);
             RaisePropertyChanged(() => UserNameReq);
+            RaisePropertyChanged(() => UserDate);
         }
-        public AddRequest(string userReq)
+        public AddRequest(string userReq, string userDate)
         {
-            userNameReq = userReq;
+            UserNameReq = userReq;
+            UserDate = userDate;
             UserStatus = "Has not responded";
             RaisePropertyChanged(() => UserNameReq);
         }

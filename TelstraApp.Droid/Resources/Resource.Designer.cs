@@ -390,8 +390,20 @@ namespace TelstraApp.Droid
 			// aapt resource value: 0x7f070001
 			public const int MvxBindingTagUnique = 2131165185;
 			
+			// aapt resource value: 0x7f070013
+			public const int ReqDate = 2131165203;
+			
+			// aapt resource value: 0x7f070012
+			public const int ReqName = 2131165202;
+			
+			// aapt resource value: 0x7f070014
+			public const int ReqStatus = 2131165204;
+			
 			// aapt resource value: 0x7f070010
 			public const int Searching = 2131165200;
+			
+			// aapt resource value: 0x7f070011
+			public const int TableRow01 = 2131165201;
 			
 			// aapt resource value: 0x7f070007
 			public const int adjust_height = 2131165191;
@@ -432,8 +444,8 @@ namespace TelstraApp.Droid
 			// aapt resource value: 0x7f07000f
 			public const int textView1 = 2131165199;
 			
-			// aapt resource value: 0x7f070011
-			public const int weathermap = 2131165201;
+			// aapt resource value: 0x7f070015
+			public const int weathermap = 2131165205;
 			
 			// aapt resource value: 0x7f07000b
 			public const int wide = 2131165195;

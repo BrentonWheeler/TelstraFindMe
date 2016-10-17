@@ -171,9 +171,6 @@ namespace TelstraApp.Core.Database
           
             // await SyncAsyncEmp(true);
             var result = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
-            //var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser && x.HasResponded == true).OrderByDescending(x => x.ReqTime).ToListAsync();
-           // var Reqs1 = await azureSyncTable.Where(x => x.ReqFrom == currentUser && x.HasResponded == false).OrderByDescending(x => x.ReqTime).ToListAsync();
-            //var result = Reqs.Union(Reqs1);
 
             return result;
         }

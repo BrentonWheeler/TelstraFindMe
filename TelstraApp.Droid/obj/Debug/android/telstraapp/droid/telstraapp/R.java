@@ -357,7 +357,11 @@ containing a value of this type.
     public static final class id {
         public static final int MvvmCrossTagId=0x7f070000;
         public static final int MvxBindingTagUnique=0x7f070001;
+        public static final int ReqDate=0x7f070013;
+        public static final int ReqName=0x7f070012;
+        public static final int ReqStatus=0x7f070014;
         public static final int Searching=0x7f070010;
+        public static final int TableRow01=0x7f070011;
         public static final int adjust_height=0x7f070007;
         public static final int adjust_width=0x7f070008;
         public static final int auto=0x7f07000c;
@@ -371,7 +375,7 @@ containing a value of this type.
         public static final int standard=0x7f07000a;
         public static final int terrain=0x7f070006;
         public static final int textView1=0x7f07000f;
-        public static final int weathermap=0x7f070011;
+        public static final int weathermap=0x7f070015;
         public static final int wide=0x7f07000b;
     }
     public static final class integer {
