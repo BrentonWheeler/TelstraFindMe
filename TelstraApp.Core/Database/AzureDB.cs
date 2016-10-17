@@ -145,6 +145,16 @@ namespace TelstraApp.Core.Database
             return result;
         }
 
+        public async Task<IEnumerable<Users>> SelectToUser(string currentUser)
+        {
+            await SyncAsync(currentUser, true);
+            // await SyncAsyncEmp(true);
+            //var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
+            //var Reqs = await azureSyncTable.Where(x => x.ReqTo == currentUser && x.HasResponded == true).OrderByDescending(x => x.ReqTime).ToListAsync();
+            var Reqs = await azureSyncTable.ToListAsync();
+            return Reqs;
+        }
+
         public async Task RunSync(string currentUser)
         {
             await SyncAsync(currentUser, true);

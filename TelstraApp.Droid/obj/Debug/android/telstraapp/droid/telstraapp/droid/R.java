@@ -75,6 +75,9 @@ containing a value of this type.
     public static final class id {
         public static final int MvvmCrossTagId=0x7f050000;
         public static final int MvxBindingTagUnique=0x7f050001;
+        public static final int response_text=0x7f050004;
+        public static final int room_text=0x7f050005;
+        public static final int selectAllCB=0x7f050003;
         public static final int textView1=0x7f050002;
     }
     public static final class layout {
@@ -83,10 +86,12 @@ containing a value of this type.
         public static final int locationsearchlayout=0x7f030002;
         public static final int login=0x7f030003;
         public static final int pendingrequestitemlayout=0x7f030004;
-        public static final int requestitemlayout=0x7f030005;
-        public static final int requests=0x7f030006;
-        public static final int splashscreen=0x7f030007;
-        public static final int viewresponse=0x7f030008;
+        public static final int receiveditemlayout=0x7f030005;
+        public static final int requestitemlayout=0x7f030006;
+        public static final int requests=0x7f030007;
+        public static final int response=0x7f030008;
+        public static final int splashscreen=0x7f030009;
+        public static final int viewresponse=0x7f03000a;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040001;

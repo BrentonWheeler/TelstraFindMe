@@ -15,6 +15,14 @@ public class MvxTableLayout
 	}
 
 
+	public MvxTableLayout (android.content.Context p0) throws java.lang.Throwable
+	{
+		super (p0);
+		if (getClass () == MvxTableLayout.class)
+			mono.android.TypeManager.Activate ("MvvmCross.Binding.Droid.Views.MvxTableLayout, MvvmCross.Binding.Droid, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
+	}
+
+
 	public MvxTableLayout (android.content.Context p0, android.util.AttributeSet p1) throws java.lang.Throwable
 	{
 		super (p0, p1);

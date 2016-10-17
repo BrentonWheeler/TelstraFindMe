@@ -87,5 +87,10 @@ namespace TelstraApp.Core.Database
         {
             throw new NotImplementedException();
         }
+
+        public Task<IEnumerable<Users>> SelectToUser(string currentUser)
+        {
+            throw new NotImplementedException();
+        }
     }
     }

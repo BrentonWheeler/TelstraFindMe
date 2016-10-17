@@ -100,6 +100,12 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "TelstraApp.Droid.dll" comes first in this list. */
 		"TelstraApp.Droid.dll",
 		"Java.Interop.dll",
+		"Microsoft.Data.Edm.dll",
+		"Microsoft.Data.OData.dll",
+		"Microsoft.Data.Services.Client.dll",
+		"Microsoft.WindowsAzure.Mobile.dll",
+		"Microsoft.WindowsAzure.Mobile.Ext.dll",
+		"Microsoft.WindowsAzure.Mobile.SQLiteStore.dll",
 		"MvvmCross.Binding.dll",
 		"MvvmCross.Binding.Droid.dll",
 		"MvvmCross.Core.dll",
@@ -108,11 +114,16 @@ class MonoPackageManager_Resources {
 		"MvvmCross.Localization.dll",
 		"MvvmCross.Platform.dll",
 		"MvvmCross.Platform.Droid.dll",
+		"Newtonsoft.Json.dll",
 		"SQLite.Net.dll",
 		"SQLite.Net.Platform.XamarinAndroid.dll",
+		"SQLitePCL.dll",
+		"SQLitePCL.Ext.dll",
+		"System.Net.Http.Extensions.dll",
+		"System.Net.Http.Primitives.dll",
+		"System.Spatial.dll",
 		"TelstraApp.Core.dll",
 		"System.ServiceModel.Internals.dll",
-		"Newtonsoft.Json.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

@@ -41,6 +41,7 @@
     <Compile Include="Interfaces\IDialogService.cs" />
     <Compile Include="Interfaces\IUsersDatabase.cs" />
     <Compile Include="Interfaces\ISqlite.cs" />
+    <Compile Include="Models\ReceivedRequest.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\Forecast.cs" />
     <Compile Include="Models\ForecastWrapper.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="Models\AddRequest.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ResponseViewModel.cs" />
     <Compile Include="ViewModels\RequestsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

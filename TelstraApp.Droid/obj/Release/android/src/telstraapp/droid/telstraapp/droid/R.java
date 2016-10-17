@@ -68,7 +68,9 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int icon=0x7f020000;
-        public static final int splash=0x7f020001;
+        public static final int reqlist=0x7f020001;
+        public static final int rounded_corner=0x7f020002;
+        public static final int splash=0x7f020003;
     }
     public static final class id {
         public static final int MvvmCrossTagId=0x7f050000;
@@ -79,11 +81,12 @@ containing a value of this type.
         public static final int find=0x7f030000;
         public static final int firstview=0x7f030001;
         public static final int locationsearchlayout=0x7f030002;
-        public static final int pendingrequestitemlayout=0x7f030003;
-        public static final int requestitemlayout=0x7f030004;
-        public static final int requests=0x7f030005;
-        public static final int splashscreen=0x7f030006;
-        public static final int viewresponse=0x7f030007;
+        public static final int login=0x7f030003;
+        public static final int pendingrequestitemlayout=0x7f030004;
+        public static final int requestitemlayout=0x7f030005;
+        public static final int requests=0x7f030006;
+        public static final int splashscreen=0x7f030007;
+        public static final int viewresponse=0x7f030008;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040001;

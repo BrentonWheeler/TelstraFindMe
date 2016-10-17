@@ -14,6 +14,7 @@ namespace TelstraApp.Core.ViewModels
     {
         private RequestsViewModel _requests;
         private FindViewModel _find;
+        private ResponseViewModel _response;
         private string cuser;
         private IDialogService dialog;
         private IUserDatabase locationsDatabase;
@@ -92,9 +93,13 @@ namespace TelstraApp.Core.ViewModels
              };
             Requests = new RequestsViewModel(dialog, locationsDatabase, Current_User);
             Find = new FindViewModel(dialog, locationsDatabase, Current_User);
-            
+            Response = new ResponseViewModel(dialog, locationsDatabase, Current_User);
         }
-       
+        public ResponseViewModel Response
+        {
+            get { return _response; }
+            set { _response = value; RaisePropertyChanged(() => Response); }
+        }
         public RequestsViewModel Requests
         {
             get { return _requests; }

@@ -21,6 +21,17 @@ namespace TelstraApp.Droid.Views
         }
 
     }
+    [Activity(Label = "View for ResponseView")]
+    public class ResponseView : MvxActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Response);
+        }
+
+    }
     //Author: Michael Kath (n9293833)
     [Activity(Label = "View for FindView")]
     public class FindView: MvxActivity

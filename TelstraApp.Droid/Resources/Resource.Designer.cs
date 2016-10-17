@@ -119,6 +119,15 @@ namespace TelstraApp.Droid
 			// aapt resource value: 0x7f050001
 			public const int MvxBindingTagUnique = 2131034113;
 			
+			// aapt resource value: 0x7f050004
+			public const int response_text = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int room_text = 2131034117;
+			
+			// aapt resource value: 0x7f050003
+			public const int selectAllCB = 2131034115;
+			
 			// aapt resource value: 0x7f050002
 			public const int textView1 = 2131034114;
 			
@@ -151,16 +160,22 @@ namespace TelstraApp.Droid
 			public const int PendingRequestItemLayout = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int RequestItemLayout = 2130903045;
+			public const int ReceivedItemLayout = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Requests = 2130903046;
+			public const int RequestItemLayout = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int SplashScreen = 2130903047;
+			public const int Requests = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int ViewResponse = 2130903048;
+			public const int Response = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int SplashScreen = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int ViewResponse = 2130903050;
 			
 			static Layout()
 			{
