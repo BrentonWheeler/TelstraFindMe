@@ -147,10 +147,19 @@ namespace TelstraApp.Core.ViewModels
             });
 
             // if a request item on the list is pressed (USED FOR TESTING ATM)
-            SelectReqCommand = new  MvxCommand<AddRequest> ( req =>
+            SelectReqCommand = new  MvxCommand<AddRequest> ( async req =>
             {
-                UsersDatabase.DeleteRequest(req.UserNameReq, currentUser);
-                RetrieveRequests();
+                var response = await UsersDatabase.GetResponse(currentUser, req.UserNameReq);
+
+                if (response.RespLocationLat != 0 && response.RespLocationLng != 0)
+                {
+                    ShowViewModel<RequestResponseViewModel>(response);
+                }
+
+                
+
+                // UsersDatabase.DeleteRequest(req.UserNameReq, currentUser);
+                // RetrieveRequests();
             });
 
 

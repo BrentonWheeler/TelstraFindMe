@@ -80,7 +80,13 @@ namespace TelstraApp.Core.Database
             return 1;
         }
 
+        public async Task<Users> GetResponse(string currentUser, string curReq)
+        {
+            var currentReqs = await azureSyncTable.Where(x => x.ReqTo == curReq && x.ReqFrom == currentUser).ToListAsync();
 
+            return currentReqs.FirstOrDefault();
+
+        }
 
         public async Task<int> AddResponse(AddRequest Requests, string currentUser)
         {

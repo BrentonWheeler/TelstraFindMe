@@ -17,11 +17,20 @@ namespace TelstraApp.Core.ViewModels
         private GeoLocation myLocation;
         private Action<GeoLocation, float> moveToLocation;
         private Action<GeoLocation> weatherPinFound;
+        private double lat = 0.0;
+        private double lng = 0.0;
 
         public RequestResponseViewModel() {
 
-            string here = "";
+           
             //SetupMap();
+        }
+
+        public void Init(Users response)
+        {
+            lat = (double)response.RespLocationLat;
+            lng = (double)response.RespLocationLng;
+
         }
 
         public GeoLocation MyLocation
@@ -38,7 +47,7 @@ namespace TelstraApp.Core.ViewModels
         public void OnMyLocationChanged(GeoLocation location)
         {
             MyLocation = location;
-            GeoLocation location2 = new GeoLocation(-27.470125, 153.0251);
+            GeoLocation location2 = new GeoLocation(lat, lng);
             getData(location2);
         }
 
@@ -51,12 +60,5 @@ namespace TelstraApp.Core.ViewModels
             weatherPinFound = WeatherPinFound;
 
         }
-
-    /*    public void OnMapSetup(Action<GeoLocation, float> MoveToLocation, Action<GeoLocation, Forecast> WeatherPinFound)
-        {
-            moveToLocation = MoveToLocation;
-            weatherPinFound = WeatherPinFound;
-        }
-        */
     }
 }

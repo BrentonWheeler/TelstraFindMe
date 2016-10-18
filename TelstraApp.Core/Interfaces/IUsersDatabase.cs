@@ -26,5 +26,6 @@ namespace TelstraApp.Core.Interfaces
         Task<int> InsertEmployee(Employees employee);
         Task SyncAsyncEmp(bool pullData = false);
         Task<String[]> GetFavourites(string currentUser);
+        Task<Users> GetResponse(string currentUser, string curReq);
     }
 }

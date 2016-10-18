@@ -100,5 +100,10 @@ namespace TelstraApp.Core.Database
         {
             throw new NotImplementedException();
         }
+
+        public Task<Users> GetResponse(string currentUser, string curReq)
+        {
+            throw new NotImplementedException();
+        }
     }
  }
