@@ -1,5 +1,4 @@
-﻿using MvvmCross.Core.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,19 +6,8 @@ using System.Threading.Tasks;
 
 namespace TelstraApp.Core.ViewModels
 {
-    public class ReceivedRequest : MvxViewModel
+    public class ReceivedRequest
     {
-        private Boolean _liisChecked = true;
-        public bool LIIsChecked
-        {
-            get { return this._liisChecked; }
-            set
-            {
-                _liisChecked = !_liisChecked;
-                RaisePropertyChanged(() => LIIsChecked);
-            }
-        }
-
         public string RequestersName { get; set; }
         public DateTime RequestersStatus { get; set; }
 
@@ -32,11 +20,6 @@ namespace TelstraApp.Core.ViewModels
             return "Has not responded";
         }
 
-        public void checkBox(bool isChecked)
-        {
-            _liisChecked = isChecked;
-            RaisePropertyChanged(() => LIIsChecked);
-        }
         public ReceivedRequest() { }
         public ReceivedRequest(string userReq, DateTime userStatus)
         {

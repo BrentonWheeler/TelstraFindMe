@@ -20,13 +20,6 @@ C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\bin\Debug\System.Net.Http
 C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.csproj.App.config
 C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll
 C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.pdb
-C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.csprojResolveAssemblyReference.cache
-C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
 C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
 C:\Users\Brenton\Desktop\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb

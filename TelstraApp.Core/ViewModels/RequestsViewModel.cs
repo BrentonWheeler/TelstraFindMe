@@ -45,16 +45,11 @@ namespace TelstraApp.Core.ViewModels
 
             SelectAll = new MvxCommand(() =>
             {
-
                 _isChecked = !_isChecked;
+                
+                RaisePropertyChanged(() => _isChecked);
                 IsChecked = _isChecked;
-
-                foreach (var item in ListReceivedReq)
-                {
-                    item.checkBox(IsChecked);
-                }
-                RaisePropertyChanged(() => ListReceivedReq);
-                //RaisePropertyChanged(() => LIIsChecked);
+                RaisePropertyChanged(() => IsChecked);
             });
         }
 
