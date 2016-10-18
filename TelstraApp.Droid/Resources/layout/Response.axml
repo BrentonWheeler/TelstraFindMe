@@ -94,16 +94,7 @@
             android:text="Favorites"
             android:layout_marginLeft="40dp"
             android:textSize="20sp" />
-        <Mvx.MvxSpinner
-            style="@style/Spinners"
-            android:id="@+id/fav_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:prompt="Custom Favorites"
-            local:MvxBind="ItemsSource JobStatuses; SelectedItem SelectedJobStatus; HandleItemSelected FilterJobsByStatusCommand"
-            local:MvxDropDownItemTemplate="@layout/spinner_jobstatuses"
-            local:MvxItemTemplate="@layout/item_jobstatus" />
+        
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

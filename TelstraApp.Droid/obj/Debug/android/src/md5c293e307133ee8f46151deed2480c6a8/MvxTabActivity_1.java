@@ -2,7 +2,7 @@ package md5c293e307133ee8f46151deed2480c6a8;
 
 
 public class MvxTabActivity_1
-	extends md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity
+	extends mvvmcross.droid.views.MvxTabActivity
 	implements
 		mono.android.IGCUserPeer
 {

@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="TelstraApp.Droid.TelstraApp.Droid" android:versionCode="1" android:versionName="1.0">
-  <!--suppress UsesMinSdkAttributes-->
-  <uses-sdk android:minSdkVersion="16" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="TelstraApp.Droid.TelstraApp" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="21" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="TelstraApp.TelstraApp.permission.MAPS_RECEIVE" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
   <application android:label="TelstraApp.Droid" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBbYpFo0XZhY2JVIiT7WNyJs11krcsx6PQ" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <activity android:label="TelstraApp.Droid" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Splash" android:name="md547636b337cc6f0c6cf46087f04e75af6.SplashScreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -16,15 +25,18 @@
     <activity android:label="View for FindView" android:name="md542148431bcec0d6b72e9fef82de3cdba.FindView" />
     <activity android:label="View for FindView" android:name="md542148431bcec0d6b72e9fef82de3cdba.LoginView" />
     <activity android:label="FirstView" android:name="md542148431bcec0d6b72e9fef82de3cdba.FirstView" />
+    <activity android:label="View for RequestResponse" android:name="md542148431bcec0d6b72e9fef82de3cdba.RequestResponseView" />
+    <service android:name="md59ac3ea355d654c0ff72d2ef41149144b.MyService" />
     <activity android:label="Web Authenticator" android:name="md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity" />
-    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="TelstraApp.Droid.TelstraApp.Droid.mono.MonoRuntimeProvider.__mono_init__" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="TelstraApp.Droid.TelstraApp.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">
       <intent-filter>
         <action android:name="mono.android.intent.action.SEPPUKU" />
-        <category android:name="mono.android.intent.category.SEPPUKU.TelstraApp.Droid.TelstraApp.Droid" />
+        <category android:name="mono.android.intent.category.SEPPUKU.TelstraApp.Droid.TelstraApp" />
       </intent-filter>
     </receiver>
   </application>
+  <service android:name="myservice.MySerivce" />
 </manifest>

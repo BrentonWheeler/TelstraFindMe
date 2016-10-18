@@ -38,5 +38,6 @@ namespace TelstraApp.Droid
             // Mvx.LazyConstructAndRegisterSingleton<IAzureDatabase, AzureDatabase>();
             base.InitializeFirstChance();
         }
+
     }
 }

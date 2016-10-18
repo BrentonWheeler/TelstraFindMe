@@ -15,25 +15,15 @@ using MvvmCross.Core.ViewModels;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
-using static TelstraApp.Core.ViewModels.FirstViewModel;
+using Android.App;
+using Android.Content;
+using MvvmCross.Platform.UI;
 
 namespace TelstraApp.Core.ViewModels
 {
     //author: Michael Kath (n9293833)
     public class FindViewModel : MvxViewModel
     {
-        private string _bar = "Debug menu:";
-
-        //Debug display TODO remove later
-        public string Bar
-        {
-            get { return _bar; }
-            set
-            {
-                _bar = value; RaisePropertyChanged(() => Bar);
-            }
-        }
-
         private ObservableCollection<AddRequest> outStandingReq;
         public ObservableCollection<AddRequest> ListOutStandingReq
         {
@@ -41,44 +31,12 @@ namespace TelstraApp.Core.ViewModels
             set { SetProperty(ref outStandingReq, value); }
         }
 
-     
-
-        //author: Michael Kath (n9293833)
-        private string userNameReq;
-        public string UserNameReq
-        {
-            get { return userNameReq; }
-            set
-            {
-                if (value != null)
-                {
-                    SetProperty(ref userNameReq, value);
-                }
-            }
-        }
-
-
-
-        //author: Michael Kath (n9293833)
-        private string reqStatus;
-        public string ReqStatus
-        {
-            get { return reqStatus; }
-            set
-            {
-                if (value != null)
-                {
-                    SetProperty(ref reqStatus, value);
-                }
-            }
-        }
-
         public ICommand ButtonCommand { get; private set; }
 
         public ICommand SelectReqCommand { get; private set; }
-        //public ICommand SelectPendingCommand { get; private set; }
 
         private string searchTerm;
+        private bool startedSearch = false;
 
         //calls the search location(employees later) based on typing 3 chars
         public string SearchTerm
@@ -87,12 +45,57 @@ namespace TelstraApp.Core.ViewModels
             set
             {
                 SetProperty(ref searchTerm, value);
-                if (searchTerm.Length > 3)
+                if (searchTerm.Length == 0 && !startedSearch)
                 {
-                    SearchLocations(searchTerm);
+                    //broken
+                    //GetFavourites();
+                }
+
+                if (searchTerm.Length > 2)
+                {
+                    startedSearch = true;
+                    SearchEmployees(searchTerm);
                     RaisePropertyChanged(() => User);
 
                 }
+                if (startedSearch && searchTerm.Length < 2)
+                {
+                    User.Clear();
+                    startedSearch = false;
+                }
+
+                
+            }
+        }
+        //author: Michael Kath (n9293833)
+        public async void SearchEmployees(string searchTerm)
+        {
+            User.Clear();
+            User.Add(new Employees("Searching..."));
+            var result = await UsersDatabase.GetEmployees(searchTerm, currentUser);
+            User.Clear();
+            if (result.Any())
+            {
+                foreach (var item in result)
+                {
+                    User.Add(item);
+                }
+            }
+            else
+            {
+                User.Add(new Employees("No matches found"));
+            }
+        }
+
+        private async void GetFavourites()
+        {
+            //await UsersDatabase.InsertEmployee(new Employees("User1"));
+           // await UsersDatabase.InsertEmployee(new Employees("User2"));
+            var favourites = await UsersDatabase.GetFavourites(currentUser);
+
+            foreach (var fav in favourites)
+            {
+                User.Add(new Employees(fav));
             }
         }
 
@@ -104,63 +107,21 @@ namespace TelstraApp.Core.ViewModels
             get { return user; }
             set { SetProperty(ref user, value); }
         }
-      /*  public ObservableCollection<LocationAutoCompleteResult> User
-        {
-            get { return user; }
-            set { SetProperty(ref user, value); }
-        } */
+
         public ICommand SelectLocationCommand { get; private set; }
 
-        //author: Michael Kath (n9293833)
-        //Currently searches the weather locations. Will be used to implement searching employees
 
-        public async void SearchLocations(string searchTerm)
-        {
-            //TODO remove this to allow searching via user
-            //Employees emp = new Employees("test333");
-
-            //SelectUserFromSearch(emp, dialog);
-
-
-
-            User.Clear();
-            //WeatherService weatherService = new WeatherService();
-            //AddResponse(req, currentUser);
-
-            //var locationResults = await weatherService.GetLocations(searchTerm);
-            //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
-            // var result = await UsersDatabase.GetEmployees(currentUser);
-            // WeatherService weatherService = new WeatherService();
-            // var locationResults = await weatherService.GetLocations(searchTerm);
-            // var bestLocationResults = locationResults.Where(location => location.Rank > 80);
-            User.Add(new Employees("Searching..."));
-            var result = await UsersDatabase.GetEmployees(searchTerm, currentUser);
-            User.Clear();
-         
-            //var bestLocationResults = locationResults.Where(location => location.Rank > 80);
-            foreach (var item in result)
-            {
-               User.Add(item);
-            }
-
-        }
-        /*   public async void SearchLocations(string searchTerm)
-           {
-               //TODO remove this to allow searching via user
-               WeatherService weatherService = new WeatherService();
-               User.Clear();
-               var locationResults = await weatherService.GetLocations(searchTerm);
-               var bestLocationResults = locationResults.Where(location => location.Rank > 80);
-               foreach (var item in bestLocationResults)
-               {
-                   User.Add(item);
-               }
-           } */
 
         //Database Stuff
         private readonly IUserDatabase UsersDatabase;
         private string currentUser;
         private IDialogService dialog;
+        private int ResReqCount = 0;
+
+        public string getCurrentUser()
+        {
+            return currentUser;
+        }
 
         //author: Michael Kath (n9293833)
         public FindViewModel(IDialogService dialog, IUserDatabase locationsDatabase, string currentUser)
@@ -172,83 +133,153 @@ namespace TelstraApp.Core.ViewModels
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
             RetrieveRequests();
+            RetrieveEmployees();
+            
+            
 
-    
+
             SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
             {
                 SelectUserFromSearch(selectedLocation, dialog);
-                //User = new ObservableCollection<Employees>();
                 SearchTerm = string.Empty;
                 RaisePropertyChanged(() => SearchTerm);
-
 
             });
 
             // if a request item on the list is pressed (USED FOR TESTING ATM)
             SelectReqCommand = new  MvxCommand<AddRequest> ( req =>
             {
-                Bar = "Debug: select" + req.UserNameReq;
-
-                //Testing updates a request with a response. Will be used to display the responses
-                var result = UsersDatabase.AddResponse(req, currentUser);
+                UsersDatabase.DeleteRequest(req.UserNameReq, currentUser);
                 RetrieveRequests();
-
-                RaisePropertyChanged(() => Bar);
             });
 
 
 
         }
 
+        public async void RetrieveEmployees()
+        {
+            await UsersDatabase.SyncAsyncEmp(true);
+        }
+
         //author: Michael Kath (n9293833)
         //Displays all the outstanding requests
+
+
+
         public async void RetrieveRequests()
         {
             ListOutStandingReq = new ObservableCollection<AddRequest>();
 
+            //Get current find Requests
             var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
-            //var test = 
+            AddRequests(curerntReq);
 
-            foreach (var user in curerntReq)
+            //meanwhile push from the database and check to see if they have changed
+            var newRequests = await UsersDatabase.SelectViaUser(currentUser, true);
+
+            //if the counts are different then there must be a database change
+            if (newRequests.Count() != curerntReq.Count())
             {
-                SendReq(new AddRequest(user.ReqTo, user.HasResponded));
+                //update the list
+                AddRequests(newRequests);
             }
-            //ShowViewModel<FindViewModel>();
-            RaisePropertyChanged(() => ListOutStandingReq);
+            else
+            {
+                var newReq = newRequests.ToList();
+                var curReq = newRequests.ToList();
+                // compare every new request received from DB against the current DB
+                for (int i = 0; i < newRequests.Count(); i++)
+                {
+                    // if there is a change
+                    if (newReq[i] != curReq[i])
+                    {
+                        //Update the entire list
+                        AddRequests(newRequests);
+                        break;
+                    }
+                }
+            }
             
         }
 
+        private void AddRequests(IEnumerable<Users> newRequests)
+        {
+            ListOutStandingReq = new ObservableCollection<AddRequest>();
+            ResReqCount = 0;
+            foreach (var user in newRequests)
+            {
+                
+                if (user.HasResponded)
+                {
+                    ResReqCount++;
+                    TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
+
+                    SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                }
+
+            }
+
+            foreach (var user in newRequests)
+            {
+                if (!user.HasResponded)
+                {
+                    TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
+                    SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                }
+
+            }
+
+            RaisePropertyChanged(() => ListOutStandingReq);
+        }
+
+
+        private void InsertReqDB(Employees selectedUser)
+        {
+            UsersDatabase.InsertLocation(selectedUser, currentUser);
+
+            TimeFormatter TimeTimer = new TimeFormatter();
+            SendReq(new AddRequest(selectedUser.UserName, TimeTimer.reqTime), false);
+            User.Clear();
+        }
         //author: Michael Kath (n9293833)
         //Adds User to list if he doesnt exist
         public async void SelectUserFromSearch(Employees selectedUser, IDialogService dialog)
         {
-
-            if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser) && selectedUser.UserName != "Searching...")
-
+            if (selectedUser.UserName != "Searching..." && selectedUser.UserName != "No matches found") { }
             {
-                UsersDatabase.InsertLocation(selectedUser, currentUser);
-                //UsersDatabase.InsertEmployee(selectedUser);
-                SendReq(new AddRequest(selectedUser.UserName));
-                //ShowViewModel<FirstViewModel>();
-                //FindViewModel
-                User.Clear();
-                Bar = "Debug:Added: ";
-                RaisePropertyChanged(() => Bar);
-            }
-            else
-            {
-                Bar = "Debug:Already been added: ";
-                RaisePropertyChanged(() => Bar);
+               if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
+                {
+                    InsertReqDB(selectedUser);
+                }
+                else
+                {
+                    if (await dialog.Show("You have already added a request", "Request Exists", "Send Another", "Go Back"))
+                    {
+                        await UsersDatabase.DeleteRequest(selectedUser.UserName, currentUser);
+                        InsertReqDB(selectedUser);
+                        RetrieveRequests();
+                    }
+                }
             }
         }
 
 
         //author: Michael Kath (n9293833)
-        public void SendReq(AddRequest req)
+        public void SendReq(AddRequest req, bool AddLast = true)
         {
             if (req.UserNameReq != null && req.UserNameReq.Trim() != string.Empty)
             {
-                ListOutStandingReq.Add(req);
+               if (AddLast)
+                {
+                    ListOutStandingReq.Add(req);
+                }
+                else
+                {
+                    
+                    ListOutStandingReq.Insert(ResReqCount, req);
+                }
+               
             }
 
         }

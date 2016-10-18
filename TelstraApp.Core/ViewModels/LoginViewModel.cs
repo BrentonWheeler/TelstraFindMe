@@ -35,7 +35,14 @@ namespace TelstraApp.Core.ViewModels
 
             }
         }
+        public ICommand GotoMap
+        {
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<RequestResponseViewModel>(new RequestResponseViewModel()));
 
+            }
+        }
         public LoginViewModel()
         {
         }
