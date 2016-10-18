@@ -13,12 +13,12 @@
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-      <TabWidget
-          android:id="@android:id/tabs"
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="0"
-          android:layout_marginBottom="-4dp"/>    
+            android:layout_weight="1" />
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:layout_marginBottom="-4dp" />
     </LinearLayout>
 </TabHost>

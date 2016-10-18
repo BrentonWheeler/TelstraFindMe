@@ -2,7 +2,7 @@ package md542148431bcec0d6b72e9fef82de3cdba;
 
 
 public class FirstView
-	extends md5c293e307133ee8f46151deed2480c6a8.MvxTabActivity
+	extends mvvmcross.droid.views.MvxTabActivity
 	implements
 		mono.android.IGCUserPeer
 {
@@ -11,6 +11,7 @@ public class FirstView
 	static {
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
+			"n_onBackPressed:()V:GetOnBackPressedHandler\n" +
 			"";
 		mono.android.Runtime.register ("TelstraApp.Droid.Views.FirstView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", FirstView.class, __md_methods);
 	}
@@ -30,6 +31,14 @@ public class FirstView
 	}
 
 	private native void n_onCreate (android.os.Bundle p0);
+
+
+	public void onBackPressed ()
+	{
+		n_onBackPressed ();
+	}
+
+	private native void n_onBackPressed ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

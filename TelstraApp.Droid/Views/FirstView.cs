@@ -1,9 +1,14 @@
+using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using MvvmCross.Droid.Views;
 using TelstraApp.Core.ViewModels;
+using TelstraApp.Droid.Services;
+using static TelstraApp.Core.ViewModels.FindViewModel;
 
 namespace TelstraApp.Droid.Views
 {
@@ -12,23 +17,65 @@ namespace TelstraApp.Droid.Views
     {
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Requests);
         }
 
+
+
     }
+    [Activity(Label = "View for ResponseView")]
+    public class ResponseView : MvxActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Response);
+        }
+
+    }
+    //Author: Michael Kath (n9293833)
     [Activity(Label = "View for FindView")]
     public class FindView: MvxActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Find);
+            //this.StartService(new Intent(this, typeof(MyService)));
+            Intent startService1 = new Intent();
+            startService1.SetClass(this, typeof(MyService));
+            startService1.PutExtra("user1", true);
+            this.StartService(startService1);
+
         }
+
 
     }
 
-    //wednesday
+
+    //Author: Michael Kath (n9293833)
+    [Activity(Label = "View for FindView")]
+    public class LoginView : MvxActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Login);
+
+        }
+
+
+    }
+
+
+
+
+    //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity
     {
@@ -38,11 +85,11 @@ namespace TelstraApp.Droid.Views
         }
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.FirstView);
-
             TabHost.TabSpec tabspec;
-            Intent intent;
+            //Intent intent;
 
             tabspec = TabHost.NewTabSpec("requests");
             tabspec.SetIndicator("Requests");
@@ -53,7 +100,16 @@ namespace TelstraApp.Droid.Views
             tabspec.SetIndicator("Find");
             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Find));
             TabHost.AddTab(tabspec);
-
         }
+
+
+
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            //finish();
+        }//end onBackPressed()
+
     }
 }

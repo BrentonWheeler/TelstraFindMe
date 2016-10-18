@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:background="#005000"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <CheckBox
+        android:id="@+id/selectAllCB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select All"
+        android:textSize="20sp"
+        android:padding="20dp"
+        local:MvxBind="Checked IsChecked; Click SelectAll" />
+    <Mvx.MvxListView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        local:MvxItemTemplate="@layout/receiveditemlayout"
+        android:background="#ffffff"
+        local:MvxBind="ItemsSource ListReceivedReq;" />
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        local:MvxBind="Text Foo" />
+        android:layout_height="0dp"
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Respond"
+            android:layout_gravity="center_horizontal|center"
+            local:MvxBind="Click ResponseCommand;" />
+    </LinearLayout>
 </LinearLayout>

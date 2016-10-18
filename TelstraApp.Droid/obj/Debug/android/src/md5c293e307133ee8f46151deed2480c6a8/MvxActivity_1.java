@@ -2,7 +2,7 @@ package md5c293e307133ee8f46151deed2480c6a8;
 
 
 public abstract class MvxActivity_1
-	extends md5c293e307133ee8f46151deed2480c6a8.MvxActivity
+	extends mvvmcross.droid.views.MvxActivity
 	implements
 		mono.android.IGCUserPeer
 {

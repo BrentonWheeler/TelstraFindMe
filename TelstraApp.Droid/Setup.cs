@@ -2,6 +2,11 @@ using Android.Content;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Platform;
+using TelstraApp.Core.Interfaces;
+using MvvmCross.Platform;
+using TelstraApp.Droid.Database;
+using TelstraApp.Droid.Services;
+using TelstraApp.Core.Database;
 
 namespace TelstraApp.Droid
 {
@@ -20,5 +25,19 @@ namespace TelstraApp.Droid
         {
             return new DebugTrace();
         }
+
+
+        protected override void InitializeFirstChance()
+        {
+            Mvx.LazyConstructAndRegisterSingleton<ISqlite, SqliteDroid>();
+            Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
+            Mvx.LazyConstructAndRegisterSingleton<IAzureDB, AzureDatabase>();
+
+            Mvx.LazyConstructAndRegisterSingleton<IUserDatabase, AzureDB>();
+
+            // Mvx.LazyConstructAndRegisterSingleton<IAzureDatabase, AzureDatabase>();
+            base.InitializeFirstChance();
+        }
+
     }
 }

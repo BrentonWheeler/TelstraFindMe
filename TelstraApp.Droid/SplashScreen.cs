@@ -16,5 +16,6 @@ namespace TelstraApp.Droid
             : base(Resource.Layout.SplashScreen)
         {
         }
+
     }
 }
