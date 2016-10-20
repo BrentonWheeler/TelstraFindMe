@@ -293,5 +293,6 @@ D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\System.Xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\requestresponsemsg.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

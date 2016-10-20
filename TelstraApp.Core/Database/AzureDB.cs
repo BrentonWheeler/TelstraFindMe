@@ -90,7 +90,12 @@ namespace TelstraApp.Core.Database
 
         public async Task<int> AddResponse(AddRequest Requests, string currentUser)
         {
-            var currentReqs = await azureSyncTable.Where(x => x.ReqTo == Requests.UserNameReq && x.ReqFrom == currentUser).ToListAsync();
+
+           var currentReqs = await azureSyncTable.Where(x => x.ReqTo == Requests.UserNameReq && x.ReqFrom == currentUser).ToListAsync();
+
+
+            //return currentReqs = await azureSyncTable.Where(x =><YOUR_LIST>.Any(y=>y.ReqTo == currentUser && y.reqFrom == x.RequestersName)));
+
 
             if (currentReqs.Any())
             {
@@ -207,7 +212,6 @@ namespace TelstraApp.Core.Database
                     await employeeSyncTable.PullAsync("Employee", employeeSyncTable.CreateQuery());
                 }
             }
-
             catch (Exception e)
             {
                 Debug.WriteLine(e);

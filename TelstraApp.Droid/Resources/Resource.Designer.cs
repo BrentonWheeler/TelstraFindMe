@@ -513,16 +513,19 @@ namespace TelstraApp.Droid
 			public const int RequestResponse = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int Requests = 2130903048;
+			public const int RequestResponseMsg = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Response = 2130903049;
+			public const int Requests = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int SplashScreen = 2130903050;
+			public const int Response = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int ViewResponse = 2130903051;
+			public const int SplashScreen = 2130903051;
+			
+			// aapt resource value: 0x7f03000c
+			public const int ViewResponse = 2130903052;
 			
 			static Layout()
 			{

@@ -44,5 +44,6 @@ D:\mobile\TelstraApp\Source\TelstraApp.Core\bin\Debug\System.Net.Http.Primitives
 D:\mobile\TelstraApp\Source\TelstraApp.Core\obj\Debug\TelstraApp.Core.csproj.App.config
 D:\mobile\TelstraApp\Source\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll
 D:\mobile\TelstraApp\Source\TelstraApp.Core\obj\Debug\TelstraApp.Core.pdb
+D:\mobile\TelstraApp\Source\TelstraApp.Core\obj\Debug\TelstraApp.Core.csprojResolveAssemblyReference.cache
 D:\mobile\TelstraApp\Source\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb

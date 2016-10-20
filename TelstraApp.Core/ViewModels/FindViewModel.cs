@@ -1,23 +1,12 @@
-﻿using Android;
-using TelstraApp.Core.ViewModels;
-using TelstraApp.Core.Database;
+﻿
 using TelstraApp.Core.Interfaces;
 using TelstraApp.Core.Models;
-using TelstraApp.Core.Services;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
-using Android.Views;
-using Android.Views.InputMethods;
-using Android.Widget;
-using Android.App;
-using Android.Content;
-using MvvmCross.Platform.UI;
+
 
 namespace TelstraApp.Core.ViewModels
 {

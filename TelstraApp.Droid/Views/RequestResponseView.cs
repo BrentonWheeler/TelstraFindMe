@@ -1,20 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
 using Android.Gms.Maps;
 using MvvmCross.Droid.Views;
 using Android.Gms.Maps.Model;
 using TelstraApp.Core.ViewModels;
-using Android.Util;
 using TelstraApp.Core.Models;
 
 namespace TelstraApp.Droid.Views

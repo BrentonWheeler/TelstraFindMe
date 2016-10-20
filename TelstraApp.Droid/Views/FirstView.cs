@@ -1,14 +1,12 @@
-using System;
+
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
-using Android.Views.InputMethods;
 using Android.Widget;
 using MvvmCross.Droid.Views;
 using TelstraApp.Core.ViewModels;
 using TelstraApp.Droid.Services;
-using static TelstraApp.Core.ViewModels.FindViewModel;
 
 namespace TelstraApp.Droid.Views
 {
