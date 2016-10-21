@@ -6,7 +6,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
-
+using Android.Widget;
+using Android.Content;
+using System;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -14,18 +16,56 @@ namespace TelstraApp.Core.ViewModels
     public class FindViewModel : MvxViewModel
     {
         private ObservableCollection<AddRequest> outStandingReq;
+
+
+        public delegate void MyEventAction(string msg);
+        public event MyEventAction MyEvent;
+
+
+            
         public ObservableCollection<AddRequest> ListOutStandingReq
         {
             get { return outStandingReq; }
             set { SetProperty(ref outStandingReq, value); }
         }
 
+        private ObservableCollection<string> deleteStandingReq;
+        public ObservableCollection<string> DelListOutStandingReq
+        {
+            get { return deleteStandingReq; }
+            set { SetProperty(ref deleteStandingReq, value); }
+        }
+
         public ICommand ButtonCommand { get; private set; }
+
+
+
+
+
+        // public ICommand DeleteReq { get; private set; }
+
+
 
         public ICommand SelectReqCommand { get; private set; }
 
+        public ICommand SelectDeleteCommand { get; private set; }
+
         private string searchTerm;
         private bool startedSearch = false;
+
+        private string userDelete;
+        public string UserDelete
+        {
+            get
+            {
+                return userDelete;
+            }
+            set
+            {
+                SetProperty(ref userDelete, value);
+            }
+
+        }
 
         //calls the search location(employees later) based on typing 3 chars
         public string SearchTerm
@@ -98,6 +138,7 @@ namespace TelstraApp.Core.ViewModels
         }
 
         public ICommand SelectLocationCommand { get; private set; }
+        public int addMessage1 { get; set; }
 
 
 
@@ -120,24 +161,32 @@ namespace TelstraApp.Core.ViewModels
             User = new ObservableCollection<Employees>();
             this.UsersDatabase = locationsDatabase;
 
+            
+
             ListOutStandingReq = new ObservableCollection<AddRequest>();
+            DelListOutStandingReq = new ObservableCollection<string>();
             RetrieveRequests();
             RetrieveEmployees();
             
-            
-
 
             SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
             {
                 SelectUserFromSearch(selectedLocation, dialog);
                 SearchTerm = string.Empty;
+      
                 RaisePropertyChanged(() => SearchTerm);
+               
 
             });
 
-            // if a request item on the list is pressed (USED FOR TESTING ATM)
-            SelectReqCommand = new  MvxCommand<AddRequest> ( async req =>
+         SelectReqCommand = new  MvxCommand<AddRequest> ( async req =>
             {
+               /* await UsersDatabase.InsertLocation(new Employees("User1"), "User11");
+                await UsersDatabase.InsertLocation(new Employees("User1"), "User12");
+                await UsersDatabase.InsertLocation(new Employees("User1"), "User13");
+                await UsersDatabase.InsertLocation(new Employees("User1"), "User14");
+                await UsersDatabase.InsertLocation(new Employees("User1"), "User15"); */
+
                 var response = await UsersDatabase.GetResponse(currentUser, req.UserNameReq);
 
                 if (response.RespLocationLat != 0 && response.RespLocationLng != 0)
@@ -163,15 +212,22 @@ namespace TelstraApp.Core.ViewModels
         //author: Michael Kath (n9293833)
         //Displays all the outstanding requests
 
+        //ocal:MvxBind="ItemsSource removing; ItemClick SelectDeleteCommand"
+        // local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectReqCommand"
+
+
+        
 
 
         public async void RetrieveRequests()
         {
             ListOutStandingReq = new ObservableCollection<AddRequest>();
-
+            DelListOutStandingReq = new ObservableCollection<string>();
             //Get current find Requests
             var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
             AddRequests(curerntReq);
+
+            
 
             //meanwhile push from the database and check to see if they have changed
             var newRequests = await UsersDatabase.SelectViaUser(currentUser, true);
@@ -204,6 +260,7 @@ namespace TelstraApp.Core.ViewModels
         private void AddRequests(IEnumerable<Users> newRequests)
         {
             ListOutStandingReq = new ObservableCollection<AddRequest>();
+            DelListOutStandingReq = new ObservableCollection<string>();
             ResReqCount = 0;
             foreach (var user in newRequests)
             {
@@ -229,6 +286,7 @@ namespace TelstraApp.Core.ViewModels
             }
 
             RaisePropertyChanged(() => ListOutStandingReq);
+            RaisePropertyChanged(() => DelListOutStandingReq);
         }
 
 
@@ -240,6 +298,10 @@ namespace TelstraApp.Core.ViewModels
             SendReq(new AddRequest(selectedUser.UserName, TimeTimer.reqTime), false);
             User.Clear();
         }
+
+
+
+
         //author: Michael Kath (n9293833)
         //Adds User to list if he doesnt exist
         public async void SelectUserFromSearch(Employees selectedUser, IDialogService dialog)
@@ -249,6 +311,7 @@ namespace TelstraApp.Core.ViewModels
                if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
                 {
                     InsertReqDB(selectedUser);
+                    MyEvent("Requests Sent");
                 }
                 else
                 {
@@ -256,6 +319,13 @@ namespace TelstraApp.Core.ViewModels
                     {
                         await UsersDatabase.DeleteRequest(selectedUser.UserName, currentUser);
                         InsertReqDB(selectedUser);
+                        //TODO
+                        MyEvent("Requests Sent");
+
+
+                        //await dialog.Show("Request Sent", "Sent");
+                        //Toast toast = Toast.MakeText(this, "Inserted", ToastLength.Short);
+
                         RetrieveRequests();
                     }
                 }
@@ -271,11 +341,13 @@ namespace TelstraApp.Core.ViewModels
                if (AddLast)
                 {
                     ListOutStandingReq.Add(req);
+                    DelListOutStandingReq.Add("X");
                 }
                 else
                 {
                     
                     ListOutStandingReq.Insert(ResReqCount, req);
+                    DelListOutStandingReq.Insert(ResReqCount, "X");
                 }
                
             }

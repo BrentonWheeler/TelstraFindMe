@@ -15,16 +15,19 @@
             android:layout_weight="1"
             android:gravity="left"
             android:textSize="20dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
             local:MvxBind="Text UserNameReq;BackgroundColor CurrentColor, Converter=NativeColor"
             android:textColor="#ffffff" />
         <TextView
             android:id="@+id/ReqDate"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:textSize="20dp"
             android:text="TestingDate"
             android:textColor="#ffffff"
-            android:gravity="right"
+            android:gravity="bottom"
+            android:paddingRight="15dp"
             local:MvxBind="Text UserDate;BackgroundColor CurrentColor, Converter=NativeColor" />
     </TableRow>
     <TableRow
@@ -32,9 +35,11 @@
         android:layout_width="fill_parent">
         <TextView
             android:id="@+id/ReqStatus"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="15dp"
             android:layout_weight="1"
             local:MvxBind="Text UserStatus;BackgroundColor CurrentColor, Converter=NativeColor"
             android:textColor="#ffffff" />

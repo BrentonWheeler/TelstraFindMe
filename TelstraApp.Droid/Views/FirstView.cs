@@ -3,8 +3,10 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using MvvmCross.Droid.Views;
+using System;
 using TelstraApp.Core.ViewModels;
 using TelstraApp.Droid.Services;
 
@@ -31,6 +33,11 @@ namespace TelstraApp.Droid.Views
             RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Response);
+
+            Intent startService1 = new Intent();
+            startService1.SetClass(this, typeof(MyService));
+            startService1.PutExtra("user1", true);
+            StartService(startService1);
         }
 
     }
@@ -38,21 +45,39 @@ namespace TelstraApp.Droid.Views
     [Activity(Label = "View for FindView")]
     public class FindView: MvxActivity
     {
+      
+
+        protected TelstraApp.Core.ViewModels.FindViewModel vm
+        {
+            get { return base.ViewModel as FindViewModel; }
+        }
         protected override void OnCreate(Bundle bundle)
         {
             RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
+            vm.MyEvent += Vm_MyEvent;
             SetContentView(Resource.Layout.Find);
-            //this.StartService(new Intent(this, typeof(MyService)));
-            Intent startService1 = new Intent();
-            startService1.SetClass(this, typeof(MyService));
-            startService1.PutExtra("user1", true);
-            this.StartService(startService1);
 
+            
+        }
+        private void Vm_MyEvent(string msg)
+        {
+            InputMethodManager inputManager = (InputMethodManager)GetSystemService(InputMethodService);
+            var currentFocus = Window.CurrentFocus;
+            inputManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
+            //nBackPressed();
+
+            Toast.MakeText(this, msg, ToastLength.Long);
+           
         }
 
-
-    }
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+        }
+           
+        
+      }
 
 
     //Author: Michael Kath (n9293833)
@@ -77,6 +102,8 @@ namespace TelstraApp.Droid.Views
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity
     {
+
+        
         protected FirstViewModel FirstViewModel
         {
             get { return base.ViewModel as FirstViewModel; }
@@ -98,6 +125,10 @@ namespace TelstraApp.Droid.Views
             tabspec.SetIndicator("Find");
             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Find));
             TabHost.AddTab(tabspec);
+
+            //string current = FirstViewModel.Current_User();
+
+
         }
 
 
@@ -111,3 +142,4 @@ namespace TelstraApp.Droid.Views
 
     }
 }
+

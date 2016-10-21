@@ -11,10 +11,6 @@ namespace TelstraApp.Droid.Views
 {
     // public class RequestResponse : MvxActivity//, IOnMapReadyCallback
 
-
-
-
-
     [Activity(Label = "View for RequestResponse")]
     public class RequestResponseView : MvxActivity, IOnMapReadyCallback
     { 
@@ -32,7 +28,6 @@ namespace TelstraApp.Droid.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.RequestResponse);
            
-           // mMap.MyLocationChange += Map_MyLocationChange;
             SetupMap();
         }
         public void OnMapReady(GoogleMap googleMap)
@@ -48,7 +43,6 @@ namespace TelstraApp.Droid.Views
         {
             mMap.MyLocationChange -= Map_MyLocationChange;
             var location = new GeoLocation(e.Location.Latitude, e.Location.Longitude, e.Location.Altitude);
-            //MoveToLocation(location);
             vm.OnMyLocationChanged(location);
         }
 
@@ -59,8 +53,6 @@ namespace TelstraApp.Droid.Views
             builder.Zoom(zoom);
             var cameraPosition = builder.Build();
             var cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
-
-           
 
             mMap.MoveCamera(cameraUpdate);
         }

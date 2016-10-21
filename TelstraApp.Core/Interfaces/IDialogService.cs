@@ -16,6 +16,7 @@ namespace TelstraApp.Core.Interfaces
         /// <returns></returns>
         Task<bool> Show(string message, string title);
 
+
         /// <summary>
         /// Shows a dialog to the user, with a chosen message, title, confirm button and cancel button
         /// </summary>

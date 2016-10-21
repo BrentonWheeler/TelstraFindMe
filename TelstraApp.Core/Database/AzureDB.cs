@@ -95,7 +95,11 @@ namespace TelstraApp.Core.Database
 
 
             //return currentReqs = await azureSyncTable.Where(x =><YOUR_LIST>.Any(y=>y.ReqTo == currentUser && y.reqFrom == x.RequestersName)));
+            //var arrayReq = new[] { "User5", "user3" };
 
+            //var currentReqs1 = await azureSyncTable<Users>.Where(x => arrayReq.Contains(x.ReqFrom) && x.ReqTo == currentUser));
+
+            //var currentReqs1 = await azureSyncTable.Where(x => x.ReqTo == currentUser).ToListAsync();
 
             if (currentReqs.Any())
             {

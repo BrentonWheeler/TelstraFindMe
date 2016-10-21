@@ -13,6 +13,7 @@ namespace TelstraApp.Core.ViewModels
         private string userNameReq;
         private string userStatus;
         private string userDate;
+
         private int rbg_red;
         private int rbg_green;
         private int rbg_blue;
@@ -35,6 +36,7 @@ namespace TelstraApp.Core.ViewModels
                     SetProperty(ref userStatus, value);
                 }
             }
+
 
         public string UserDate
         {

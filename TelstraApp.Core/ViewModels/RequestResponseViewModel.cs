@@ -63,7 +63,7 @@ namespace TelstraApp.Core.ViewModels
                 msg += "I'm an currently at home today.\n";
             }
 
-            msg += "\nYou can find me at that the location below\n";
+            msg += "\nYou can find me at the below location\n";
             ResponseMsg = msg;
         }
 
@@ -80,6 +80,8 @@ namespace TelstraApp.Core.ViewModels
             get { return myLocation; }
             set { myLocation = value; }
         }
+
+      
 
         private void getData(GeoLocation location)
         {
