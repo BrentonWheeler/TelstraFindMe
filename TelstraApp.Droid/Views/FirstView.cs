@@ -53,22 +53,25 @@ namespace TelstraApp.Droid.Views
         }
         protected override void OnCreate(Bundle bundle)
         {
+            
             RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
-            vm.MyEvent += Vm_MyEvent;
-            SetContentView(Resource.Layout.Find);
-
             
-        }
-        private void Vm_MyEvent(string msg)
-        {
-            InputMethodManager inputManager = (InputMethodManager)GetSystemService(InputMethodService);
-            var currentFocus = Window.CurrentFocus;
-            inputManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
-            //nBackPressed();
+            SetContentView(Resource.Layout.Find);
+            vm.MyEvent += Vm_MyEvent;
 
-            Toast.MakeText(this, msg, ToastLength.Long);
-           
+        }
+        private void Vm_MyEvent(string msg, bool hideKeyBoard)
+        {
+            if (hideKeyBoard)
+            {
+                InputMethodManager inputManager = (InputMethodManager)GetSystemService(InputMethodService);
+                var currentFocus = Window.CurrentFocus;
+                inputManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
+            }
+        
+            var Toasty = Toast.MakeText(this, msg, ToastLength.Long);
+            Toasty.Show();
         }
 
         public override void OnBackPressed()
@@ -96,14 +99,10 @@ namespace TelstraApp.Droid.Views
     }
 
 
-
-
     //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity
     {
-
-        
         protected FirstViewModel FirstViewModel
         {
             get { return base.ViewModel as FirstViewModel; }

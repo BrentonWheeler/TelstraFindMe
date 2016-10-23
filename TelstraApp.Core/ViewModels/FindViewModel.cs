@@ -16,11 +16,8 @@ namespace TelstraApp.Core.ViewModels
     public class FindViewModel : MvxViewModel
     {
         private ObservableCollection<AddRequest> outStandingReq;
-
-
-        public delegate void MyEventAction(string msg);
+        public delegate void MyEventAction(string msg, bool hidekeyboard);
         public event MyEventAction MyEvent;
-
 
             
         public ObservableCollection<AddRequest> ListOutStandingReq
@@ -37,13 +34,6 @@ namespace TelstraApp.Core.ViewModels
         }
 
         public ICommand ButtonCommand { get; private set; }
-
-
-
-
-
-        // public ICommand DeleteReq { get; private set; }
-
 
 
         public ICommand SelectReqCommand { get; private set; }
@@ -227,9 +217,8 @@ namespace TelstraApp.Core.ViewModels
             var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
             AddRequests(curerntReq);
 
-            
-
             //meanwhile push from the database and check to see if they have changed
+           // MyEvent("Syncing Contacts", false);
             var newRequests = await UsersDatabase.SelectViaUser(currentUser, true);
 
             //if the counts are different then there must be a database change
@@ -237,6 +226,7 @@ namespace TelstraApp.Core.ViewModels
             {
                 //update the list
                 AddRequests(newRequests);
+               // MyEvent("Updated Request(s)", false);
             }
             else
             {
@@ -253,6 +243,7 @@ namespace TelstraApp.Core.ViewModels
                         break;
                     }
                 }
+                //MyEvent("Updated Request(s)", false);
             }
             
         }
@@ -311,7 +302,7 @@ namespace TelstraApp.Core.ViewModels
                if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
                 {
                     InsertReqDB(selectedUser);
-                    MyEvent("Requests Sent");
+                    MyEvent("Requests Sent", true);
                 }
                 else
                 {
@@ -319,13 +310,7 @@ namespace TelstraApp.Core.ViewModels
                     {
                         await UsersDatabase.DeleteRequest(selectedUser.UserName, currentUser);
                         InsertReqDB(selectedUser);
-                        //TODO
-                        MyEvent("Requests Sent");
-
-
-                        //await dialog.Show("Request Sent", "Sent");
-                        //Toast toast = Toast.MakeText(this, "Inserted", ToastLength.Short);
-
+                        MyEvent("Requests Sent", true);
                         RetrieveRequests();
                     }
                 }
