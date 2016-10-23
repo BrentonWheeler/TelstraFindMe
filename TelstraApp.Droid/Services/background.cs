@@ -23,6 +23,9 @@ namespace TelstraApp.Droid.Services
     public class MyService : Service
     {
         DemoServiceBinder binder;
+        //public delegate void MyEventAction();
+        //public event MyEventAction SyncDB;
+
         public override IBinder OnBind(Intent intent)
         {
             binder = new DemoServiceBinder(this);
@@ -32,8 +35,9 @@ namespace TelstraApp.Droid.Services
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
 
-            new Task(() => {
-                // long running code
+            
+        new Task(() => {
+
               DoWork();
             }).Start();
             return StartCommandResult.Sticky;
@@ -41,15 +45,16 @@ namespace TelstraApp.Droid.Services
         public void DoWork()
         {
 
-            var t = new Thread(async () =>
+          var t = new Thread(() =>
             {
 
                 while (true)
                 {
-                    Log.Debug("DemoService", "Runnings");
-                    // this.
+                    Log.Debug("DemoService", "syncing");
+                    //vm.RetrieveRequests();
+                   // vm.RetrieveEmployees();
                     //var curerntReq = await UsersDatabase.SelectViaUser("User1");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(10000);
 
                 }
             }

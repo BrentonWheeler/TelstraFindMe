@@ -94,7 +94,6 @@
             android:text="Favorites"
             android:layout_marginLeft="40dp"
             android:textSize="20sp" />
-        
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

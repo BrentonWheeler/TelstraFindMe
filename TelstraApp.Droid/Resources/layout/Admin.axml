@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#00B1EB">
+    <TextView
+        android:text="Add Employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="27dp"
+        android:id="@+id/textView1"
+        android:textColor="#ffffff"
+        android:background="#00B1EB"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:hint="Add Employee"
+        android:maxLines="1"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_corner"
+        local:MvxBind="Text InputEmployee"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        local:MvxBind="Click AddEmployee"
+        android:layout_gravity="center_horizontal"
+        android:text="Add Employee" />
+</LinearLayout>

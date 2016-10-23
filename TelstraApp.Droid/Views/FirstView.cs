@@ -6,7 +6,6 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using MvvmCross.Droid.Views;
-using System;
 using TelstraApp.Core.ViewModels;
 using TelstraApp.Droid.Services;
 
@@ -34,20 +33,18 @@ namespace TelstraApp.Droid.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Response);
 
-            Intent startService1 = new Intent();
-            startService1.SetClass(this, typeof(MyService));
-            startService1.PutExtra("user1", true);
-            StartService(startService1);
+
         }
 
     }
-    //Author: Michael Kath (n9293833)
+
+
+//Author: Michael Kath (n9293833)
     [Activity(Label = "View for FindView")]
     public class FindView: MvxActivity
     {
       
-
-        protected TelstraApp.Core.ViewModels.FindViewModel vm
+        public FindViewModel vm
         {
             get { return base.ViewModel as FindViewModel; }
         }
@@ -60,7 +57,24 @@ namespace TelstraApp.Droid.Views
             SetContentView(Resource.Layout.Find);
             vm.MyEvent += Vm_MyEvent;
 
+            Intent startService1 = new Intent();
+            startService1.SetClass(this, typeof(MyService));
+            //var serv = StartService(startService1);
+            //startService1.PutExtra("test", );
+            SyncWithDB();
+
+            //startService1.PutExtra("vm", vm);
+          
+
+
         }
+
+        public void SyncWithDB()
+        {
+            vm.RetrieveRequests();
+            vm.RetrieveEmployees();
+        }
+
         private void Vm_MyEvent(string msg, bool hideKeyBoard)
         {
             if (hideKeyBoard)
@@ -96,6 +110,17 @@ namespace TelstraApp.Droid.Views
         }
 
 
+    }
+    [Activity(Label = "View for AdminView")]
+    public class AdminView : MvxActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            base.OnCreate(bundle);
+
+            SetContentView(Resource.Layout.Admin);
+        }
     }
 
 

@@ -247,6 +247,8 @@ D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\login.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\receiveditemlayout.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\response.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\requestresponse.xml
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\requestresponsemsg.xml
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\admin.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\values\strings.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\drawable\icon.png
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\values\splashstyle.xml
@@ -293,6 +295,5 @@ D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\System.Xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
-D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\requestresponsemsg.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

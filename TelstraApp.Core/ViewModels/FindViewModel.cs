@@ -151,12 +151,10 @@ namespace TelstraApp.Core.ViewModels
             User = new ObservableCollection<Employees>();
             this.UsersDatabase = locationsDatabase;
 
-            
-
             ListOutStandingReq = new ObservableCollection<AddRequest>();
             DelListOutStandingReq = new ObservableCollection<string>();
-            RetrieveRequests();
-            RetrieveEmployees();
+            //RetrieveRequests();
+            //RetrieveEmployees();
             
 
             SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
@@ -218,7 +216,7 @@ namespace TelstraApp.Core.ViewModels
             AddRequests(curerntReq);
 
             //meanwhile push from the database and check to see if they have changed
-           // MyEvent("Syncing Contacts", false);
+            MyEvent("Syncing Contacts", false);
             var newRequests = await UsersDatabase.SelectViaUser(currentUser, true);
 
             //if the counts are different then there must be a database change
@@ -226,7 +224,7 @@ namespace TelstraApp.Core.ViewModels
             {
                 //update the list
                 AddRequests(newRequests);
-               // MyEvent("Updated Request(s)", false);
+                MyEvent("Contacts Synced", false);
             }
             else
             {
@@ -243,7 +241,7 @@ namespace TelstraApp.Core.ViewModels
                         break;
                     }
                 }
-                //MyEvent("Updated Request(s)", false);
+               MyEvent("Contacts Synced", false);
             }
             
         }

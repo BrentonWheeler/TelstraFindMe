@@ -160,21 +160,32 @@ namespace TelstraApp.Core.Database
 
         public async Task<IEnumerable<Employees>> GetEmployees(string searchterm, string currentUser)
         {
-            IEnumerable<Employees> emp1 = null;
+            List<Employees> Employee = null;
             try
             {
-                emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName == searchterm).ToListAsync();
-                if (!emp1.Any())
-                {
-                    emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).ToListAsync();
-                }
+               // emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName == searchterm).ToListAsync();
+                //if (!emp1.Any())
+                //{
+                   Employee = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).ToListAsync();
+                // }
 
+                List<Employees> emp1 = new List<Employees>(Employee);
+
+               foreach (var emp in emp1)
+                {
+                    if (emp.UserName == searchterm)
+                    {
+                        Employee.Remove(emp);
+                        Employee.Insert(0,emp);
+                        break;
+                    }
+                }
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e);
             }
-                return emp1;
+                return Employee;
         }
 
         public async Task<IEnumerable<Users>> SelectViaUser(string currentUser, bool pushSync = false)

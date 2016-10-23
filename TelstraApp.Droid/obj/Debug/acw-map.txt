@@ -18,6 +18,10 @@ TelstraApp.Droid.Views.LoginView, TelstraApp.Droid;md542148431bcec0d6b72e9fef82d
 TelstraApp.Droid.Views.LoginView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md542148431bcec0d6b72e9fef82de3cdba.LoginView
 TelstraApp.Droid.Views.LoginView;md542148431bcec0d6b72e9fef82de3cdba.LoginView
 telstraapp.droid.views.LoginView;md542148431bcec0d6b72e9fef82de3cdba.LoginView
+TelstraApp.Droid.Views.AdminView, TelstraApp.Droid;md542148431bcec0d6b72e9fef82de3cdba.AdminView
+TelstraApp.Droid.Views.AdminView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md542148431bcec0d6b72e9fef82de3cdba.AdminView
+TelstraApp.Droid.Views.AdminView;md542148431bcec0d6b72e9fef82de3cdba.AdminView
+telstraapp.droid.views.AdminView;md542148431bcec0d6b72e9fef82de3cdba.AdminView
 TelstraApp.Droid.Views.FirstView, TelstraApp.Droid;md542148431bcec0d6b72e9fef82de3cdba.FirstView
 TelstraApp.Droid.Views.FirstView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md542148431bcec0d6b72e9fef82de3cdba.FirstView
 TelstraApp.Droid.Views.FirstView;md542148431bcec0d6b72e9fef82de3cdba.FirstView
