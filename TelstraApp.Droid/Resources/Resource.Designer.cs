@@ -516,7 +516,7 @@ namespace TelstraApp.Droid
 			public const int RequestResponse = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int RequestResponseMsg = 2130903049;
+			public const int RequestResponseNoMap = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
 			public const int Requests = 2130903050;

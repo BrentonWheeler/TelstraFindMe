@@ -225,10 +225,10 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\RequestResponse.axml">
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\RequestResponseMsg.axml">
+    <AndroidResource Include="Resources\layout\Admin.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Admin.axml">
+    <AndroidResource Include="Resources\layout\RequestResponseNoMap.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

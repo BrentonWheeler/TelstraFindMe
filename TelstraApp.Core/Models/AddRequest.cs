@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace TelstraApp.Core.ViewModels
 {
+    //author: Michael Kath (n9293833)
+    //Add request class to be populated on the request list. Changes colour depending on the response
     public class AddRequest : MvxViewModel
     {
         private string userNameReq;

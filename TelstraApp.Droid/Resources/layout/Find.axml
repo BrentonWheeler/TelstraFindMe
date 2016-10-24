@@ -65,16 +65,5 @@
             android:dividerHeight="4dp"
             local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectReqCommand"
             android:divider="@android:color/transparent" />
-        <Mvx.MvxListView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            local:MvxItemTemplate="@layout/pendingrequestitemlayout"
-            android:background="#ffffff"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_weight="1"
-            android:dividerHeight="4dp"
-            local:MvxBind="ItemsSource DelListOutStandingReq; ItemClick SelectDeleteCommand"
-            android:divider="@android:color/transparent" />
     </LinearLayout>
 </LinearLayout>

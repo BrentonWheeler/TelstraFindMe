@@ -42,6 +42,7 @@
     <Compile Include="Interfaces\IDialogService.cs" />
     <Compile Include="Interfaces\IUsersDatabase.cs" />
     <Compile Include="Interfaces\ISqlite.cs" />
+    <Compile Include="Models\BuildLocationMessage.cs" />
     <Compile Include="Models\ReceivedRequest.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\GeoLocation.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="Models\AddRequest.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RequestResponse1ViewModel.cs" />
     <Compile Include="ViewModels\ResponseViewModel.cs" />
     <Compile Include="ViewModels\RequestResponseViewModel.cs" />
     <Compile Include="ViewModels\RequestsViewModel.cs" />

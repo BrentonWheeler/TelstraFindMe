@@ -12,8 +12,6 @@ namespace TelstraApp.Core.Models
         public Users(Employees location, string currentUser)
         {
           
-            //Rank = location.Rank;
-           // Key = location.Key;
             ReqFrom = currentUser;
             ReqTo = location.UserName;
             ReqTime = DateTime.Now;

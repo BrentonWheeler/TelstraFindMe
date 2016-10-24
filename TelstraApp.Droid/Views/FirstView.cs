@@ -122,7 +122,17 @@ namespace TelstraApp.Droid.Views
             SetContentView(Resource.Layout.Admin);
         }
     }
+    [Activity(Label = "View for RequestResponse1View")]
+    public class RequestResponse1View: MvxActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            base.OnCreate(bundle);
 
+            SetContentView(Resource.Layout.RequestResponseNoMap);
+        }
+    }
 
     //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
