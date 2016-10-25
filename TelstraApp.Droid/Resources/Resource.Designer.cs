@@ -366,10 +366,13 @@ namespace TelstraApp.Droid
 			public const int reqList = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int rounded_corner = 2130837548;
+			public const int roundbutton = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int splash = 2130837549;
+			public const int rounded_corner = 2130837549;
+			
+			// aapt resource value: 0x7f02002e
+			public const int splash = 2130837550;
 			
 			static Drawable()
 			{

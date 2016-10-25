@@ -38,20 +38,28 @@ namespace TelstraApp.Core.Database
             return requests.Any();
         }
 
-        public async Task<int> DeleteRequest(object id, string currentUser)
+        public async Task<int> DeleteRequest(string employee, string currentUser)
         {
-            await SyncAsync(currentUser, true );
-            var location = await azureSyncTable.Where(x => x.ReqTo == id.ToString()).ToListAsync();
-            if (location.Any())
-            {
-                await azureSyncTable.DeleteAsync(location.FirstOrDefault());
-                await SyncAsync(currentUser);
-                return 1;
-            }
-            else
-            {
-                return 0;
+            try {
 
+                await SyncAsync(currentUser, true);
+                var location = await azureSyncTable.Where(x => x.ReqTo == employee && currentUser == x.ReqFrom).ToListAsync();
+                if (location.Any())
+                {
+                    await azureSyncTable.DeleteAsync(location.FirstOrDefault());
+                    await SyncAsync(currentUser);
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+
+                }
+
+            }
+            catch
+            {
+                return 1;
             }
         }
 
@@ -73,11 +81,20 @@ namespace TelstraApp.Core.Database
 
         public async Task<int> InsertLocation(Users reqLocation, string currentUser)
         {
-            await SyncAsync(currentUser, true);
-            await azureSyncTable.InsertAsync(reqLocation);
-            await InsertFavourite(currentUser, reqLocation.ReqTo);
-            await SyncAsync(currentUser);
-            return 1;
+            try
+            {
+                await SyncAsync(currentUser, true);
+                await azureSyncTable.InsertAsync(reqLocation);
+                //await InsertFavourite(currentUser, reqLocation.ReqTo);
+                await SyncAsync(currentUser);
+                return 0;
+            }
+            catch
+            {
+                return 1;
+            }
+
+            
         }
 
         public async Task<Users> GetResponse(string currentUser, string curReq)
@@ -163,17 +180,15 @@ namespace TelstraApp.Core.Database
             List<Employees> Employee = null;
             try
             {
-               // emp1 = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName == searchterm).ToListAsync();
-                //if (!emp1.Any())
-                //{
-                   Employee = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).ToListAsync();
-                // }
-
+                Employee = await employeeSyncTable.Where(x => x.UserName != currentUser && x.UserName.Contains(searchterm)).OrderBy(x => x.UserName).ToListAsync();
+                
                 List<Employees> emp1 = new List<Employees>(Employee);
-
-               foreach (var emp in emp1)
+                var searchupper = searchterm.ToUpper();
+                foreach (var emp in emp1)
                 {
-                    if (emp.UserName == searchterm)
+                    var emp_user = emp.UserName.ToUpper();
+
+                    if (emp_user == searchupper)
                     {
                         Employee.Remove(emp);
                         Employee.Insert(0,emp);

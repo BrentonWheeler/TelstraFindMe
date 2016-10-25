@@ -43,7 +43,8 @@ namespace TelstraApp.Droid.Views
     [Activity(Label = "View for FindView")]
     public class FindView: MvxActivity
     {
-      
+
+
         public FindViewModel vm
         {
             get { return base.ViewModel as FindViewModel; }
@@ -68,13 +69,6 @@ namespace TelstraApp.Droid.Views
 
 
         }
-
-        public void SyncWithDB()
-        {
-            vm.RetrieveRequests();
-            vm.RetrieveEmployees();
-        }
-
         private void Vm_MyEvent(string msg, bool hideKeyBoard)
         {
             if (hideKeyBoard)
@@ -83,10 +77,18 @@ namespace TelstraApp.Droid.Views
                 var currentFocus = Window.CurrentFocus;
                 inputManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
             }
-        
+
             var Toasty = Toast.MakeText(this, msg, ToastLength.Long);
             Toasty.Show();
         }
+
+        public void SyncWithDB()
+        {
+            vm.RetrieveRequests();
+            vm.RetrieveEmployees();
+        }
+
+
 
         public override void OnBackPressed()
         {

@@ -351,8 +351,9 @@ containing a value of this type.
         public static final int common_plus_signin_btn_text_light_pressed=0x7f020029;
         public static final int icon=0x7f02002a;
         public static final int reqlist=0x7f02002b;
-        public static final int rounded_corner=0x7f02002c;
-        public static final int splash=0x7f02002d;
+        public static final int roundbutton=0x7f02002c;
+        public static final int rounded_corner=0x7f02002d;
+        public static final int splash=0x7f02002e;
     }
     public static final class id {
         public static final int MvvmCrossTagId=0x7f070000;

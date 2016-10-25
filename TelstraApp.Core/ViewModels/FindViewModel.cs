@@ -123,9 +123,7 @@ namespace TelstraApp.Core.ViewModels
 
         public ICommand SelectLocationCommand { get; private set; }
         public int addMessage1 { get; set; }
-
-
-
+        public MvxCommand<AddRequest> DeleteReqCommand { get; private set; }
 
         private readonly IUserDatabase UsersDatabase;
         private string currentUser;
@@ -148,6 +146,26 @@ namespace TelstraApp.Core.ViewModels
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
             DelListOutStandingReq = new ObservableCollection<string>();
+
+
+
+            DeleteReqCommand = new MvxCommand<AddRequest>(async selectedUser =>
+          {
+              selectedUser.ChangeOnDelete(false);
+              if (await dialog.Show("Would you like to delete this request?", "Delete Request", "Delete", "Cancel"))
+              {
+                  await UsersDatabase.DeleteRequest(selectedUser.UserNameReq, currentUser);
+                  ListOutStandingReq.Remove(selectedUser);
+                  MyEvent("Request Deleted", false);
+                  RaisePropertyChanged(() => ListOutStandingReq);
+
+              }
+              else
+              {
+                  selectedUser.ChangeOnDelete(true);
+              }
+             
+          });
 
             SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
             {
@@ -190,6 +208,18 @@ namespace TelstraApp.Core.ViewModels
         //Syncs with database
         public async void RetrieveEmployees()
         {
+
+            /* Employees em = new Employees("User2");
+
+             await UsersDatabase.InsertLocation(em, "User16");
+             await UsersDatabase.InsertLocation(em, "User17");
+             await UsersDatabase.InsertLocation(em, "User13");
+             await UsersDatabase.InsertLocation(em, "User14");
+             await UsersDatabase.InsertLocation(em, "User12");
+             await UsersDatabase.InsertLocation(em, "User11");
+             await UsersDatabase.InsertLocation(em, "User10");
+             await UsersDatabase.InsertLocation(em, "User2"); */
+
             await UsersDatabase.SyncAsyncEmp(true);
         }
 
@@ -218,7 +248,7 @@ namespace TelstraApp.Core.ViewModels
             else
             {
                 var newReq = newRequests.ToList();
-                var curReq = newRequests.ToList();
+                var curReq = curerntReq.ToList();
                 // compare every new request received from DB against the current DB
                 for (int i = 0; i < newRequests.Count(); i++)
                 {
@@ -247,7 +277,6 @@ namespace TelstraApp.Core.ViewModels
                 {
                     ResReqCount++;
                     TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
-
                     SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
                 }
 
@@ -270,7 +299,6 @@ namespace TelstraApp.Core.ViewModels
         private void InsertReqDB(Employees selectedUser)
         {
             UsersDatabase.InsertLocation(selectedUser, currentUser);
-
             TimeFormatter TimeTimer = new TimeFormatter();
             SendReq(new AddRequest(selectedUser.UserName, TimeTimer.reqTime), false);
             User.Clear();
@@ -294,10 +322,18 @@ namespace TelstraApp.Core.ViewModels
                 {
                     if (await dialog.Show("You have already have sent a request to this user", "Request Exists", "Send Another", "Go Back"))
                     {
-                        await UsersDatabase.DeleteRequest(selectedUser.UserName, currentUser);
-                        InsertReqDB(selectedUser);
-                        MyEvent("Requests Sent", true);
-                        RetrieveRequests();
+                         var success = await UsersDatabase.DeleteRequest(selectedUser.UserName, currentUser);
+                        if (success == 0)
+                        {
+                            InsertReqDB(selectedUser);
+                            MyEvent("Requests Sent", true);
+                            RetrieveRequests();
+                        }
+                        else
+                        {
+                            MyEvent("Error when removing preivous request", true);
+                        }
+
                     }
                 }
             }
@@ -317,9 +353,7 @@ namespace TelstraApp.Core.ViewModels
                 }
                 else
                 {
-                    
                     ListOutStandingReq.Insert(ResReqCount, req);
-                 
                 }
                
             }

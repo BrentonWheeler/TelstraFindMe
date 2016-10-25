@@ -12,7 +12,7 @@ namespace TelstraApp.Core.Interfaces
     {
         Task<IEnumerable<Users>> GetLocations();
 
-        Task<int> DeleteRequest(object id, string currentUser);
+        Task<int> DeleteRequest(string employee, string currentUser);
 
         Task<int> InsertLocation(Users location, string currentUser);
         Task<int> InsertLocation(Employees location, string currentUser);

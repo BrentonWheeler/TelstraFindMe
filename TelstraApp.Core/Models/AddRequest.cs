@@ -68,6 +68,14 @@ namespace TelstraApp.Core.ViewModels
             }
         }
 
+        private void DeleteColor()
+        {
+            rbg_red = 199;
+            rbg_green = 16;
+            rbg_blue = 26;
+            CurrentColor = new MvxColor(rbg_red, rbg_green, rbg_blue);
+        }
+
 
         private void UpdateColor()
         {
@@ -79,7 +87,7 @@ namespace TelstraApp.Core.ViewModels
                 rbg_red = 195;
                 rbg_green = 195;
                 rbg_blue = 195;
-            } 
+            }
             CurrentColor = new MvxColor(rbg_red, rbg_green, rbg_blue);
         }
 
@@ -92,6 +100,19 @@ namespace TelstraApp.Core.ViewModels
                 return "Has responded";
             }
             return "Has not responded";
+        }
+
+        public void ChangeOnDelete(bool changeback)
+        {
+            if (!changeback)
+            {
+                DeleteColor();
+            }
+            else
+            {
+                UpdateColor();
+            }
+
         }
 
         public AddRequest() { }
