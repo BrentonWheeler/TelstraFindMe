@@ -85,7 +85,7 @@ namespace TelstraApp.Core.Database
             {
                 await SyncAsync(currentUser, true);
                 await azureSyncTable.InsertAsync(reqLocation);
-                //await InsertFavourite(currentUser, reqLocation.ReqTo);
+                await InsertFavourite(currentUser, reqLocation.ReqTo);
                 await SyncAsync(currentUser);
                 return 0;
             }
@@ -172,7 +172,10 @@ namespace TelstraApp.Core.Database
         {
             var emp1 = await employeeSyncTable.Where(x => x.UserName == currentUser).ToListAsync();
             Employees employee = emp1.FirstOrDefault();
-            return employee.RetrieveFavourites();
+
+            string favs = employee.RetrieveFavourites();
+            return favs.Split(';');
+
         }
 
         public async Task<IEnumerable<Employees>> GetEmployees(string searchterm, string currentUser)

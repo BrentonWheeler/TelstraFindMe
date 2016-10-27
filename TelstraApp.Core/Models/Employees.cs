@@ -25,12 +25,12 @@ namespace TelstraApp.Core.Models
 
         public void UpdateFavourites(string favourite)
         {
+          
 
             if (!this.Favourites.Contains(favourite))
             {
-                string[] favs = favourite.Split(';');
+                string[] favs = this.Favourites.Split(';');
                 string newFavs = this.Favourites;
-
 
                 if (newFavs == "" || newFavs == null)
                 {
@@ -45,13 +45,16 @@ namespace TelstraApp.Core.Models
                     this.Favourites = favourite + ";" + this.Favourites;
                 }
             }
+            //this.Favourites = "";
 
-            
+
         }
-        public string[] RetrieveFavourites()
+        public string RetrieveFavourites()
         {
-            string favs = this.Favourites;
-            return favs.Split(';');
+            return this.Favourites;
+            
+
+
         }
 
     }

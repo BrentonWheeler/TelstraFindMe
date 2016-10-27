@@ -11,6 +11,9 @@ public class FindView
 	static {
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
+			"n_onResume:()V:GetOnResumeHandler\n" +
+			"n_onDestroy:()V:GetOnDestroyHandler\n" +
+			"n_onPause:()V:GetOnPauseHandler\n" +
 			"n_onBackPressed:()V:GetOnBackPressedHandler\n" +
 			"";
 		mono.android.Runtime.register ("TelstraApp.Droid.Views.FindView, TelstraApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", FindView.class, __md_methods);
@@ -31,6 +34,30 @@ public class FindView
 	}
 
 	private native void n_onCreate (android.os.Bundle p0);
+
+
+	public void onResume ()
+	{
+		n_onResume ();
+	}
+
+	private native void n_onResume ();
+
+
+	public void onDestroy ()
+	{
+		n_onDestroy ();
+	}
+
+	private native void n_onDestroy ();
+
+
+	public void onPause ()
+	{
+		n_onPause ();
+	}
+
+	private native void n_onPause ();
 
 
 	public void onBackPressed ()

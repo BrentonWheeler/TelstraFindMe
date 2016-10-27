@@ -6,6 +6,9 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using MvvmCross.Droid.Views;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using TelstraApp.Core.ViewModels;
 using TelstraApp.Droid.Services;
 
@@ -49,27 +52,83 @@ namespace TelstraApp.Droid.Views
         {
             get { return base.ViewModel as FindViewModel; }
         }
+        private bool RunProcess = true;
+
         protected override void OnCreate(Bundle bundle)
         {
             
             RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
-            
+          
             SetContentView(Resource.Layout.Find);
-            vm.MyEvent += Vm_MyEvent;
+            vm.ToastNotifcation += SendToastNotification;
+            RunProcess = true;
+            SyncWithDB();
+        }
 
-            Intent startService1 = new Intent();
-            startService1.SetClass(this, typeof(MyService));
-            //var serv = StartService(startService1);
-            //startService1.PutExtra("test", );
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            RunProcess = true;
             SyncWithDB();
 
-            //startService1.PutExtra("vm", vm);
-          
+        }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            RunProcess = false;
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            RunProcess = false;
 
         }
-        private void Vm_MyEvent(string msg, bool hideKeyBoard)
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            vm.clearSearch();
+        }
+
+        public async void SyncWithDB()
+        {
+            bool completed = true;
+
+            SendToastNotification("Syncing Contacts", false);
+            await vm.populateList();
+            if (await vm.RetrieveItemsFromDB())
+            {
+                await vm.populateList();
+            }
+            SendToastNotification("Syncing Completed", false);
+
+            await Task.Run(async () =>
+             {
+                 while (RunProcess)
+                 {
+                     if (completed)
+                     {
+                         completed = false;
+                         if (await vm.RetrieveItemsFromDB())
+                         {
+                             completed = await vm.populateList();
+                         }
+                         else
+                         {
+                             completed = true;
+                         }
+                         Thread.Sleep(10000);
+                     }
+                 }
+
+             });
+        }
+
+        private void SendToastNotification(string msg, bool hideKeyBoard)
         {
             if (hideKeyBoard)
             {
@@ -82,100 +141,90 @@ namespace TelstraApp.Droid.Views
             Toasty.Show();
         }
 
-        public void SyncWithDB()
-        {
-            vm.RetrieveRequests();
-            vm.RetrieveEmployees();
-        }
 
 
 
-        public override void OnBackPressed()
-        {
-            base.OnBackPressed();
-        }
-           
-        
-      }
+
+    }
 
 
     //Author: Michael Kath (n9293833)
     [Activity(Label = "View for FindView")]
     public class LoginView : MvxActivity
     {
-        protected override void OnCreate(Bundle bundle)
-        {
-            RequestWindowFeature(WindowFeatures.NoTitle);
-            base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Login);
+     protected override void OnCreate(Bundle bundle)
+     {
+         RequestWindowFeature(WindowFeatures.NoTitle);
+         base.OnCreate(bundle);
+         SetContentView(Resource.Layout.Login);
 
-        }
+     }
 
 
     }
     [Activity(Label = "View for AdminView")]
     public class AdminView : MvxActivity
     {
-        protected override void OnCreate(Bundle bundle)
-        {
-            RequestWindowFeature(WindowFeatures.NoTitle);
-            base.OnCreate(bundle);
+     protected override void OnCreate(Bundle bundle)
+     {
+         RequestWindowFeature(WindowFeatures.NoTitle);
+         base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.Admin);
-        }
+         SetContentView(Resource.Layout.Admin);
+     }
     }
     [Activity(Label = "View for RequestResponse1View")]
     public class RequestResponse1View: MvxActivity
     {
-        protected override void OnCreate(Bundle bundle)
-        {
-            RequestWindowFeature(WindowFeatures.NoTitle);
-            base.OnCreate(bundle);
+     protected override void OnCreate(Bundle bundle)
+     {
+         RequestWindowFeature(WindowFeatures.NoTitle);
+         base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.RequestResponseNoMap);
-        }
+         SetContentView(Resource.Layout.RequestResponseNoMap);
+     }
     }
 
     //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity
     {
-        protected FirstViewModel FirstViewModel
-        {
-            get { return base.ViewModel as FirstViewModel; }
+         protected FirstViewModel FirstViewModel
+         {
+             get { return base.ViewModel as FirstViewModel; }
+         }
+         protected override void OnCreate(Bundle bundle)
+         {
+             RequestWindowFeature(WindowFeatures.NoTitle);
+             base.OnCreate(bundle);
+             SetContentView(Resource.Layout.FirstView);
+             TabHost.TabSpec tabspec;
+             //Intent intent;
+
+             tabspec = TabHost.NewTabSpec("requests");
+             tabspec.SetIndicator("Requests");
+             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Requests));
+             TabHost.AddTab(tabspec);
+
+             tabspec = TabHost.NewTabSpec("find");
+             tabspec.SetIndicator("Find");
+             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Find));
+             TabHost.AddTab(tabspec);
+
+             //string current = FirstViewModel.Current_User();
+
+
+         }
+
+
+
+
+         public override void OnBackPressed()
+         {
+             base.OnBackPressed();
+             //finish();
+         }//end onBackPressed()
+
         }
-        protected override void OnCreate(Bundle bundle)
-        {
-            RequestWindowFeature(WindowFeatures.NoTitle);
-            base.OnCreate(bundle);
-            SetContentView(Resource.Layout.FirstView);
-            TabHost.TabSpec tabspec;
-            //Intent intent;
-
-            tabspec = TabHost.NewTabSpec("requests");
-            tabspec.SetIndicator("Requests");
-            tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Requests));
-            TabHost.AddTab(tabspec);
-
-            tabspec = TabHost.NewTabSpec("find");
-            tabspec.SetIndicator("Find");
-            tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Find));
-            TabHost.AddTab(tabspec);
-
-            //string current = FirstViewModel.Current_User();
-
-
-        }
-
-
-
-
-        public override void OnBackPressed()
-        {
-            base.OnBackPressed();
-            //finish();
-        }//end onBackPressed()
-
     }
-}
 

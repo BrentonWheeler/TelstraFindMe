@@ -40,7 +40,7 @@
         android:background="#00B1EB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <EditText
+      <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25dp"
@@ -49,7 +49,7 @@
             android:textColor="#000000"
             android:id="@+id/Searching"
             android:background="@drawable/rounded_corner"
-            local:MvxBind="Text SearchTerm"
+            local:MvxBind="Text SearchTerm; Click SelectSearchBox"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp" />
     </LinearLayout>
