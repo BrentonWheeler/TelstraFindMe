@@ -97,9 +97,9 @@ namespace TelstraApp.Core.ViewModels
         //author: Michael Kath (n9293833)
         private async void GetFavourites()
         {
-            var favourites = await UsersDatabase.GetFavourites(currentUser);
+            string[] favourites = await UsersDatabase.GetFavourites(currentUser);
 
-            if (favourites.Length > 0)
+            if (favourites != null && favourites[0] != "")
             {
                 User.Add(new Employees("Recently searched.."));
             }
@@ -228,18 +228,6 @@ namespace TelstraApp.Core.ViewModels
         //Syncs request list with database
         public async Task<bool> RetrieveItemsFromDB()
         {
-
-            /* Employees em = new Employees("User2");
-
-             await UsersDatabase.InsertLocation(em, "User16");
-             await UsersDatabase.InsertLocation(em, "User17");
-             await UsersDatabase.InsertLocation(em, "User13");
-             await UsersDatabase.InsertLocation(em, "User14");
-             await UsersDatabase.InsertLocation(em, "User12");
-             await UsersDatabase.InsertLocation(em, "User11");
-             await UsersDatabase.InsertLocation(em, "User10");
-             await UsersDatabase.InsertLocation(em, "User2"); */
-
              //Pull any latest employees
             await UsersDatabase.SyncAsyncEmp(true);
 
@@ -273,50 +261,6 @@ namespace TelstraApp.Core.ViewModels
 
         }
 
-
-
-
-        //author: Michael Kath (n9293833)
-        //Displays all the outstanding requests
-
-       /* public async void RetrieveRequests()
-        {
-            ListOutStandingReq = new ObservableCollection<AddRequest>();
-            DelListOutStandingReq = new ObservableCollection<string>();
-            //Get current find Requests
-            var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
-            AddRequests(curerntReq);
-
-            //meanwhile push from the database and check to see if they have changed
-            ToastNotifcation("Syncing Contacts", false);
-            var newRequests = await UsersDatabase.SelectViaUser(currentUser, true);
-
-            //if the counts are different then there must be a database change
-            if (newRequests.Count() != curerntReq.Count())
-            {
-                //update the list
-                AddRequests(newRequests);
-                ToastNotifcation("Contacts Synced", false);
-            }
-            else
-            {
-                var newReq = newRequests.ToList();
-                var curReq = curerntReq.ToList();
-                // compare every new request received from DB against the current DB
-                for (int i = 0; i < newRequests.Count(); i++)
-                {
-                    // if there is a change
-                    if (newReq[i] != curReq[i])
-                    {
-                        //Update the entire list
-                        AddRequests(newRequests);
-                        break;
-                    }
-                }
-               ToastNotifcation("Contacts Synced", false);
-            }
-            
-        } */
         //author: Michael Kath (n9293833)
         //loops through all the new requests found to see if they already list on the users list
         private void AddRequests(IEnumerable<Users> newRequests)
@@ -349,11 +293,12 @@ namespace TelstraApp.Core.ViewModels
         }
         //author: Michael Kath (n9293833)
         //Inserts into database and formats the time to be displayed on the users list
-        private void InsertReqDB(Employees selectedUser)
+        private async Task InsertReqDB(Employees selectedUser)
         {
-            UsersDatabase.InsertLocation(selectedUser, currentUser);
+            await UsersDatabase.InsertRequest(selectedUser, currentUser);
             TimeFormatter TimeTimer = new TimeFormatter();
-            SendReq(new AddRequest(selectedUser.UserName, TimeTimer.reqTime), false);
+            IEnumerable<Users> req = await UsersDatabase.SelectViaUser(currentUser, false);
+         
             User.Clear();
         }
 
@@ -369,8 +314,10 @@ namespace TelstraApp.Core.ViewModels
                 // if request doesnt already exist insert into DB.
                if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
                 {
-                    InsertReqDB(selectedUser);
-                    ToastNotifcation("Requests Sent", true);
+                    ToastNotifcation("Requests Sending..", true);
+
+                    await InsertReqDB(selectedUser);
+                    ToastNotifcation("Requests Sent", false);
                 }
                 else
                 {
@@ -382,8 +329,9 @@ namespace TelstraApp.Core.ViewModels
                         if (success == 0)
                         {
                             //insert new request
-                            InsertReqDB(selectedUser);
-                            ToastNotifcation("Requests Sent", true);
+                            ToastNotifcation("Requests Sending..", true);
+                            await InsertReqDB(selectedUser);
+                            ToastNotifcation("Requests Sent", false);
                             //RetrieveRequests();
                         }
                         else

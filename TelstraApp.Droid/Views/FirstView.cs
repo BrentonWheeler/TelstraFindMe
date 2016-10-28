@@ -1,6 +1,7 @@
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
@@ -199,22 +200,31 @@ namespace TelstraApp.Droid.Views
              base.OnCreate(bundle);
              SetContentView(Resource.Layout.FirstView);
              TabHost.TabSpec tabspec;
-             //Intent intent;
+            //Intent intent;
+            Color color = new Color(0, 177, 235);
 
              tabspec = TabHost.NewTabSpec("requests");
-             tabspec.SetIndicator("Requests");
-             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Requests));
+            //tabspec.SetIndicator("", Resources.GetDrawable(Resource.Drawable.request5_icon));
+            tabspec.SetIndicator("Requests");
+            tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Requests));
              TabHost.AddTab(tabspec);
+            
+            TabWidget.GetChildAt(0).SetBackgroundColor(color);
 
              tabspec = TabHost.NewTabSpec("find");
-             tabspec.SetIndicator("Find");
-             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Find));
+            //int drawID = (int) typeof(Resource.Drawable).GetField("requests_icon").GetValue(null);
+            //tabspec.SetIndicator("", Resources.GetDrawable(Resource.Drawable.request_icon));
+            tabspec.SetIndicator("Find");
+            tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Find));
              TabHost.AddTab(tabspec);
 
-             //string current = FirstViewModel.Current_User();
+            TabWidget.GetChildAt(1).SetBackgroundColor(color);
 
 
-         }
+            //string current = FirstViewModel.Current_User();
+
+
+        }
 
 
 

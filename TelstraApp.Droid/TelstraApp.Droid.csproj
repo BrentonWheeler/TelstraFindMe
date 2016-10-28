@@ -246,6 +246,9 @@
     <AndroidResource Include="Resources\drawable\rounded_corner.xml" />
     <AndroidResource Include="Resources\drawable\reqList.xml" />
     <AndroidResource Include="Resources\drawable\roundbutton.xml" />
+    <AndroidResource Include="Resources\drawable\requests1_icon.jpg" />
+    <AndroidResource Include="Resources\drawable\request_icon.png" />
+    <AndroidResource Include="Resources\drawable\request5_icon.png" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

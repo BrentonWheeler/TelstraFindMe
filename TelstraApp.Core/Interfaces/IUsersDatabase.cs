@@ -15,7 +15,7 @@ namespace TelstraApp.Core.Interfaces
         Task<int> DeleteRequest(string employee, string currentUser);
 
         Task<int> InsertLocation(Users location, string currentUser);
-        Task<int> InsertLocation(Employees location, string currentUser);
+        Task<int> InsertRequest(Employees location, string currentUser);
         Task<IEnumerable<Users>> SelectToUser( string currentUser);
         Task<IEnumerable<Users>> SelectViaUser( string currentUser, bool pushSync = false);
         Task<bool> CheckIfExists(Users location, string currentUser);

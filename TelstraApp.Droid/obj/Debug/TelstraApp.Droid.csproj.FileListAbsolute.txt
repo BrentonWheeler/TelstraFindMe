@@ -296,5 +296,10 @@ D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\layout\requestresponsenomap.xml
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\drawable\roundbutton.xml
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\drawable\request_icon.png
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\drawable\requests1_icon.jpg
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\drawable\request3_icon.png
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\drawable\request4_icon.png
+D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\res\drawable\request5_icon.png
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\TelstraApp\Source\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

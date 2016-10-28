@@ -71,7 +71,7 @@ namespace TelstraApp.Core.Database
             return locations;
         }
 
-        public async Task<int> InsertLocation(Employees location, string currentUser)
+        public async Task<int> InsertRequest(Employees location, string currentUser)
         {
             Users findReq = new Users(location, currentUser);
             return await InsertLocation(findReq, currentUser);
@@ -212,11 +212,11 @@ namespace TelstraApp.Core.Database
             {
                 await SyncAsync(currentUser, pushSync);
             }
-          
-            // await SyncAsyncEmp(true);
-            var result = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
 
-            return result;
+            // await SyncAsyncEmp(true);
+            return await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
+
+
         }
 
         public async Task<IEnumerable<Users>> SelectToUser(string currentUser)
