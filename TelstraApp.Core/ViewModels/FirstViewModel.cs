@@ -51,7 +51,7 @@ namespace TelstraApp.Core.ViewModels
             Current_User = theUser.currentUser;
             Requests = new RequestsViewModel(dialog, locationsDatabase, Current_User);
             Find = new FindViewModel(dialog, locationsDatabase, Current_User);
-            Response = new ResponseViewModel(dialog, locationsDatabase, Current_User);
+            Response = new ResponseViewModel(dialog, locationsDatabase);
         }
         public ResponseViewModel Response
         {

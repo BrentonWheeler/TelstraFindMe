@@ -87,24 +87,62 @@ namespace TelstraApp.Core.Database
             return currentReqs.FirstOrDefault();
 
         }
-
-        public async Task<int> AddResponse(AddRequest Requests, string currentUser)
+        public async Task<List<Users>> GetReqUser(string currentUser, List<ReceivedRequest> ListOfRequesterName)
         {
-            var currentReqs = await azureSyncTable.Where(x => x.ReqTo == Requests.UserNameReq && x.ReqFrom == currentUser).ToListAsync();
+            //var currentReqs = await azureSyncTable.Where(x => ListOfRequesterName.Any(y=> currentUser == x.ReqTo && y.RequestersName == x.ReqFrom)).ToListAsync();
+            //does this actually work
+            //await SyncAsync(currentUser, true);
+            //var allReqs = await azureSyncTable.Where(x => x.ReqTo == currentUser).ToListAsync();
+            await SyncAsync(currentUser, true);
+            //change this to x.ReqTo
+            var allReqs = await azureSyncTable.Where(x => x.ReqTo == currentUser && x.HasResponded == false).OrderByDescending(x => x.ReqTime).ToListAsync();
+            List<Users> currentUsers = new List<Users>();
+            foreach (var req in allReqs)
+            {
+                foreach(var requester in ListOfRequesterName)
+                {
+                    //change this to req.ReqFrom
+                    if (req.ReqFrom == requester.RequestersName)
+                    {
+                        currentUsers.Add(req);
+                    }
+                }
+            }
+            return currentUsers;
 
-            if (currentReqs.Any())
+        }
+        public async Task<List<Users>> GetReqUserFromNameArray(string currentUser, string[] userNameList)
+        {
+            //var currentReqs = await azureSyncTable.Where(x => ListOfRequesterName.Any(y=> currentUser == x.ReqTo && y.RequestersName == x.ReqFrom)).ToListAsync();
+            //does this actually work
+            //await SyncAsync(currentUser, true);
+            //var allReqs = await azureSyncTable.Where(x => x.ReqTo == currentUser).ToListAsync();
+            await SyncAsync(currentUser, true);
+            //change this to x.ReqTo
+            var allReqs = await azureSyncTable.Where(x => x.ReqTo == currentUser && x.HasResponded == false).OrderByDescending(x => x.ReqTime).ToListAsync();
+            List<Users> currentUsers = new List<Users>();
+            foreach (var req in allReqs)
             {
-                Users currentReq = currentReqs.FirstOrDefault();
-                currentReq.CreateResponse(true, "Room 44");
+                foreach(var requester in userNameList)
+                {
+                    //change this to req.ReqFrom
+                    if (req.ReqFrom == requester)
+                    {
+                        currentUsers.Add(req);
+                    }
+                }
+            }
+            return currentUsers;
+
+        }
+
+        public async Task<int> AddResponse(Users user, string currentUser)
+        {
                 await SyncAsync(currentUser, true);
-                await azureSyncTable.UpdateAsync(currentReq);
+                await azureSyncTable.UpdateAsync(user);
                 await SyncAsync(currentUser);
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+                await SyncAsyncToUser(currentUser);
+            return 1;
         }
         public async Task<int> InsertEmployee(Employees employee)
         {
@@ -183,11 +221,11 @@ namespace TelstraApp.Core.Database
 
         public async Task<IEnumerable<Users>> SelectToUser(string currentUser)
         {
-            await SyncAsync(currentUser, true);
+            await SyncAsyncToUser(currentUser, true);
             // await SyncAsyncEmp(true);
             //var Reqs = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
-            //var Reqs = await azureSyncTable.Where(x => x.ReqTo == currentUser && x.HasResponded == true).OrderByDescending(x => x.ReqTime).ToListAsync();
-            var Reqs = await azureSyncTable.ToListAsync();
+            var Reqs = await azureSyncTable.Where(x => x.ReqTo == currentUser && x.HasResponded == false).OrderByDescending(x => x.ReqTime).ToListAsync();
+            //var Reqs = await azureSyncTable.ToListAsync();
             return Reqs;
         }
 
@@ -231,5 +269,27 @@ namespace TelstraApp.Core.Database
             }
         }
 
+        private async Task SyncAsyncToUser(string curerntUser, bool pullData = false)
+        {
+            try
+            {
+                await azureDatabase.SyncContext.PushAsync();
+                
+                if (pullData)
+                {
+                    await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x => x.ReqTo == curerntUser));
+                }
+            }
+
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
+
+        public Task<Users> GetResponse(string currentUser, List<ReceivedRequest> selectedRequests)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

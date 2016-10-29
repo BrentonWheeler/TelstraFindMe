@@ -20,12 +20,15 @@ namespace TelstraApp.Core.Interfaces
         Task<IEnumerable<Users>> SelectViaUser( string currentUser, bool pushSync = false);
         Task<bool> CheckIfExists(Users location, string currentUser);
         Task<bool> CheckIfExists(Employees location, string currentUser);
-        Task<int> AddResponse(AddRequest Requests, string currentUser);
+       
+        Task<int> AddResponse(Users user, string currentUser);
         Task RunSync(string currentUser);
         Task<IEnumerable<Employees>> GetEmployees(string searchTerm, string currentUser);
         Task<int> InsertEmployee(Employees employee);
         Task SyncAsyncEmp(bool pullData = false);
         Task<String[]> GetFavourites(string currentUser);
         Task<Users> GetResponse(string currentUser, string curReq);
+        Task<List<Users>> GetReqUser(string currentUser, List<ReceivedRequest> selectedRequests);
+        Task<List<Users>> GetReqUserFromNameArray(string currentUser, string[] userNameList);
     }
 }

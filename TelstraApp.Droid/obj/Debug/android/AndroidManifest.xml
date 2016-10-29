@@ -21,10 +21,10 @@
       </intent-filter>
     </activity>
     <activity android:label="View for RequestsView" android:name="md542148431bcec0d6b72e9fef82de3cdba.RequestsView" />
-    <activity android:label="View for ResponseView" android:name="md542148431bcec0d6b72e9fef82de3cdba.ResponseView" />
     <activity android:label="View for FindView" android:name="md542148431bcec0d6b72e9fef82de3cdba.FindView" />
     <activity android:label="View for FindView" android:name="md542148431bcec0d6b72e9fef82de3cdba.LoginView" />
     <activity android:label="FirstView" android:name="md542148431bcec0d6b72e9fef82de3cdba.FirstView" />
+    <activity android:label="View for Response" android:name="md542148431bcec0d6b72e9fef82de3cdba.ResponseView" />
     <activity android:label="View for RequestResponse" android:name="md542148431bcec0d6b72e9fef82de3cdba.RequestResponseView" />
     <service android:name="md59ac3ea355d654c0ff72d2ef41149144b.MyService" />
     <activity android:label="Web Authenticator" android:name="md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity" />

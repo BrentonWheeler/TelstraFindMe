@@ -7,26 +7,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TelstraApp.Core.Interfaces;
+using TelstraApp.Core.Models;
 
 namespace TelstraApp.Core.ViewModels
 {
     public class RequestsViewModel : MvxViewModel
     {
-        private Boolean _isChecked = true;
+        private Boolean _isChecked = false;
+        public List<Users> ResponseData = new List<Users>();
         public bool IsChecked
         {
             get { return _isChecked; }
             set
             {
+                _isChecked = !_isChecked;
                 RaisePropertyChanged(() => IsChecked);
             }
         }
-
+       
         private readonly IUserDatabase UsersDatabase;
         private string currentUser;
         private IDialogService dialog;
         public ICommand SelectAll { get; private set; }
-
+        public ICommand ResponseCommand { get; private set; }
+        public async void getUserFromCB(string currentUser, List<ReceivedRequest> selectedRequests)
+        {
+            List<Users> users = await UsersDatabase.GetReqUser(currentUser, selectedRequests);
+            Users sentUser = users[0];
+            
+            for(int i = 1;i<users.Count();i++)
+            {
+                sentUser.ReqFrom = sentUser.ReqFrom + "|" + users[i].ReqFrom;
+                sentUser.ReqTo = currentUser;
+                sentUser.Rank = i;
+            }
+            //ResponseData.AddRange(users);
+            ShowViewModel<ResponseViewModel>(sentUser);
+            //ShowViewModel<ResponseViewModel>(test);
+        }
         public RequestsViewModel(IDialogService dialog, IUserDatabase locationsDatabase, string currentUser)
         {
 
@@ -44,25 +62,40 @@ namespace TelstraApp.Core.ViewModels
 
 
             SelectAll = new MvxCommand(() =>
-            {
-                _isChecked = !_isChecked;
-                
-                RaisePropertyChanged(() => _isChecked);
-                IsChecked = _isChecked;
+            {  
                 RaisePropertyChanged(() => IsChecked);
+                foreach(var item in ListReceivedReq)
+                {
+
+                    item.changeCheckbox(IsChecked);
+                    
+                }
+            });
+
+            ResponseCommand = new MvxCommand(() =>
+            {
+
+                ListOfSelectedUsers = new List<Users>();
+                ListOfSelectedCBs = new List<ReceivedRequest>();
+                foreach (var item in ListReceivedReq)
+                {
+                    if (item.LIIsChecked)
+                    {
+                        ListOfSelectedCBs.Add(item);
+                    }
+                }
+                getUserFromCB(currentUser, ListOfSelectedCBs);
+                
             });
         }
 
-        public ICommand ResponseCommand
-        {
-            get
-            {
-                return new MvxCommand(() => ShowViewModel<ResponseViewModel>(new ResponseViewModel.CurrentUser { currentUser = this.currentUser }));
+        
 
-            }
-        }
+        
 
         private ObservableCollection<ReceivedRequest> receivedReq;
+        private List<ReceivedRequest> ListOfSelectedCBs;
+        public List<Users> ListOfSelectedUsers;
         public ObservableCollection<ReceivedRequest> ListReceivedReq
         {
             get { return receivedReq; }
@@ -78,7 +111,7 @@ namespace TelstraApp.Core.ViewModels
 
             foreach (var user in curerntReq)
             {
-                SendReq(new ReceivedRequest(user.ReqTo, user.ReqTime));
+                SendReq(new ReceivedRequest(user.ReqFrom, user.ReqTime));
             }
             //ShowViewModel<FindViewModel>();
             RaisePropertyChanged(() => ListReceivedReq);

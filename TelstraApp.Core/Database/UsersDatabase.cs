@@ -68,7 +68,7 @@ namespace TelstraApp.Core.Database
                 return await CheckIfExists(new Users(location, currentUser), currentUser);
             }
 
-        public Task<int> AddResponse(AddRequest Requests, string currentUser)
+        public Task<int> AddResponse(Users user, string currentUser)
         {
             throw new NotImplementedException();
         }
@@ -102,6 +102,14 @@ namespace TelstraApp.Core.Database
         }
 
         public Task<Users> GetResponse(string currentUser, string curReq)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<List<Users>> GetReqUser(string currentUser, List<ReceivedRequest> ListOfRequesterName)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<List<Users>> GetReqUserFromNameArray(string currentUser, string[] userNameList)
         {
             throw new NotImplementedException();
         }

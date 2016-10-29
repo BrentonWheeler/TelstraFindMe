@@ -15,6 +15,11 @@ namespace TelstraApp.Droid.Views
     [Activity(Label = "View for RequestsView")]
     public class RequestsView : MvxActivity
     {
+        public RequestsViewModel vm
+        {
+            get { return base.ViewModel as RequestsViewModel; }
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             RequestWindowFeature(WindowFeatures.NoTitle);
@@ -22,18 +27,13 @@ namespace TelstraApp.Droid.Views
             SetContentView(Resource.Layout.Requests);
         }
 
-
-
-    }
-    [Activity(Label = "View for ResponseView")]
-    public class ResponseView : MvxActivity
-    {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnResume()
         {
-            RequestWindowFeature(WindowFeatures.NoTitle);
-            base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Response);
+            base.OnResume();
+            vm.RetrieveRequests();
         }
+
+
 
     }
     //Author: Michael Kath (n9293833)
@@ -71,9 +71,6 @@ namespace TelstraApp.Droid.Views
 
 
     }
-
-
-
 
     //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
