@@ -22,9 +22,4 @@
         android:layout_height="wrap_content"
         local:MvxBind="Click GotoAdmin"
         android:text="Admin" />
-  <Button
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     local:MvxBind="Click GotoMap"
-     android:text="MapTest" /> 
 </LinearLayout>

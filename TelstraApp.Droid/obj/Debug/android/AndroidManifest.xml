@@ -23,10 +23,11 @@
     <activity android:label="View for RequestsView" android:name="md542148431bcec0d6b72e9fef82de3cdba.RequestsView" />
     <activity android:label="View for FindView" android:name="md542148431bcec0d6b72e9fef82de3cdba.FindView" />
     <activity android:label="View for FindView" android:name="md542148431bcec0d6b72e9fef82de3cdba.LoginView" />
+    <activity android:label="View for AdminView" android:name="md542148431bcec0d6b72e9fef82de3cdba.AdminView" />
+    <activity android:label="View for RequestResponse1View" android:name="md542148431bcec0d6b72e9fef82de3cdba.RequestResponse1View" />
     <activity android:label="FirstView" android:name="md542148431bcec0d6b72e9fef82de3cdba.FirstView" />
     <activity android:label="View for Response" android:name="md542148431bcec0d6b72e9fef82de3cdba.ResponseView" />
     <activity android:label="View for RequestResponse" android:name="md542148431bcec0d6b72e9fef82de3cdba.RequestResponseView" />
-    <service android:name="md59ac3ea355d654c0ff72d2ef41149144b.MyService" />
     <activity android:label="Web Authenticator" android:name="md59ad6b75bc832b296b6784609cfbe7e98.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md59ad6b75bc832b296b6784609cfbe7e98.WebAuthenticatorActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="TelstraApp.Droid.TelstraApp.mono.MonoRuntimeProvider.__mono_init__" />

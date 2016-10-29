@@ -4,21 +4,42 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#00B1EB">
-    <TextView
-        android:text="Find"
-        android:layout_width="match_parent"
+    android:background="#FFFFFF">
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="27dp"
-        android:id="@+id/textView1"
-        android:textColor="#ffffff"
+        android:background="#00B1EB">
+        <TextView
+            android:text="Find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="27dp"
+            android:id="@+id/textView1"
+            android:textColor="#ffffff"
+            android:background="#00B1EB"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind=""
+            android:text="Logout"
+            android:textColor="#00B1EB"
+            android:background="@drawable/roundbutton"
+            android:textSize="10sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:minHeight="15dp"
+            android:minWidth="15dp"
+            android:layout_marginRight="5dp" />
+    </RelativeLayout>
+    <LinearLayout
         android:background="#00B1EB"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:paddingTop="10dp"
-        android:paddingBottom="5dp" />
-    <EditText
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:hint="Find user..."
@@ -29,6 +50,22 @@
         local:MvxBind="Text SearchTerm"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp" />
+=======
+        android:layout_height="wrap_content">
+      <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:hint="Find user..."
+            android:maxLines="1"
+            android:textColor="#000000"
+            android:id="@+id/Searching"
+            android:background="@drawable/rounded_corner"
+            local:MvxBind="Text SearchTerm; Click SelectSearchBox"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+>>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
     <MvxListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -37,7 +74,12 @@
         local:MvxBind="ItemsSource User; ItemClick SelectLocationCommand"
         local:MvxItemTemplate="@layout/locationsearchlayout"
         android:layout_marginRight="5dp"
+<<<<<<< HEAD
         android:layout_marginLeft="5dp" />
+=======
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp" />
+>>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
     <TextView
         android:text="Outstanding Requests"
         android:layout_width="match_parent"
@@ -46,12 +88,13 @@
         android:id="@+id/textView1"
         android:textStyle="bold"
         android:gravity="center"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:paddingBottom="15dp"
         android:textColor="#00B1EB"
         android:background="#FFFFFF" />
-    <Mvx.MvxListView
+    <LinearLayout
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="fill_parent"
         local:MvxItemTemplate="@layout/requestitemlayout"
         android:background="#ffffff"
@@ -60,4 +103,20 @@
         local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectReqCommand"
         android:divider="@android:color/transparent"
         android:dividerHeight="4dp" />
+=======
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Mvx.MvxListView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            local:MvxItemTemplate="@layout/requestitemlayout"
+            android:background="#ffffff"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_weight="4"
+            android:dividerHeight="4dp"
+            local:MvxBind="ItemsSource ListOutStandingReq; ItemClick SelectReqCommand; ItemLongClick DeleteReqCommand"
+            android:divider="@android:color/transparent" />
+    </LinearLayout>
+>>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
 </LinearLayout>

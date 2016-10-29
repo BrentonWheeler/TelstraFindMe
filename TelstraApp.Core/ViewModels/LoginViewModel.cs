@@ -31,18 +31,12 @@ namespace TelstraApp.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<FirstViewModel>(new FirstViewModel.CurrentUser { currentUser = "Admin" }));
+                string currentUser = "Admin";
+                return new MvxCommand(() => ShowViewModel<AdminViewModel>());
 
             }
         }
-        public ICommand GotoMap
-        {
-            get
-            {
-                return new MvxCommand(() => ShowViewModel<RequestResponseViewModel>(new RequestResponseViewModel()));
 
-            }
-        }
         public LoginViewModel()
         {
         }

@@ -351,8 +351,12 @@ containing a value of this type.
         public static final int common_plus_signin_btn_text_light_pressed=0x7f020029;
         public static final int icon=0x7f02002a;
         public static final int reqlist=0x7f02002b;
-        public static final int rounded_corner=0x7f02002c;
-        public static final int splash=0x7f02002d;
+        public static final int request5_icon=0x7f02002c;
+        public static final int request_icon=0x7f02002d;
+        public static final int requests1_icon=0x7f02002e;
+        public static final int roundbutton=0x7f02002f;
+        public static final int rounded_corner=0x7f020030;
+        public static final int splash=0x7f020031;
     }
     public static final class id {
         public static final int MvvmCrossTagId=0x7f070000;
@@ -385,18 +389,20 @@ containing a value of this type.
         public static final int google_play_services_version=0x7f050000;
     }
     public static final class layout {
-        public static final int find=0x7f030000;
-        public static final int firstview=0x7f030001;
-        public static final int locationsearchlayout=0x7f030002;
-        public static final int login=0x7f030003;
-        public static final int pendingrequestitemlayout=0x7f030004;
-        public static final int receiveditemlayout=0x7f030005;
-        public static final int requestitemlayout=0x7f030006;
-        public static final int requestresponse=0x7f030007;
-        public static final int requests=0x7f030008;
-        public static final int response=0x7f030009;
-        public static final int splashscreen=0x7f03000a;
-        public static final int viewresponse=0x7f03000b;
+        public static final int admin=0x7f030000;
+        public static final int find=0x7f030001;
+        public static final int firstview=0x7f030002;
+        public static final int locationsearchlayout=0x7f030003;
+        public static final int login=0x7f030004;
+        public static final int pendingrequestitemlayout=0x7f030005;
+        public static final int receiveditemlayout=0x7f030006;
+        public static final int requestitemlayout=0x7f030007;
+        public static final int requestresponse=0x7f030008;
+        public static final int requestresponsenomap=0x7f030009;
+        public static final int requests=0x7f03000a;
+        public static final int response=0x7f03000b;
+        public static final int splashscreen=0x7f03000c;
+        public static final int viewresponse=0x7f03000d;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040020;

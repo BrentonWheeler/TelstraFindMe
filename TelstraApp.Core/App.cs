@@ -11,9 +11,7 @@ namespace TelstraApp.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            //RegisterAppStart<ViewModels.FirstViewModel>();
             RegisterAppStart<ViewModels.LoginViewModel>();
-           //RegisterAppStart<ViewModels.RequestResponse>();
         }
 
     }

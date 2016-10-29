@@ -87,8 +87,26 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:hint="room number"
+<<<<<<< HEAD
             android:inputType="text"
             local:MvxBind="Text Room"/>
+=======
+            android:inputType="text" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Favorites"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp" />
+>>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

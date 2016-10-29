@@ -20,7 +20,8 @@ namespace TelstraApp.Core.ViewModels
         private string cuser;
         private IDialogService dialog;
         private IUserDatabase locationsDatabase;
-
+        //public delegate void MyEventAction(string msg, bool hidekeyboard);
+        //public event MyEventAction MyEvent;
 
 
         public FirstViewModel(IDialogService dialog, IUserDatabase locationsDatabase)

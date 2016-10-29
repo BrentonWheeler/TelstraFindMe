@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace TelstraApp.Core.Models
 {
+    //author: Michael Kath (n9293833)
+    //Simple time converter class
     public class TimeFormatter
     {
         public string reqTime { get; set; }
@@ -22,9 +24,6 @@ namespace TelstraApp.Core.Models
         {
 
             ConvertTime(usertime);
-
-            // DateTime dt = DateTime.ParseExact(usertime.ToString(), "dd/mm/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-            // curTime = dt.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
         }
 
         public void ConvertTime(DateTime usertime)

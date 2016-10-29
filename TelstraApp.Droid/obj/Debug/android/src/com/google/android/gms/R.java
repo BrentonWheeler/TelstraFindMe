@@ -385,18 +385,20 @@ containing a value of this type.
         public static int google_play_services_version=0x7f050000;
     }
     public static final class layout {
-        public static int find=0x7f030000;
-        public static int firstview=0x7f030001;
-        public static int locationsearchlayout=0x7f030002;
-        public static int login=0x7f030003;
-        public static int pendingrequestitemlayout=0x7f030004;
-        public static int receiveditemlayout=0x7f030005;
-        public static int requestitemlayout=0x7f030006;
-        public static int requestresponse=0x7f030007;
-        public static int requests=0x7f030008;
-        public static int response=0x7f030009;
-        public static int splashscreen=0x7f03000a;
-        public static int viewresponse=0x7f03000b;
+        public static int admin=0x7f030000;
+        public static int find=0x7f030001;
+        public static int firstview=0x7f030002;
+        public static int locationsearchlayout=0x7f030003;
+        public static int login=0x7f030004;
+        public static int pendingrequestitemlayout=0x7f030005;
+        public static int receiveditemlayout=0x7f030006;
+        public static int requestitemlayout=0x7f030007;
+        public static int requestresponse=0x7f030008;
+        public static int requestresponsemsg=0x7f030009;
+        public static int requests=0x7f03000a;
+        public static int response=0x7f03000b;
+        public static int splashscreen=0x7f03000c;
+        public static int viewresponse=0x7f03000d;
     }
     public static final class string {
         public static int ApplicationName=0x7f040020;

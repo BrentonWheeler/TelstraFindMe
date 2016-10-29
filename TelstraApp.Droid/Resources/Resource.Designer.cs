@@ -366,10 +366,22 @@ namespace TelstraApp.Droid
 			public const int reqList = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int rounded_corner = 2130837548;
+			public const int request5_icon = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int splash = 2130837549;
+			public const int request_icon = 2130837549;
+			
+			// aapt resource value: 0x7f02002e
+			public const int requests1_icon = 2130837550;
+			
+			// aapt resource value: 0x7f02002f
+			public const int roundbutton = 2130837551;
+			
+			// aapt resource value: 0x7f020030
+			public const int rounded_corner = 2130837552;
+			
+			// aapt resource value: 0x7f020031
+			public const int splash = 2130837553;
 			
 			static Drawable()
 			{
@@ -489,40 +501,46 @@ namespace TelstraApp.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Find = 2130903040;
+			public const int Admin = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int FirstView = 2130903041;
+			public const int Find = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int LocationSearchLayout = 2130903042;
+			public const int FirstView = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Login = 2130903043;
+			public const int LocationSearchLayout = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int PendingRequestItemLayout = 2130903044;
+			public const int Login = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int ReceivedItemLayout = 2130903045;
+			public const int PendingRequestItemLayout = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int RequestItemLayout = 2130903046;
+			public const int ReceivedItemLayout = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int RequestResponse = 2130903047;
+			public const int RequestItemLayout = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int Requests = 2130903048;
+			public const int RequestResponse = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Response = 2130903049;
+			public const int RequestResponseNoMap = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int SplashScreen = 2130903050;
+			public const int Requests = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int ViewResponse = 2130903051;
+			public const int Response = 2130903051;
+			
+			// aapt resource value: 0x7f03000c
+			public const int SplashScreen = 2130903052;
+			
+			// aapt resource value: 0x7f03000d
+			public const int ViewResponse = 2130903053;
 			
 			static Layout()
 			{

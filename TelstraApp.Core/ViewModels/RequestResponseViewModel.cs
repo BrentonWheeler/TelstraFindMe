@@ -19,17 +19,41 @@ namespace TelstraApp.Core.ViewModels
         private Action<GeoLocation> weatherPinFound;
         private double lat = 0.0;
         private double lng = 0.0;
+        private string responseMsg;
+
+        public string ResponseMsg
+        {
+            get
+            {
+                return responseMsg;
+            }
+
+            set
+            {
+                SetProperty(ref responseMsg, value);
+            }
+        }
+
+
 
         public RequestResponseViewModel() {
 
-           
-            //SetupMap();
+            
+        }
+
+        private void buildResponseMessage(Users responseMessage)
+        {
+
         }
 
         public void Init(Users response)
         {
             lat = (double)response.RespLocationLat;
             lng = (double)response.RespLocationLng;
+
+            BuildLocationMessage message = new BuildLocationMessage(response);
+
+            ResponseMsg = message.message;
 
         }
 
@@ -38,6 +62,8 @@ namespace TelstraApp.Core.ViewModels
             get { return myLocation; }
             set { myLocation = value; }
         }
+
+      
 
         private void getData(GeoLocation location)
         {
