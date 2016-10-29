@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 ﻿using MvvmCross.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-=======
-﻿using System;
->>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
+
 
 namespace TelstraApp.Core.ViewModels
 {

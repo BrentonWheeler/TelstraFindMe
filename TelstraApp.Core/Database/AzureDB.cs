@@ -106,7 +106,6 @@ namespace TelstraApp.Core.Database
         }
         public async Task<List<Users>> GetReqUser(string currentUser, List<ReceivedRequest> ListOfRequesterName)
         {
-<<<<<<< HEAD
             //var currentReqs = await azureSyncTable.Where(x => ListOfRequesterName.Any(y=> currentUser == x.ReqTo && y.RequestersName == x.ReqFrom)).ToListAsync();
             //does this actually work
             //await SyncAsync(currentUser, true);
@@ -116,20 +115,6 @@ namespace TelstraApp.Core.Database
             var allReqs = await azureSyncTable.Where(x => x.ReqTo == currentUser && x.HasResponded == false).OrderByDescending(x => x.ReqTime).ToListAsync();
             List<Users> currentUsers = new List<Users>();
             foreach (var req in allReqs)
-=======
-
-           var currentReqs = await azureSyncTable.Where(x => x.ReqTo == Requests.UserNameReq && x.ReqFrom == currentUser).ToListAsync();
-
-
-            //return currentReqs = await azureSyncTable.Where(x =><YOUR_LIST>.Any(y=>y.ReqTo == currentUser && y.reqFrom == x.RequestersName)));
-            //var arrayReq = new[] { "User5", "user3" };
-
-            //var currentReqs1 = await azureSyncTable<Users>.Where(x => arrayReq.Contains(x.ReqFrom) && x.ReqTo == currentUser));
-
-            //var currentReqs1 = await azureSyncTable.Where(x => x.ReqTo == currentUser).ToListAsync();
-
-            if (currentReqs.Any())
->>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
             {
                 foreach(var requester in ListOfRequesterName)
                 {

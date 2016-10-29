@@ -32,16 +32,8 @@ namespace TelstraApp.Droid.Views
 
         protected override void OnResume()
         {
-<<<<<<< HEAD
             base.OnResume();
             vm.RetrieveRequests();
-=======
-            RequestWindowFeature(WindowFeatures.NoTitle);
-            base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Response);
-
-
->>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
         }
 
 
@@ -177,11 +169,10 @@ namespace TelstraApp.Droid.Views
          RequestWindowFeature(WindowFeatures.NoTitle);
          base.OnCreate(bundle);
 
-<<<<<<< HEAD
-=======
          SetContentView(Resource.Layout.Admin);
      }
     }
+
     [Activity(Label = "View for RequestResponse1View")]
     public class RequestResponse1View: MvxActivity
     {
@@ -194,7 +185,6 @@ namespace TelstraApp.Droid.Views
      }
     }
 
->>>>>>> bb5088b70613e469a26618a4db86bc39fb83aca1
     //Author Michael Kath (n9293833)
     [Activity(Label = "FirstView")]
     public class FirstView : MvxTabActivity

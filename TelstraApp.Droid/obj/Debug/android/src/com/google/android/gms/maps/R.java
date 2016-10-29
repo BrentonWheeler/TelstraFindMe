@@ -351,8 +351,12 @@ containing a value of this type.
         public static int common_plus_signin_btn_text_light_pressed=0x7f020029;
         public static int icon=0x7f02002a;
         public static int reqlist=0x7f02002b;
-        public static int rounded_corner=0x7f02002c;
-        public static int splash=0x7f02002d;
+        public static int request5_icon=0x7f02002c;
+        public static int request_icon=0x7f02002d;
+        public static int requests1_icon=0x7f02002e;
+        public static int roundbutton=0x7f02002f;
+        public static int rounded_corner=0x7f020030;
+        public static int splash=0x7f020031;
     }
     public static final class id {
         public static int MvvmCrossTagId=0x7f070000;
@@ -394,7 +398,7 @@ containing a value of this type.
         public static int receiveditemlayout=0x7f030006;
         public static int requestitemlayout=0x7f030007;
         public static int requestresponse=0x7f030008;
-        public static int requestresponsemsg=0x7f030009;
+        public static int requestresponsenomap=0x7f030009;
         public static int requests=0x7f03000a;
         public static int response=0x7f03000b;
         public static int splashscreen=0x7f03000c;
