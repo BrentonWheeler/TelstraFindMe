@@ -366,28 +366,22 @@ namespace TelstraApp.Droid
 			public const int reqList = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int request3_icon = 2130837548;
+			public const int request5_icon = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int request4_icon = 2130837549;
+			public const int request_icon = 2130837549;
 			
 			// aapt resource value: 0x7f02002e
-			public const int request5_icon = 2130837550;
+			public const int requests1_icon = 2130837550;
 			
 			// aapt resource value: 0x7f02002f
-			public const int request_icon = 2130837551;
+			public const int roundbutton = 2130837551;
 			
 			// aapt resource value: 0x7f020030
-			public const int requests1_icon = 2130837552;
+			public const int rounded_corner = 2130837552;
 			
 			// aapt resource value: 0x7f020031
-			public const int roundbutton = 2130837553;
-			
-			// aapt resource value: 0x7f020032
-			public const int rounded_corner = 2130837554;
-			
-			// aapt resource value: 0x7f020033
-			public const int splash = 2130837555;
+			public const int splash = 2130837553;
 			
 			static Drawable()
 			{

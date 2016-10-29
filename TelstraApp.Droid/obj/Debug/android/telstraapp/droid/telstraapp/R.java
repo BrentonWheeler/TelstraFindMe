@@ -351,14 +351,12 @@ containing a value of this type.
         public static final int common_plus_signin_btn_text_light_pressed=0x7f020029;
         public static final int icon=0x7f02002a;
         public static final int reqlist=0x7f02002b;
-        public static final int request3_icon=0x7f02002c;
-        public static final int request4_icon=0x7f02002d;
-        public static final int request5_icon=0x7f02002e;
-        public static final int request_icon=0x7f02002f;
-        public static final int requests1_icon=0x7f020030;
-        public static final int roundbutton=0x7f020031;
-        public static final int rounded_corner=0x7f020032;
-        public static final int splash=0x7f020033;
+        public static final int request5_icon=0x7f02002c;
+        public static final int request_icon=0x7f02002d;
+        public static final int requests1_icon=0x7f02002e;
+        public static final int roundbutton=0x7f02002f;
+        public static final int rounded_corner=0x7f020030;
+        public static final int splash=0x7f020031;
     }
     public static final class id {
         public static final int MvvmCrossTagId=0x7f070000;

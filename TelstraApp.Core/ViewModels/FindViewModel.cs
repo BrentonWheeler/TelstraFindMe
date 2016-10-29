@@ -157,9 +157,11 @@ namespace TelstraApp.Core.ViewModels
               selectedUser.ChangeOnDelete(false);
               if (await dialog.Show("Would you like to delete this request?", "Delete Request", "Delete", "Cancel"))
               {
+                  ToastNotifcation("Deleting request", false);
                   await UsersDatabase.DeleteRequest(selectedUser.UserNameReq, currentUser);
-                  ListOutStandingReq.Remove(selectedUser);
-                  ToastNotifcation("Request Deleted", false);
+                  //ListOutStandingReq.Remove(selectedUser);
+                  await populateList();
+                  ToastNotifcation("Request deleted", false);
                   RaisePropertyChanged(() => ListOutStandingReq);
 
               }
@@ -207,7 +209,7 @@ namespace TelstraApp.Core.ViewModels
                 }
                 else
                 {
-                    ToastNotifcation("User has not responded yet", false);
+                    ToastNotifcation(response.ReqTo + " has not responded yet", false);
                 }
             });
 
@@ -219,7 +221,7 @@ namespace TelstraApp.Core.ViewModels
         //Adds requests to list from DB
         public async Task<bool> populateList()
         {
-            var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
+            var curerntReq = await UsersDatabase.SelectViaUser(currentUser, true);
             AddRequests(curerntReq);
             return true;
         }

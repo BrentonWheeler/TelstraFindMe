@@ -72,7 +72,7 @@ namespace TelstraApp.Droid.Views
         {
             base.OnResume();
             RunProcess = true;
-            SyncWithDB();
+            //SyncWithDB();
 
         }
 
@@ -103,11 +103,11 @@ namespace TelstraApp.Droid.Views
             await vm.populateList();
             if (await vm.RetrieveItemsFromDB())
             {
-                await vm.populateList();
+                //await vm.populateList();
             }
             SendToastNotification("Syncing Completed", false);
 
-            await Task.Run(async () =>
+     /*       await Task.Run(async () =>
              {
                  while (RunProcess)
                  {
@@ -126,7 +126,7 @@ namespace TelstraApp.Droid.Views
                      }
                  }
 
-             });
+             }); */
         }
 
         private void SendToastNotification(string msg, bool hideKeyBoard)

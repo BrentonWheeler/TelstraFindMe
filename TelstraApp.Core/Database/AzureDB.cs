@@ -214,7 +214,12 @@ namespace TelstraApp.Core.Database
             }
 
             // await SyncAsyncEmp(true);
-            return await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
+            //var req = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
+
+            var req = await azureSyncTable.OrderByDescending(x => x.ReqTime).ToListAsync();
+
+            var req1 = req.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime);
+            return req1;
 
 
         }
@@ -258,8 +263,14 @@ namespace TelstraApp.Core.Database
 
                 if (pullData)
                 {
-                    await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x=>x.ReqFrom == curerntUser));
+                    
+                    await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x => x.ReqFrom == curerntUser));
+                    //await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x => x.ReqFrom == curerntUser));
+
                 }
+               
+
+            
             }
 
             catch (Exception e)

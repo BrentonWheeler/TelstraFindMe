@@ -15,6 +15,7 @@ using TelstraApp.Core.Interfaces;
 using System.IO;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using TelstraApp.Core.Models;
+using System.Threading.Tasks;
 
 namespace TelstraApp.Droid.Database
 {
@@ -42,6 +43,7 @@ namespace TelstraApp.Droid.Database
             store.DefineTable<Users>();
             store.DefineTable<Employees>();
             azureDatabase.SyncContext.InitializeAsync(store);
+           
         }
 
     }
