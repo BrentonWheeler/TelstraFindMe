@@ -55,7 +55,7 @@ namespace TelstraApp.Droid.Views
 
         public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         //private delegate IOnMapReadyCallback OnMapReadyCallback();

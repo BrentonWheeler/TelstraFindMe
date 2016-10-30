@@ -4,12 +4,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/reqList">
+    android:background="#ffffff">
     <CheckBox
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="User 1  -  5 Minutes Ago"
         android:textSize="20sp"
-        android:padding="20dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#c3c3c3"
         local:MvxBind="Checked LIIsChecked;Text RequestersName + '\nAt - ' + RequestersStatus;" />
 </LinearLayout>

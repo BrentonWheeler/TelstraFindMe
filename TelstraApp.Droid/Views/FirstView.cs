@@ -30,10 +30,10 @@ namespace TelstraApp.Droid.Views
             SetContentView(Resource.Layout.Requests);
         }
 
-        protected override void OnResume()
+        protected override async void OnResume()
         {
             base.OnResume();
-            vm.RetrieveRequests();
+            await vm.RetrieveRequests();
         }
 
 

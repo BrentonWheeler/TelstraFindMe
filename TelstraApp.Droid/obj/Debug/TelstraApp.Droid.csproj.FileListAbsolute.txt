@@ -305,5 +305,6 @@ C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Droid\obj\Debug\android\a
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.dll.mdb
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Droid\obj\Debug\res\drawable\reqlistgrey.xml
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

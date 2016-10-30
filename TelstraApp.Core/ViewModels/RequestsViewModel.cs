@@ -55,7 +55,7 @@ namespace TelstraApp.Core.ViewModels
 
             ListReceivedReq = new ObservableCollection<ReceivedRequest>();
 
-            RetrieveRequests();
+            //RetrieveRequests();
             //dialog messages. Stil yet to be implemented properly
             this.dialog = dialog;
             //database to use azureDB functions

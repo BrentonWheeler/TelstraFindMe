@@ -250,6 +250,7 @@
     <AndroidResource Include="Resources\drawable\requests1_icon.jpg" />
     <AndroidResource Include="Resources\drawable\request_icon.png" />
     <AndroidResource Include="Resources\drawable\request5_icon.png" />
+    <AndroidResource Include="Resources\drawable\reqListGrey.xml" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -3,38 +3,69 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#00B1EB">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="#00B1EB">
+        <TextView
+            android:text="Requests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="27dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp" />
+    </LinearLayout>
     <CheckBox
         android:id="@+id/selectAllCB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select All"
+        android:background="#00B1EB"
         android:textSize="20sp"
-        android:padding="20dp"
         local:MvxBind="Checked IsChecked; Click SelectAll" />
     <Mvx.MvxListView
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         local:MvxItemTemplate="@layout/receiveditemlayout"
-        android:background="#ffffff"
-        local:MvxBind="ItemsSource ListReceivedReq;" />
+        android:background="#FFFFFF"
+        local:MvxBind="ItemsSource ListReceivedReq;"
+        android:dividerHeight="4dp"
+        android:divider="@android:color/transparent" />
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:gravity="center|bottom"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:background="#00B1EB"
         android:layout_weight="1">
-      <Button
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete"
             android:layout_gravity="center_horizontal"
-            local:MvxBind="Click DeleteCommand;" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            local:MvxBind="Click DeleteCommand;"
+            android:background="@drawable/reqList"
+            android:layout_weight="1"
+            android:textColor="#00B1EB" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Respond"
             android:layout_gravity="center_horizontal"
-            local:MvxBind="Click ResponseCommand;" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            local:MvxBind="Click ResponseCommand;"
+            android:background="@drawable/reqList"
+            android:layout_weight="1"
+            android:textColor="#00B1EB" />
     </LinearLayout>
 </LinearLayout>
