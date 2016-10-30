@@ -30,6 +30,7 @@ namespace TelstraApp.Core.ViewModels
         private IDialogService dialog;
         public ICommand SelectAll { get; private set; }
         public ICommand ResponseCommand { get; private set; }
+        public ICommand DeleteCommand { get; private set; }
         public async void getUserFromCB(string currentUser, List<ReceivedRequest> selectedRequests)
         {
             List<Users> users = await UsersDatabase.GetReqUser(currentUser, selectedRequests);
@@ -87,6 +88,24 @@ namespace TelstraApp.Core.ViewModels
                 getUserFromCB(currentUser, ListOfSelectedCBs);
                 
             });
+            DeleteCommand = new MvxCommand(async () =>
+            {
+                if (await dialog.Show("Would you like to delete the selected request(s)?", "Delete Request", "Delete", "Cancel"))
+                {
+                    foreach (var item in ListReceivedReq)
+                    {
+                        if (item.LIIsChecked)
+                        {
+                            //ToastNotifcation("Deleting request", false);
+                            await UsersDatabase.DeleteRequest(currentUser, item.RequestersName);
+                            //ListOutStandingReq.Remove(selectedUser);
+                            //ToastNotifcation("Request deleted", false);
+                            //RaisePropertyChanged(() => ListOutStandingReq);
+                        }
+                    }
+                    RetrieveRequests();
+                }
+            });
         }
 
         
@@ -102,7 +121,9 @@ namespace TelstraApp.Core.ViewModels
             set { SetProperty(ref receivedReq, value); }
         }
 
-        public async void RetrieveRequests()
+        public async 
+        Task
+RetrieveRequests()
         {
             ListReceivedReq = new ObservableCollection<ReceivedRequest>();
 
