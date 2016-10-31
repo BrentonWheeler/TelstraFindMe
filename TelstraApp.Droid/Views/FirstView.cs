@@ -93,40 +93,6 @@ namespace TelstraApp.Droid.Views
             vm.clearSearch();
         }
 
-        public async void SyncWithDB()
-        {
-            bool completed = true;
-
-            SendToastNotification("Syncing Contacts", false);
-            await vm.populateList();
-            if (await vm.RetrieveItemsFromDB())
-            {
-                //await vm.populateList();
-            }
-            SendToastNotification("Syncing Completed", false);
-
-     /*       await Task.Run(async () =>
-             {
-                 while (RunProcess)
-                 {
-                     if (completed)
-                     {
-                         completed = false;
-                         if (await vm.RetrieveItemsFromDB())
-                         {
-                             completed = await vm.populateList();
-                         }
-                         else
-                         {
-                             completed = true;
-                         }
-                         Thread.Sleep(10000);
-                     }
-                 }
-
-             }); */
-        }
-
         private void SendToastNotification(string msg, bool hideKeyBoard)
         {
             if (hideKeyBoard)
@@ -140,10 +106,33 @@ namespace TelstraApp.Droid.Views
             Toasty.Show();
         }
 
+        public async void SyncWithDB()
+        {
+            bool completed = false;
 
+            SendToastNotification("Syncing Contacts", false);
+            completed = await vm.populateList(true);
+            SendToastNotification("Syncing Completed", false);
+            completed = false;
+            await Task.Run(async () =>
+             {
+                 while (RunProcess)
+                 {
+                     Thread.Sleep(10000);
+                     if (completed)
+                     {
+                         completed = false;
 
+                         completed = await vm.populateList(true);
+                     }
+                     else
+                     {
+                         completed = true;
+                     }
+                 }
 
-
+             }); 
+        }
     }
 
 
@@ -199,25 +188,54 @@ namespace TelstraApp.Droid.Views
              base.OnCreate(bundle);
              SetContentView(Resource.Layout.FirstView);
 
-             TabHost.TabSpec tabspec;
+            TabHost.TabSpec tabspec;
             TabHost.TabSpec tabspec1;
-            //Intent intent;
             Color color = new Color(0, 177, 235);
 
             tabspec = TabHost.NewTabSpec("requests");
-            tabspec.SetIndicator("", Resources.GetDrawable(Resource.Drawable.request7_icon));
+            tabspec.SetIndicator("");
             tabspec.SetContent(this.CreateIntentFor(FirstViewModel.Requests));
             TabHost.AddTab(tabspec);
             
             TabWidget.GetChildAt(0).SetBackgroundColor(color);
 
             tabspec1 = TabHost.NewTabSpec("find");
-            tabspec1.SetIndicator("", Resources.GetDrawable(Resource.Drawable.find1_icon));
+            tabspec1.SetIndicator("");
 
             tabspec1.SetContent(this.CreateIntentFor(FirstViewModel.Find));
             TabHost.AddTab(tabspec1);
+            TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.request8));
+            TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.find2_Sel));
 
-            TabWidget.GetChildAt(1).SetBackgroundColor(color);
+
+
+              TabHost.TabChanged += (object sender, TabHost.TabChangeEventArgs e) =>
+               {
+                   string id = e.TabId;
+
+                   //TabHost.ClearAllTabs();
+                   if (id == "find")
+                   {
+                       TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.request8));
+                       TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.find2_Sel));
+                       //TabWidget.GetChildAt(0).SetBackgroundColor(Color.White);
+                       // Thread.Sleep(500);
+                       //TabWidget.GetChildAt(0).SetBackgroundColor(color);
+                   }
+                   else if (id == "requests")
+                   {
+                       TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.request8_Sel));
+                       TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.find2_icon));
+                       // TabWidget.GetChildAt(1).SetBackgroundColor(Color.White);
+                       // Thread.Sleep(500);
+                       //TabWidget.GetChildAt(1).SetBackgroundColor(color);
+                   }
+                  //TabHost.AddTab(tabspec);
+                // TabHost.AddTab(tabspec1); 
+
+               }; 
+
+            //string current = FirstViewModel.Current_User();
 
 
         }
@@ -226,6 +244,7 @@ namespace TelstraApp.Droid.Views
         public override void OnBackPressed()
          {
              base.OnBackPressed();
+             //finish();
          }//end onBackPressed()
 
         }

@@ -124,6 +124,8 @@ namespace TelstraApp.Core.ViewModels
         public MvxCommand<AddRequest> DeleteReqCommand { get; private set; }
 
         private readonly IUserDatabase UsersDatabase;
+
+       // private IUserDatabase UsersDatabase;
         private string currentUser;
         private IDialogService dialog;
         private int ResReqCount = 0;
@@ -157,12 +159,12 @@ namespace TelstraApp.Core.ViewModels
               selectedUser.ChangeOnDelete(false);
               if (await dialog.Show("Would you like to delete this request?", "Delete Request", "Delete", "Cancel"))
               {
-                  ToastNotifcation("Deleting request", false);
+                  ToastNotifcation("Deleting Request", false);
                   await UsersDatabase.DeleteRequest(selectedUser.UserNameReq, currentUser);
                   //ListOutStandingReq.Remove(selectedUser);
                   await populateList();
-                  ToastNotifcation("Request deleted", false);
-                  RaisePropertyChanged(() => ListOutStandingReq);
+                  ToastNotifcation("Request Deleted", false);
+                  //RaisePropertyChanged(() => ListOutStandingReq);
 
               }
               else
@@ -219,16 +221,36 @@ namespace TelstraApp.Core.ViewModels
 
         //Author: Michael Kath
         //Adds requests to list from DB
-        public async Task<bool> populateList()
+        bool DBlock = false;
+        public async Task<bool> populateList(bool fromTask = false)
         {
-            var curerntReq = await UsersDatabase.SelectViaUser(currentUser, true);
-            AddRequests(curerntReq);
+            if (fromTask)
+            { 
+                if (!DBlock)
+                {
+                    DBlock = true;
+                    await UsersDatabase.SyncAsyncEmp(true);
+                    var curerntReq = await UsersDatabase.SelectViaUser(currentUser, true);
+                    AddRequests(curerntReq);
+                    DBlock = false;
+                }
+            }
+            else
+            {
+                DBlock = true;
+                await UsersDatabase.SyncAsyncEmp(true);
+                var curerntReq = await UsersDatabase.SelectViaUser(currentUser, true);
+                AddRequests(curerntReq);
+                DBlock = false;
+            }
+            
+
             return true;
         }
 
         //Author: Michael Kath
         //Syncs request list with database
-        public async Task<bool> RetrieveItemsFromDB()
+      /*  public async Task<bool> RetrieveItemsFromDB()
         {
              //Pull any latest employees
             await UsersDatabase.SyncAsyncEmp(true);
@@ -261,46 +283,50 @@ namespace TelstraApp.Core.ViewModels
                 return false;
             }
 
-        }
+        } */
 
         //author: Michael Kath (n9293833)
         //loops through all the new requests found to see if they already list on the users list
         private void AddRequests(IEnumerable<Users> newRequests)
         {
-            ListOutStandingReq = new ObservableCollection<AddRequest>();
+            //ListOutStandingReq = new ObservableCollection<AddRequest>();
+           // List<AddRequest> tmp = new List<AddRequest>();
             ResReqCount = 0;
-            foreach (var user in newRequests)
+            
+            if (newRequests.Count() > 0)
             {
-                //Add responded Requests first
-                if (user.HasResponded)
+                ListOutStandingReq.Clear();
+                foreach (var user in newRequests)
                 {
-                    ResReqCount++;
+                    
                     TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
                     SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
-                }
 
+                }
+                RaisePropertyChanged(() => ListOutStandingReq);
             }
+
             //then add non responded requests
-            foreach (var user in newRequests)
-            {
-                if (!user.HasResponded)
-                {
-                    TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
-                    SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
-                }
+            /*   foreach (var user in newRequests)
+               {
+                   if (!user.HasResponded)
+                   {
+                       TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
+                       tmp.Add(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                       // SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                   }
 
-            }
+               } */
 
-            RaisePropertyChanged(() => ListOutStandingReq);
+
+
+            
         }
         //author: Michael Kath (n9293833)
         //Inserts into database and formats the time to be displayed on the users list
         private async Task InsertReqDB(Employees selectedUser)
         {
             await UsersDatabase.InsertRequest(selectedUser, currentUser);
-            TimeFormatter TimeTimer = new TimeFormatter();
-            IEnumerable<Users> req = await UsersDatabase.SelectViaUser(currentUser, false);
-         
             User.Clear();
         }
 
@@ -316,10 +342,10 @@ namespace TelstraApp.Core.ViewModels
                 // if request doesnt already exist insert into DB.
                if (!await UsersDatabase.CheckIfExists(selectedUser, currentUser))
                 {
-                    ToastNotifcation("Requests Sending..", true);
-
+                    ToastNotifcation("Request Sending..", true);
                     await InsertReqDB(selectedUser);
-                    ToastNotifcation("Requests Sent", false);
+                    await populateList();
+                    ToastNotifcation("Request Sent", false);
                 }
                 else
                 {
@@ -331,10 +357,10 @@ namespace TelstraApp.Core.ViewModels
                         if (success == 0)
                         {
                             //insert new request
-                            ToastNotifcation("Requests Sending..", true);
+                            ToastNotifcation("Request Sending..", true);
                             await InsertReqDB(selectedUser);
-                            ToastNotifcation("Requests Sent", false);
-                            //RetrieveRequests();
+                            await populateList();
+                            ToastNotifcation("Request Sent", false);
                         }
                         else
                         {

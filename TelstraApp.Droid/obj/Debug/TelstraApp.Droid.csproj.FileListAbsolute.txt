@@ -417,11 +417,7 @@ D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\splash.png
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\rounded_corner.xml
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\reqlist.xml
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\roundbutton.xml
-D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\requests1_icon.jpg
-D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\request_icon.png
-D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\request5_icon.png
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\reqlistgrey.xml
-D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\request6_icon.png
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\R.cs.flag
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\uploadflags.txt
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\request7_icon.png
@@ -467,5 +463,9 @@ D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Core.d
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\TelstraApp.Droid.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\find_icon.png
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\find1_icon.png
+D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\find2_icon.png
+D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\request8.png
+D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\request8_sel.png
+D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\find2_sel.png
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb

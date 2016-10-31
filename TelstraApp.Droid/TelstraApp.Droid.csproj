@@ -247,16 +247,16 @@
     <AndroidResource Include="Resources\drawable\rounded_corner.xml" />
     <AndroidResource Include="Resources\drawable\reqList.xml" />
     <AndroidResource Include="Resources\drawable\roundbutton.xml" />
-    <AndroidResource Include="Resources\drawable\requests1_icon.jpg" />
-    <AndroidResource Include="Resources\drawable\request_icon.png" />
-    <AndroidResource Include="Resources\drawable\request5_icon.png" />
     <AndroidResource Include="Resources\drawable\reqListGrey.xml" />
-    <AndroidResource Include="Resources\drawable\request6_icon.png" />
     <AndroidResource Include="Resources\drawable\request7_icon.png" />
     <AndroidResource Include="Resources\drawable\request7_sel_icon.png" />
     <AndroidResource Include="Resources\drawable\icons_selector.xml" />
     <AndroidResource Include="Resources\drawable\find_icon.png" />
     <AndroidResource Include="Resources\drawable\find1_icon.png" />
+    <AndroidResource Include="Resources\drawable\find2_icon.png" />
+    <AndroidResource Include="Resources\drawable\request8.png" />
+    <AndroidResource Include="Resources\drawable\request8_Sel.png" />
+    <AndroidResource Include="Resources\drawable\find2_Sel.png" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

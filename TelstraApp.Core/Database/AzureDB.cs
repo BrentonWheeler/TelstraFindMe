@@ -237,18 +237,26 @@ namespace TelstraApp.Core.Database
 
         public async Task<IEnumerable<Users>> SelectViaUser(string currentUser, bool pushSync = false)
         {   
-            if (pushSync)
-            {
-                await SyncAsync(currentUser, pushSync);
-            }
-
+           // if (pushSync)
+           // {
+                await SyncAsync(currentUser, true);
+            //}
+            IEnumerable<Users> req = null;
             // await SyncAsyncEmp(true);
             //var req = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).ToListAsync();
+            try
+            {
+                req = await azureSyncTable.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime).OrderByDescending(x => x.HasResponded).ToListAsync();
 
-            var req = await azureSyncTable.OrderByDescending(x => x.ReqTime).ToListAsync();
 
-            var req1 = req.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime);
-            return req1;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+           // var req1 = req.Where(x => x.ReqFrom == currentUser).OrderByDescending(x => x.ReqTime);
+            return req;
 
 
         }
@@ -293,8 +301,8 @@ namespace TelstraApp.Core.Database
                 if (pullData)
                 {
                     
+                    //await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery());
                     await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x => x.ReqFrom == curerntUser));
-                    //await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x => x.ReqFrom == curerntUser));
 
                 }
                

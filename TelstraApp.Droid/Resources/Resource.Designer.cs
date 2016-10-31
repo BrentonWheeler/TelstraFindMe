@@ -363,25 +363,25 @@ namespace TelstraApp.Droid
 			public const int find1_icon = 2130837546;
 			
 			// aapt resource value: 0x7f02002b
-			public const int find_icon = 2130837547;
+			public const int find2_icon = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int Icon = 2130837548;
+			public const int find2_Sel = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int icons_selector = 2130837549;
+			public const int find_icon = 2130837549;
 			
 			// aapt resource value: 0x7f02002e
-			public const int reqList = 2130837550;
+			public const int Icon = 2130837550;
 			
 			// aapt resource value: 0x7f02002f
-			public const int reqListGrey = 2130837551;
+			public const int icons_selector = 2130837551;
 			
 			// aapt resource value: 0x7f020030
-			public const int request5_icon = 2130837552;
+			public const int reqList = 2130837552;
 			
 			// aapt resource value: 0x7f020031
-			public const int request6_icon = 2130837553;
+			public const int reqListGrey = 2130837553;
 			
 			// aapt resource value: 0x7f020032
 			public const int request7_icon = 2130837554;
@@ -390,10 +390,10 @@ namespace TelstraApp.Droid
 			public const int request7_sel_icon = 2130837555;
 			
 			// aapt resource value: 0x7f020034
-			public const int request_icon = 2130837556;
+			public const int request8 = 2130837556;
 			
 			// aapt resource value: 0x7f020035
-			public const int requests1_icon = 2130837557;
+			public const int request8_Sel = 2130837557;
 			
 			// aapt resource value: 0x7f020036
 			public const int roundbutton = 2130837558;
