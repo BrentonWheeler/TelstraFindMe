@@ -252,6 +252,7 @@
     <AndroidResource Include="Resources\drawable\requestUnSel_icon.png" />
     <AndroidResource Include="Resources\drawable\requestSel_icon.png" />
     <AndroidResource Include="Resources\drawable\findSel_icon.png" />
+    <AndroidResource Include="Resources\drawable\splash_findme.png" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

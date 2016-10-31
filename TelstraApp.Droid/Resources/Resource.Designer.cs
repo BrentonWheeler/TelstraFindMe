@@ -389,6 +389,9 @@ namespace TelstraApp.Droid
 			// aapt resource value: 0x7f020033
 			public const int splash = 2130837555;
 			
+			// aapt resource value: 0x7f020034
+			public const int splash_findme = 2130837556;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

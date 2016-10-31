@@ -13,6 +13,10 @@ namespace TelstraApp.Core.Models
     {
         public string reqTime { get; set; }
 
+        public void convertString()
+        {
+            reqTime.ToString();
+        }
 
         public TimeFormatter()
         {

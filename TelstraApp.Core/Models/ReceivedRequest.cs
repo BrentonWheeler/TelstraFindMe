@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TelstraApp.Core.Models;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -72,7 +72,7 @@ namespace TelstraApp.Core.ViewModels
         }
 
         public string RequestersName { get; set; }
-        public DateTime RequestersStatus { get; set; }
+        public string RequestersStatus { get; set; }
 
         public string ReqStatus(bool status)
         {
@@ -87,7 +87,8 @@ namespace TelstraApp.Core.ViewModels
         public ReceivedRequest(string userReq, DateTime userStatus)
         {
             RequestersName = userReq;
-            RequestersStatus = userStatus;
+            TimeFormatter time = new TimeFormatter(userStatus);
+            RequestersStatus = time.reqTime;
         }
     }
 

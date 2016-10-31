@@ -359,6 +359,7 @@ containing a value of this type.
         public static final int roundbutton=0x7f020031;
         public static final int rounded_corner=0x7f020032;
         public static final int splash=0x7f020033;
+        public static final int splash_findme=0x7f020034;
     }
     public static final class id {
         public static final int MvvmCrossTagId=0x7f070000;

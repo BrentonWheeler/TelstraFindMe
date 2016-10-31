@@ -5,7 +5,7 @@ using MvvmCross.Droid.Views;
 namespace TelstraApp.Droid
 {
     [Activity(
-        Label = "TelstraApp.Droid"
+        Label = "FindMe"
         , MainLauncher = true
         , Theme = "@style/Theme.Splash"
         , NoHistory = true
