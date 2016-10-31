@@ -204,8 +204,8 @@ namespace TelstraApp.Droid.Views
 
             tabspec1.SetContent(this.CreateIntentFor(FirstViewModel.Find));
             TabHost.AddTab(tabspec1);
-            TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.request8));
-            TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.find2_Sel));
+            TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.requestSel_icon));
+            TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.findUnsel_icon));
 
 
 
@@ -216,26 +216,17 @@ namespace TelstraApp.Droid.Views
                    //TabHost.ClearAllTabs();
                    if (id == "find")
                    {
-                       TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.request8));
-                       TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.find2_Sel));
-                       //TabWidget.GetChildAt(0).SetBackgroundColor(Color.White);
-                       // Thread.Sleep(500);
-                       //TabWidget.GetChildAt(0).SetBackgroundColor(color);
+                       TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.requestUnSel_icon));
+                       TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.findSel_icon));
+
                    }
                    else if (id == "requests")
                    {
-                       TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.request8_Sel));
-                       TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.find2_icon));
-                       // TabWidget.GetChildAt(1).SetBackgroundColor(Color.White);
-                       // Thread.Sleep(500);
-                       //TabWidget.GetChildAt(1).SetBackgroundColor(color);
+                       TabWidget.GetChildAt(0).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.requestSel_icon));
+                       TabWidget.GetChildAt(1).SetBackgroundDrawable(Resources.GetDrawable(Resource.Drawable.findUnsel_icon));
                    }
-                  //TabHost.AddTab(tabspec);
-                // TabHost.AddTab(tabspec1); 
 
-               }; 
-
-            //string current = FirstViewModel.Current_User();
+               };
 
 
         }

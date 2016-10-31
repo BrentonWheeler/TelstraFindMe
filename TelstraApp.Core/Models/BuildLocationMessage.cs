@@ -11,25 +11,8 @@ namespace TelstraApp.Core.Models
         public string message { set; get; }
         public BuildLocationMessage(Users responseMessage)
         {
-            string msg = "Hi there,\n";
-            if (responseMessage.RespLunch)
-                msg += "I'm an currently at lunch.\n";
-            else if (responseMessage.RespMeeting)
-            {
-                msg += "I'm an currently in a meeting";
-                if (responseMessage.RespRoom != null && responseMessage.RespRoom != "")
-                {
-                    msg += " in room " + responseMessage.RespRoom + "\n";
-                }
-                else
-                {
-                    msg += ".\n";
-                }
-            }
-            else if (responseMessage.RespHome)
-            {
-                msg += "I'm an currently at home today.\n";
-            }
+            string msg = responseMessage.ReqTo + " replyed with:\n";
+            msg += responseMessage.RespCurrentlyAt + "\n";
 
             if (responseMessage.RespLocationLat != 0 && responseMessage.RespLocationLng != 0)
             {

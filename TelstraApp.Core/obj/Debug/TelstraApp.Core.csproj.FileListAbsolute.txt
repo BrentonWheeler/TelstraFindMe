@@ -79,17 +79,3 @@ D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
