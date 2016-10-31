@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -183,6 +183,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\FirstView.cs" />
+    <Compile Include="Views\ResponseView.cs" />
     <Compile Include="Views\RequestResponseView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +250,7 @@
     <AndroidResource Include="Resources\drawable\requests1_icon.jpg" />
     <AndroidResource Include="Resources\drawable\request_icon.png" />
     <AndroidResource Include="Resources\drawable\request5_icon.png" />
+    <AndroidResource Include="Resources\drawable\reqListGrey.xml" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

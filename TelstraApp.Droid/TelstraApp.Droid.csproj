@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -251,6 +251,12 @@
     <AndroidResource Include="Resources\drawable\request_icon.png" />
     <AndroidResource Include="Resources\drawable\request5_icon.png" />
     <AndroidResource Include="Resources\drawable\reqListGrey.xml" />
+    <AndroidResource Include="Resources\drawable\request6_icon.png" />
+    <AndroidResource Include="Resources\drawable\request7_icon.png" />
+    <AndroidResource Include="Resources\drawable\request7_sel_icon.png" />
+    <AndroidResource Include="Resources\drawable\icons_selector.xml" />
+    <AndroidResource Include="Resources\drawable\find_icon.png" />
+    <AndroidResource Include="Resources\drawable\find1_icon.png" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>
