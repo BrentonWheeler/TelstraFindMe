@@ -107,7 +107,7 @@ namespace TelstraApp.Core.ViewModels
                             //RaisePropertyChanged(() => ListOutStandingReq);
                         }
                     }
-                    RetrieveRequests();
+                    await RetrieveRequests();
                 }
             });
             LogoutReq = new MvxCommand(() =>
@@ -115,10 +115,6 @@ namespace TelstraApp.Core.ViewModels
                 ShowViewModel<LoginViewModel>();
             });
         }
-
-        
-
-        
 
         private ObservableCollection<ReceivedRequest> receivedReq;
         private List<ReceivedRequest> ListOfSelectedCBs;
@@ -129,29 +125,27 @@ namespace TelstraApp.Core.ViewModels
             set { SetProperty(ref receivedReq, value); }
         }
 
-        public async 
-        Task
-RetrieveRequests()
+        public async Task<bool> RetrieveRequests()
         {
-            ListReceivedReq = new ObservableCollection<ReceivedRequest>();
+            //ListReceivedReq = new ObservableCollection<ReceivedRequest>();
 
             var curerntReq = await this.UsersDatabase.SelectToUser(this.currentUser);
             //var test = 
-
+            receivedReq.Clear();
             foreach (var user in curerntReq)
             {
                 SendReq(new ReceivedRequest(user.ReqFrom, user.ReqTime));
             }
             //ShowViewModel<FindViewModel>();
             RaisePropertyChanged(() => ListReceivedReq);
-
+            return true;
         }
 
         public void SendReq(ReceivedRequest req)
         {
             if (req.RequestersName != null && req.RequestersName.Trim() != string.Empty)
             {
-                ListReceivedReq.Add(req);
+                receivedReq.Add(req);
             }
 
         }

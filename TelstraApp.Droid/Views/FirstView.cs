@@ -22,22 +22,73 @@ namespace TelstraApp.Droid.Views
         {
             get { return base.ViewModel as RequestsViewModel; }
         }
-
+        private bool RunProcess = true;
         protected override void OnCreate(Bundle bundle)
         {
             RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Requests);
+            RunProcess = true;
+            SyncWithDB();
         }
 
         protected override async void OnResume()
         {
+            RunProcess = true;
             base.OnResume();
             await vm.RetrieveRequests();
         }
+        private void SendToastNotification(string msg, bool hideKeyBoard)
+        {
+            if (hideKeyBoard)
+            {
+                InputMethodManager inputManager = (InputMethodManager)GetSystemService(InputMethodService);
+                var currentFocus = Window.CurrentFocus;
+                inputManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
+            }
 
+            var Toasty = Toast.MakeText(this, msg, ToastLength.Long);
+            Toasty.Show();
+        }
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            RunProcess = false;
+        }
 
+        protected override void OnPause()
+        {
+            base.OnPause();
+            RunProcess = false;
 
+        }
+        public async void SyncWithDB()
+        {
+            bool completed = false;
+
+            SendToastNotification("Syncing Requests", false);
+            completed = await vm.RetrieveRequests();
+            SendToastNotification("Syncing Completed", false);
+            completed = false;
+            await Task.Run(async () =>
+            {
+                while (RunProcess)
+                {
+                    Thread.Sleep(10000);
+                    if (completed)
+                    {
+                        completed = false;
+
+                        completed = await vm.RetrieveRequests();
+                    }
+                    else
+                    {
+                        completed = true;
+                    }
+                }
+
+            });
+        }
     }
 
 
