@@ -45,7 +45,10 @@ namespace TelstraApp.Core.ViewModels
 
         }
         public ICommand SelectSearchBox { get; private set; }
-        
+
+        public ICommand Logout { get; private set; }
+
+
 
         //author: Michael Kath (n9293833)
         //calls the search location(employees later) based on typing 2 chars
@@ -151,7 +154,7 @@ namespace TelstraApp.Core.ViewModels
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
 
-     
+
             //author: Michael Kath (n9293833)
             //long press on an item on the request list will prompt them to delete
             DeleteReqCommand = new MvxCommand<AddRequest>(async selectedUser =>
@@ -171,16 +174,16 @@ namespace TelstraApp.Core.ViewModels
               {
                   selectedUser.ChangeOnDelete(true);
               }
-             
+
           });
 
             SelectLocationCommand = new MvxCommand<Employees>(selectedLocation =>
             {
                 SelectUserFromSearch(selectedLocation, dialog);
                 SearchTerm = string.Empty;
-      
+
                 RaisePropertyChanged(() => SearchTerm);
-               
+
 
             });
 
@@ -189,6 +192,14 @@ namespace TelstraApp.Core.ViewModels
                User.Clear();
                GetFavourites();
            });
+
+            Logout = new MvxCommand(() =>
+            {
+                currentUser = "";
+                Close(this);
+
+            });
+           
 
             //author: Michael Kath (n9293833)
             //If the user taps on an item on the list of requests

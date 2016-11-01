@@ -14,7 +14,7 @@
     <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBbYpFo0XZhY2JVIiT7WNyJs11krcsx6PQ" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-    <activity android:label="TelstraFindMe" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Splash" android:name="md547636b337cc6f0c6cf46087f04e75af6.SplashScreen">
+    <activity android:label="FindMe" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Splash" android:name="md547636b337cc6f0c6cf46087f04e75af6.SplashScreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

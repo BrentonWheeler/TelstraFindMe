@@ -463,5 +463,6 @@ D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\requestunsel_icon.p
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\requestsel_icon.png
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\findsel_icon.png
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\splash_findme.png
+D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\logout_button.xml
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\TelstraApp.Droid.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb
