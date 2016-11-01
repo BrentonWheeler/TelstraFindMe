@@ -81,6 +81,7 @@ namespace TelstraApp.Core.ViewModels
         private readonly IUserDatabase UsersDatabase;
         //private string currentUser;
         public List<Users> selectedUsers;
+        public ICommand LogoutRes { get; private set; }
         private IDialogService dialog;
         public ICommand AddLocation { get; private set; }
         public ICommand AtMeetingCommand { get; private set; }
@@ -255,6 +256,11 @@ namespace TelstraApp.Core.ViewModels
                     user.RespCurrentlyAt = this.UserMsg;
                     int result = await UsersDatabase.AddResponse(user, this.currentUser);
                 }
+                Close(this);
+            });
+            LogoutRes = new MvxCommand(() =>
+            {
+                ShowViewModel<LoginViewModel>();
             });
         }
        

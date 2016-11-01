@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -247,10 +247,13 @@
     <AndroidResource Include="Resources\drawable\rounded_corner.xml" />
     <AndroidResource Include="Resources\drawable\reqList.xml" />
     <AndroidResource Include="Resources\drawable\roundbutton.xml" />
-    <AndroidResource Include="Resources\drawable\requests1_icon.jpg" />
-    <AndroidResource Include="Resources\drawable\request_icon.png" />
-    <AndroidResource Include="Resources\drawable\request5_icon.png" />
     <AndroidResource Include="Resources\drawable\reqListGrey.xml" />
+    <AndroidResource Include="Resources\drawable\findUnsel_icon.png" />
+    <AndroidResource Include="Resources\drawable\requestUnSel_icon.png" />
+    <AndroidResource Include="Resources\drawable\requestSel_icon.png" />
+    <AndroidResource Include="Resources\drawable\findSel_icon.png" />
+    <AndroidResource Include="Resources\drawable\splash_findme.png" />
+    <AndroidResource Include="Resources\drawable\logout_button.xml" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -30,18 +30,19 @@ namespace TelstraApp.Core.ViewModels
         private IDialogService dialog;
         public ICommand SelectAll { get; private set; }
         public ICommand ResponseCommand { get; private set; }
+        public ICommand LogoutReq { get; private set; }
         public ICommand DeleteCommand { get; private set; }
         public async void getUserFromCB(string currentUser, List<ReceivedRequest> selectedRequests)
         {
             List<Users> users = await UsersDatabase.GetReqUser(currentUser, selectedRequests);
             Users sentUser = users[0];
-            
-            for(int i = 1;i<users.Count();i++)
+            sentUser.Rank = 1;
+            for (int i = 1;i<users.Count();i++)
             {
                 sentUser.ReqFrom = sentUser.ReqFrom + "|" + users[i].ReqFrom;
-                sentUser.ReqTo = currentUser;
                 sentUser.Rank = i;
             }
+            sentUser.ReqTo = currentUser;
             //ResponseData.AddRange(users);
             ShowViewModel<ResponseViewModel>(sentUser);
             //ShowViewModel<ResponseViewModel>(test);
@@ -85,7 +86,10 @@ namespace TelstraApp.Core.ViewModels
                         ListOfSelectedCBs.Add(item);
                     }
                 }
-                getUserFromCB(currentUser, ListOfSelectedCBs);
+                if (ListOfSelectedCBs.Count > 0)
+                {
+                    getUserFromCB(currentUser, ListOfSelectedCBs);
+                }
                 
             });
             DeleteCommand = new MvxCommand(async () =>
@@ -105,6 +109,10 @@ namespace TelstraApp.Core.ViewModels
                     }
                     RetrieveRequests();
                 }
+            });
+            LogoutReq = new MvxCommand(() =>
+            {
+                ShowViewModel<LoginViewModel>();
             });
         }
 

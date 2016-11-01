@@ -5,23 +5,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFFF">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
         android:background="#00B1EB">
         <TextView
             android:text="Requests"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="27dp"
+            android:id="@+id/textView1"
             android:textColor="#ffffff"
+            android:background="#00B1EB"
             android:textStyle="bold"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:paddingTop="10dp"
-            android:paddingBottom="5dp" />
-    </LinearLayout>
+            android:paddingBottom="5dp"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click LogoutReq"
+            android:text="Logout"
+            android:textColor="#00B1EB"
+            android:background="@drawable/logout_button"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:minHeight="15dp"
+            android:minWidth="15dp"
+            android:layout_marginRight="5dp" />
+    </RelativeLayout>
     <CheckBox
         android:id="@+id/selectAllCB"
         android:layout_width="wrap_content"

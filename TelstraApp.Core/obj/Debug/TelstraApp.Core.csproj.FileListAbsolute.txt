@@ -46,8 +46,6 @@ C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\Mono.Andro
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
-C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.config
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.pdb
@@ -73,3 +71,5 @@ D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.pdb
 D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.csprojResolveAssemblyReference.cache
 D:\mobile\TelstraApp\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
+C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
