@@ -163,11 +163,11 @@ namespace TelstraApp.Core.ViewModels
               if (await dialog.Show("Would you like to delete this request?", "Delete Request", "Delete", "Cancel"))
               {
                   ToastNotifcation("Deleting Request", false);
+                  DBlock = true;
                   await UsersDatabase.DeleteRequest(selectedUser.UserNameReq, currentUser);
-                  //ListOutStandingReq.Remove(selectedUser);
+                  DBlock = false;
                   await populateList();
                   ToastNotifcation("Request Deleted", false);
-                  //RaisePropertyChanged(() => ListOutStandingReq);
 
               }
               else
@@ -337,7 +337,9 @@ namespace TelstraApp.Core.ViewModels
         //Inserts into database and formats the time to be displayed on the users list
         private async Task InsertReqDB(Employees selectedUser)
         {
+            DBlock = true;
             await UsersDatabase.InsertRequest(selectedUser, currentUser);
+            DBlock = false;
             User.Clear();
         }
 
@@ -364,7 +366,9 @@ namespace TelstraApp.Core.ViewModels
                     if (await dialog.Show("You have already have sent a request to this user", "Request Exists", "Send Another", "Go Back"))
                     {
                         //If "Send Another" removes old request from DB
+                        DBlock = true;
                          var success = await UsersDatabase.DeleteRequest(selectedUser.UserName, currentUser);
+                        DBlock = false;
                         if (success == 0)
                         {
                             //insert new request

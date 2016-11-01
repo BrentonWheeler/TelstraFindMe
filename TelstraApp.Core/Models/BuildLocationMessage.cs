@@ -11,14 +11,23 @@ namespace TelstraApp.Core.Models
         public string message { set; get; }
         public BuildLocationMessage(Users responseMessage)
         {
-            string msg = responseMessage.ReqTo + " replyed with:\n";
+            string msg = responseMessage.ReqTo + ":\n";
             msg += responseMessage.RespCurrentlyAt + "\n";
+
 
             if (responseMessage.RespLocationLat != 0 && responseMessage.RespLocationLng != 0)
             {
-                msg += "\nYou can find me at the below location\n";
+                msg += "\nYou can find me at the below location";
+                if (responseMessage.RespRoom != "")
+                {
+                    msg +=  " in room " + responseMessage.RespRoom;
+                }
+                
+            } else if (responseMessage.RespRoom != "")
+            {
+                msg = "\n You can find me in room" + responseMessage.RespRoom;
             }
-          
+            msg += "\n";
             message = msg;
         }
        

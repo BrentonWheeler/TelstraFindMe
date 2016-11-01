@@ -32,6 +32,9 @@ namespace TelstraApp.Core.ViewModels
         public ICommand ResponseCommand { get; private set; }
         public ICommand LogoutReq { get; private set; }
         public ICommand DeleteCommand { get; private set; }
+        public delegate void MyEventAction(string msg);
+        public event MyEventAction ToastNotifcation;
+
         public async void getUserFromCB(string currentUser, List<ReceivedRequest> selectedRequests)
         {
             List<Users> users = await UsersDatabase.GetReqUser(currentUser, selectedRequests);
@@ -44,9 +47,22 @@ namespace TelstraApp.Core.ViewModels
             }
             sentUser.ReqTo = currentUser;
             //ResponseData.AddRange(users);
-            ShowViewModel<ResponseViewModel>(sentUser);
+            if (!responseLock)
+            {
+                switchResponseLock(false);
+                ShowViewModel<ResponseViewModel>(sentUser);
+
+            }
+
             //ShowViewModel<ResponseViewModel>(test);
         }
+
+        public void switchResponseLock(bool switchTo)
+        {
+            responseLock = switchTo;
+        }
+
+        bool responseLock = false;
         public RequestsViewModel(IDialogService dialog, IUserDatabase locationsDatabase, string currentUser)
         {
 
@@ -55,6 +71,7 @@ namespace TelstraApp.Core.ViewModels
             this.UsersDatabase = locationsDatabase;
 
             ListReceivedReq = new ObservableCollection<ReceivedRequest>();
+            
 
             //RetrieveRequests();
             //dialog messages. Stil yet to be implemented properly
@@ -100,14 +117,14 @@ namespace TelstraApp.Core.ViewModels
                     {
                         if (item.LIIsChecked)
                         {
-                            //ToastNotifcation("Deleting request", false);
+                            ToastNotifcation("Deleting request");
                             await UsersDatabase.DeleteRequest(currentUser, item.RequestersName);
                             //ListOutStandingReq.Remove(selectedUser);
-                            //ToastNotifcation("Request deleted", false);
+                            ToastNotifcation("Request deleted");
                             //RaisePropertyChanged(() => ListOutStandingReq);
                         }
                     }
-                    await RetrieveRequests();
+                    await checkDBLock();
                 }
             });
             LogoutReq = new MvxCommand(() =>
@@ -125,10 +142,32 @@ namespace TelstraApp.Core.ViewModels
             set { SetProperty(ref receivedReq, value); }
         }
 
+        bool Dblock = false;
+        public async Task<bool> checkDBLock(bool fromTask = false)
+        {
+            if (fromTask)
+            {
+                if (!Dblock)
+                {
+                   await RetrieveRequests();                    
+                }
+               
+            }
+            else
+            {
+                Dblock = true;
+                await RetrieveRequests();
+                Dblock = false;
+            }
+
+            return false;
+
+        }
+
+
         public async Task<bool> RetrieveRequests()
         {
             //ListReceivedReq = new ObservableCollection<ReceivedRequest>();
-
             var curerntReq = await this.UsersDatabase.SelectToUser(this.currentUser);
             //var test = 
             receivedReq.Clear();

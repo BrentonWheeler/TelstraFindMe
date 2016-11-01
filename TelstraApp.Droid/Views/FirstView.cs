@@ -29,23 +29,19 @@ namespace TelstraApp.Droid.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Requests);
             RunProcess = true;
+            vm.ToastNotifcation += SendToastNotification;
             SyncWithDB();
         }
 
         protected override async void OnResume()
         {
             RunProcess = true;
+            vm.switchResponseLock(false);
             base.OnResume();
-            await vm.RetrieveRequests();
+            await vm.checkDBLock(true);
         }
-        private void SendToastNotification(string msg, bool hideKeyBoard)
+        private void SendToastNotification(string msg)
         {
-            if (hideKeyBoard)
-            {
-                InputMethodManager inputManager = (InputMethodManager)GetSystemService(InputMethodService);
-                var currentFocus = Window.CurrentFocus;
-                inputManager.HideSoftInputFromWindow(currentFocus.WindowToken, HideSoftInputFlags.None);
-            }
 
             var Toasty = Toast.MakeText(this, msg, ToastLength.Long);
             Toasty.Show();
@@ -66,9 +62,9 @@ namespace TelstraApp.Droid.Views
         {
             bool completed = false;
 
-            SendToastNotification("Syncing Requests", false);
-            completed = await vm.RetrieveRequests();
-            SendToastNotification("Syncing Completed", false);
+            SendToastNotification("Syncing Requests");
+            completed = await vm.checkDBLock(true);
+            SendToastNotification("Syncing Completed");
             completed = false;
             await Task.Run(async () =>
             {
@@ -79,7 +75,7 @@ namespace TelstraApp.Droid.Views
                     {
                         completed = false;
 
-                        completed = await vm.RetrieveRequests();
+                        completed = await vm.checkDBLock(true);
                     }
                     else
                     {

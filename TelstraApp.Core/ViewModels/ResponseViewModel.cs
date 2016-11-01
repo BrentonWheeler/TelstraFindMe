@@ -91,6 +91,7 @@ namespace TelstraApp.Core.ViewModels
         public async void Init(Users passedUsers)
         {
             string userNames = passedUsers.ReqFrom;
+            
             string[] userNameArray;
             if (userNames.Contains("|"))
             {
@@ -104,7 +105,7 @@ namespace TelstraApp.Core.ViewModels
             this.currentUser = passedUsers.ReqTo;
             //query for a list of users from userNameArray's usernames
             this.users = await UsersDatabase.GetReqUserFromNameArray(currentUser, userNameArray);
-
+           
         }
 
         public string TrimEnd(string input, string suffixToRemove)

@@ -40,10 +40,11 @@ namespace TelstraApp.Core.Database
 
         public async Task<int> DeleteRequest(string employee, string currentUser)
         {
-            try {
+            try
+            {
 
-                await SyncAsync(currentUser, true);
-                var location = await azureSyncTable.Where(x => x.ReqTo == employee && currentUser == x.ReqFrom).ToListAsync();
+                //await SyncAsync(currentUser, true);
+              var location = await azureSyncTable.Where(x => x.ReqTo == employee && currentUser == x.ReqFrom).ToListAsync();
                 if (location.Any())
                 {
                     await azureSyncTable.DeleteAsync(location.FirstOrDefault());
@@ -57,11 +58,12 @@ namespace TelstraApp.Core.Database
                 }
 
             }
-            catch
+            catch(Exception e)
             {
+                Debug.WriteLine(e);
                 return 1;
             }
-        }
+        } 
 
         public async Task<IEnumerable<Users>> GetLocations()
         {
@@ -83,7 +85,7 @@ namespace TelstraApp.Core.Database
         {
             try
             {
-                await SyncAsync(currentUser, true);
+                //await SyncAsync(currentUser, true);
                 await azureSyncTable.InsertAsync(reqLocation);
                 await InsertFavourite(currentUser, reqLocation.ReqTo);
                 await SyncAsync(currentUser);
@@ -166,9 +168,9 @@ namespace TelstraApp.Core.Database
             
             try
             {
-                await SyncAsyncEmp(true);
+                //await SyncAsyncEmp(true);
                 await employeeSyncTable.InsertAsync(employee);
-                await SyncAsyncEmp();
+                await SyncAsyncEmp(true);
             }
             catch (Exception e)
             {
@@ -185,7 +187,7 @@ namespace TelstraApp.Core.Database
             {
                 Employees currentEmployee = currentEmployees.FirstOrDefault();
                 currentEmployee.UpdateFavourites(searchEmployee);
-                await SyncAsync(currentUser, true);
+                //await SyncAsync(currentUser, true);
                 await employeeSyncTable.UpdateAsync(currentEmployee);
                 await SyncAsync(currentUser);
             }

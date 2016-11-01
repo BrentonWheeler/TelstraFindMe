@@ -6,6 +6,7 @@ using MvvmCross.Droid.Views;
 using Android.Gms.Maps.Model;
 using TelstraApp.Core.ViewModels;
 using TelstraApp.Core.Models;
+using Android.Views;
 
 namespace TelstraApp.Droid.Views
 {
@@ -25,7 +26,9 @@ namespace TelstraApp.Droid.Views
 
         protected override void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
+
             SetContentView(Resource.Layout.RequestResponse);
            
             SetupMap();

@@ -32,16 +32,24 @@ namespace TelstraApp.Core.Models
             {
                 this.Favourites = favourite;
             }
-            else if (!this.Favourites.Contains(favourite))
+            else
             {
                 string[] favs = this.Favourites.Split(';');
-                string newFavs = this.Favourites;
+                bool found = false;
+                for (var i = 0; i < favs.Length; i++)
+                {
+                    if (favs[i] == favourite)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
  
-                if (favs.Length > 2)
+                if (favs.Length > 2 && !found)
                 {
                     this.Favourites = favourite + ";" + favs[0] + ";" + favs[1];
                 }
-                else
+                else if (!found)
                 {
                     this.Favourites = favourite + ";" + this.Favourites;
                 }

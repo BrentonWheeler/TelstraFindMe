@@ -100,8 +100,6 @@ namespace TelstraApp.Droid.Views
         }
 
 
-
-
         void DisplayAddress(Address address)
         {
             if (address != null)
