@@ -48,11 +48,11 @@ C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\System.Net
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\obj\Debug\TelstraApp.Core.dll.mdb
 C:\Users\Brenton\Source\Repos\TelstraFindMe\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.mdb
+D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\Mono.Android.dll
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll.config
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.dll
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\TelstraApp.Core.pdb
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
-D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\Mono.Android.dll
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\MvvmCross.Binding.dll
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\MvvmCross.Core.dll
 D:\mobile\TelstraApp\TelstraApp.Core\bin\Debug\MvvmCross.Localization.dll

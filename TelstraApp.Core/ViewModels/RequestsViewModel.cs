@@ -15,6 +15,11 @@ namespace TelstraApp.Core.ViewModels
     {
         private Boolean _isChecked = false;
         public List<Users> ResponseData = new List<Users>();
+
+        public void refreshList()
+        {
+            RaisePropertyChanged(() => ListReceivedReq);
+        }
         public bool IsChecked
         {
             get { return _isChecked; }
@@ -163,6 +168,22 @@ namespace TelstraApp.Core.ViewModels
             return false;
 
         }
+
+        public async  Task<IEnumerable<Users>> getRequests()
+        {
+            return await this.UsersDatabase.SelectToUser(this.currentUser);
+        }
+
+        public void AddRequestsToList(IEnumerable<Users> curerntReq)
+        {
+            receivedReq.Clear();
+            foreach (var user in curerntReq)
+            {
+                SendReq(new ReceivedRequest(user.ReqFrom, user.ReqTime));
+            }
+            RaisePropertyChanged(() => ListReceivedReq);
+        }
+
 
 
         public async Task<bool> RetrieveRequests()

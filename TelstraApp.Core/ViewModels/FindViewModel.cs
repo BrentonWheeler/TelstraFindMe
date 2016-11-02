@@ -10,6 +10,7 @@ using Android.Widget;
 using Android.Content;
 using System;
 using System.Threading.Tasks;
+using MvvmCross.Platform.Core;
 
 namespace TelstraApp.Core.ViewModels
 {
@@ -26,6 +27,12 @@ namespace TelstraApp.Core.ViewModels
             get { return outStandingReq; }
             set { SetProperty(ref outStandingReq, value); }
         }
+        public void refreshList()
+        {
+            RaisePropertyChanged(() => ListOutStandingReq);
+        }
+
+
 
 
         public ICommand SelectReqCommand { get; private set; }
@@ -233,6 +240,16 @@ namespace TelstraApp.Core.ViewModels
 
         }
 
+
+        public async Task<IEnumerable<Users>> getUsersDB()
+        {
+
+            await UsersDatabase.SyncAsyncEmp(true);
+            var curerntReq = await UsersDatabase.SelectViaUser(currentUser, true);
+
+            return curerntReq;
+        }
+
         //Author: Michael Kath
         //Adds requests to list from DB
         bool DBlock = false;
@@ -241,14 +258,14 @@ namespace TelstraApp.Core.ViewModels
 
             if (fromTask)
             { 
-                if (!DBlock)
-                {
+                //if (!DBlock)
+              //  {
                     DBlock = true;
                     await UsersDatabase.SyncAsyncEmp(true);
                     var curerntReq = await UsersDatabase.SelectViaUser(currentUser, true);
-                    AddRequests(curerntReq);
+                    AddRequests2(curerntReq);
                     DBlock = false;
-                }
+               // }
             }
             else
             {
@@ -278,9 +295,31 @@ namespace TelstraApp.Core.ViewModels
         }
 
 
+        private void AddRequests2(IEnumerable<Users> newRequests)
+        {
+            ResReqCount = 0;
+
+            ListOutStandingReq.Clear();
+            foreach (var user in newRequests)
+            {
+                TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
+                MvxMainThreadDispatcher.Instance.RequestMainThreadAction((Action)delegate () {
+                    ListOutStandingReq.Add(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                });
+                //SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+
+            }
+            MvxMainThreadDispatcher.Instance.RequestMainThreadAction((Action)delegate ()
+            {
+                RaisePropertyChanged(() => ListOutStandingReq);
+            });
+            
+        }
+
+
         //author: Michael Kath (n9293833)
         //loops through all the new requests found to see if they already list on the users list
-        private void AddRequests(IEnumerable<Users> newRequests)
+        public void AddRequests(IEnumerable<Users> newRequests)
         {
             ResReqCount = 0;
             

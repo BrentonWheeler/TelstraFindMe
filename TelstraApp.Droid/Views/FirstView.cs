@@ -7,9 +7,12 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using MvvmCross.Droid.Views;
+using MvvmCross.Platform.Core;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using TelstraApp.Core.Models;
 using TelstraApp.Core.ViewModels;
 using TelstraApp.Droid.Services;
 
@@ -22,6 +25,7 @@ namespace TelstraApp.Droid.Views
         {
             get { return base.ViewModel as RequestsViewModel; }
         }
+        
         private bool RunProcess = true;
         protected override void OnCreate(Bundle bundle)
         {
@@ -29,16 +33,51 @@ namespace TelstraApp.Droid.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Requests);
             RunProcess = true;
+
             vm.ToastNotifcation += SendToastNotification;
-            SyncWithDB();
+
+            //RunOnUiThread(async () => await SyncWithDB());
+
+           // TimerExampleState s = new TimerExampleState();
+            
+            //TimerCallback timerDelegate = new TimerCallback(SyncWithDB);
+           // Timer timer = new Timer(timerDelegate, s, 1000, 1000);
+            //RunOnUiThread(()=> SyncWithDB());
+            string d = "here";
+            //SyncWithDB();
+        }
+     /*   public async void SyncWithDBqqq(System.Object state)
+        {
+            TimerExampleState s = (TimerExampleState)state;
+            s.counter++;
+            if (s.counter == 5)
+            {
+                //(s.tmr).Change(200000, 1000);
+                await vm.checkDBLock(true);
+                (s.tmr).Change(100, 1000);
+            }
+               
+            //Java.Lang.Thread.Sleep(10000);
+        } */
+
+        class TimerExampleState
+        {
+            public int counter = 0;
+            public Timer tmr;
         }
 
-        protected override async void OnResume()
+
+        //Action test = new Action(SyncWithDB);
+
+
+
+        protected override void OnResume()
         {
             RunProcess = true;
             vm.switchResponseLock(false);
             base.OnResume();
-            await vm.checkDBLock(true);
+            SyncWithDB();
+            //await vm.checkDBLock(true);
         }
         private void SendToastNotification(string msg)
         {
@@ -58,37 +97,75 @@ namespace TelstraApp.Droid.Views
             RunProcess = false;
 
         }
+
         public async void SyncWithDB()
         {
+
             bool completed = false;
 
-            SendToastNotification("Syncing Requests");
-            completed = await vm.checkDBLock(true);
+            SendToastNotification("Syncing Contacts");
+            await vm.checkDBLock(true);
             SendToastNotification("Syncing Completed");
-            completed = false;
-            await Task.Run(async () =>
+
+            while (RunProcess)
             {
-                while (RunProcess)
+                completed = true;
+                IEnumerable<Users> req = new List<Users>();
+                await Task.Run(async () =>
                 {
-                    Thread.Sleep(10000);
+                    await Task.Delay(10000);
                     if (completed)
                     {
                         completed = false;
-
-                        completed = await vm.checkDBLock(true);
-                    }
-                    else
-                    {
+                        //await vm.populateList(true);
+                        req = await vm.getRequests();
                         completed = true;
                     }
+                });
+
+                if (completed)
+                {
+                    vm.AddRequestsToList(req);
                 }
 
-            });
+            }
         }
+
     }
+    /* public async void SyncWithDB()
+      {
+          bool completed = false;
+
+          SendToastNotification("Syncing Requests");
+          completed = await vm.checkDBLock(true);
+          SendToastNotification("Syncing Completed");
+          completed = true;
+
+           await Task.Run(async () =>
+          {
+              while (RunProcess)
+              {
+                  Thread.Sleep(10000);
+                  if (completed)
+                  {
+                      completed = false;
+
+                      completed = await vm.checkDBLock(true);
+                      RunOnUiThread(() => { vm.refreshList(); });
+                  }
+                  else
+                  {
+                      completed = true;
+                  }
+              }
+
+          });
+
+      } */
 
 
-//Author: Michael Kath (n9293833)
+
+    //Author: Michael Kath (n9293833)
     [Activity(Label = "View for FindView")]
     public class FindView: MvxActivity
     {
@@ -117,7 +194,7 @@ namespace TelstraApp.Droid.Views
         {
             base.OnResume();
             RunProcess = true;
-            //SyncWithDB();
+            SyncWithDB();
 
         }
 
@@ -153,34 +230,44 @@ namespace TelstraApp.Droid.Views
             Toasty.Show();
         }
 
+
+
+
         public async void SyncWithDB()
         {
+ 
             bool completed = false;
 
             SendToastNotification("Syncing Contacts", false);
-            completed = await vm.populateList(true);
+            await vm.populateList(true);
             SendToastNotification("Syncing Completed", false);
-            completed = false;
-            await Task.Run(async () =>
-             {
-                 while (RunProcess)
-                 {
-                     Thread.Sleep(10000);
-                     if (completed)
-                     {
-                         completed = false;
 
-                         completed = await vm.populateList(true);
-                     }
-                     else
-                     {
-                         completed = true;
-                     }
-                 }
+            while (RunProcess)
+            {
+                completed = true;
+                IEnumerable<Users> req = new List<Users>();
+                    await Task.Run(async () =>
+                    {
+                        await Task.Delay(10000);
+                        if (completed)
+                        {
+                            completed = false;
+                            //await vm.populateList(true);
+                             req = await vm.getUsersDB();
+                               completed = true;
+                        }
+                 });
 
-             }); 
+                if (completed)
+                {
+                    vm.AddRequests(req);
+                }
+
+            }
         }
     }
+
+    
 
 
     //Author: Michael Kath (n9293833)
