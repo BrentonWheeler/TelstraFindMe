@@ -154,6 +154,9 @@ namespace TelstraApp.Core.ViewModels
 
             ListOutStandingReq = new ObservableCollection<AddRequest>();
 
+           
+
+
 
             //author: Michael Kath (n9293833)
             //long press on an item on the request list will prompt them to delete
@@ -235,6 +238,7 @@ namespace TelstraApp.Core.ViewModels
         bool DBlock = false;
         public async Task<bool> populateList(bool fromTask = false)
         {
+
             if (fromTask)
             { 
                 if (!DBlock)
@@ -248,6 +252,20 @@ namespace TelstraApp.Core.ViewModels
             }
             else
             {
+                /*await InsertReqDB(new Employees("Paul"));
+                await InsertReqDB(new Employees("Dave"));
+                await InsertReqDB(new Employees("Jeff"));
+                
+
+                await UsersDatabase.InsertRequest(new Employees("Brenton"), "Jeff");
+                await UsersDatabase.InsertRequest(new Employees("Brenton"), "Dave");
+                await UsersDatabase.InsertRequest(new Employees("Brenton"), "Paul");
+
+                await UsersDatabase.InsertRequest(new Employees("Mike"), "Jeff");
+                await UsersDatabase.InsertRequest(new Employees("Mike"), "Dave");
+                await UsersDatabase.InsertRequest(new Employees("Mike"), "Paul");
+                */
+
                 DBlock = true;
                 await UsersDatabase.SyncAsyncEmp(true);
                 var curerntReq = await UsersDatabase.SelectViaUser(currentUser, true);
@@ -259,63 +277,23 @@ namespace TelstraApp.Core.ViewModels
             return true;
         }
 
-        //Author: Michael Kath
-        //Syncs request list with database
-      /*  public async Task<bool> RetrieveItemsFromDB()
-        {
-             //Pull any latest employees
-            await UsersDatabase.SyncAsyncEmp(true);
-
-            //Get current requests from local
-            var curerntReq = await UsersDatabase.SelectViaUser(currentUser);
-
-            //pull from azure
-            var newRequests = await UsersDatabase.SelectViaUser(currentUser, true);
-
-            //Compare to see if there are any new
-            if (newRequests.Count() != curerntReq.Count())
-            {
-                return true;
-            }
-            else
-            {
-                //Otherwise compare the curernt and new lists
-                var newReq = newRequests.ToList();
-                var curReq = curerntReq.ToList();
-                for (int i = 0; i < newRequests.Count(); i++)
-                {
-                    // if there is a change
-                    if (newReq[i].ReqTo != curReq[i].ReqTo || newReq[i].HasResponded != curReq[i].HasResponded)
-                    {
-                        return true;
-                    }
-                }
-                //all contacts are the same if it ends up here.
-                return false;
-            }
-
-        } */
 
         //author: Michael Kath (n9293833)
         //loops through all the new requests found to see if they already list on the users list
         private void AddRequests(IEnumerable<Users> newRequests)
         {
-            //ListOutStandingReq = new ObservableCollection<AddRequest>();
-           // List<AddRequest> tmp = new List<AddRequest>();
             ResReqCount = 0;
             
-            if (newRequests.Count() > 0)
+            ListOutStandingReq.Clear();
+            foreach (var user in newRequests)
             {
-                ListOutStandingReq.Clear();
-                foreach (var user in newRequests)
-                {
                     
-                    TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
-                    SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
+                TimeFormatter TimeTimer = new TimeFormatter(user.ReqTime);
+                SendReq(new AddRequest(user.ReqTo, user.HasResponded, TimeTimer.reqTime));
 
-                }
-                RaisePropertyChanged(() => ListOutStandingReq);
             }
+            RaisePropertyChanged(() => ListOutStandingReq);
+      
 
             //then add non responded requests
             /*   foreach (var user in newRequests)

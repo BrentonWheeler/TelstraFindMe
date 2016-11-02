@@ -11,12 +11,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         local:MvxBind="Click GotoUser1"
-        android:text="User1" />
+        android:text="Brenton" />
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         local:MvxBind="Click GotoUser2"
-        android:text="User2" />
+        android:text="Mike" />
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

@@ -15,7 +15,7 @@ namespace TelstraApp.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<FirstViewModel>(new FirstViewModel.CurrentUser { currentUser = "User1" }));
+                return new MvxCommand(() => ShowViewModel<FirstViewModel>(new FirstViewModel.CurrentUser { currentUser = "Brenton" }));
 
             }
         }
@@ -23,7 +23,7 @@ namespace TelstraApp.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<FirstViewModel>(new FirstViewModel.CurrentUser { currentUser = "User2" }));
+                return new MvxCommand(() => ShowViewModel<FirstViewModel>(new FirstViewModel.CurrentUser { currentUser = "Mike" }));
 
             }
         }

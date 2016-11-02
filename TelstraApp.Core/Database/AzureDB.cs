@@ -43,19 +43,22 @@ namespace TelstraApp.Core.Database
             try
             {
 
-                //await SyncAsync(currentUser, true);
-              var location = await azureSyncTable.Where(x => x.ReqTo == employee && currentUser == x.ReqFrom).ToListAsync();
-                if (location.Any())
-                {
-                    await azureSyncTable.DeleteAsync(location.FirstOrDefault());
-                    await SyncAsync(currentUser);
-                    return 0;
-                }
-                else
-                {
-                    return 1;
+               //await SyncAsync(currentUser, true);
+                await azureSyncTable.PullAsync("Users", azureSyncTable.CreateQuery().Where(x => x.ReqFrom == currentUser));
 
-                }
+                var location = await azureSyncTable.Where(x => x.ReqTo == employee && currentUser == x.ReqFrom).ToListAsync();
+
+                  if (location.Any())
+                  {
+                      await azureSyncTable.DeleteAsync(location.FirstOrDefault());
+                      await SyncAsync(currentUser);
+                      return 0;
+                  }
+                  else
+                  {
+                      return 1;
+                
+                  } 
 
             }
             catch(Exception e)

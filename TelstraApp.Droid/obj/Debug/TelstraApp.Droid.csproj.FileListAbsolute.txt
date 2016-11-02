@@ -430,7 +430,6 @@ D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\res\drawable\logout_button.xml
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\R.cs.flag
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\uploadflags.txt
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Droid.dll.mdb
-D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\Java.Interop.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\Microsoft.CSharp.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\Mono.Android.dll.mdb
@@ -446,6 +445,7 @@ D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\System.Runtime.Serialization.dll
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\System.ServiceModel.Internals.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\System.Xml.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\System.Xml.Linq.dll.mdb
+D:\mobile\TelstraApp\TelstraApp.Droid\bin\Debug\TelstraApp.Core.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Java.Interop.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
 D:\mobile\TelstraApp\TelstraApp.Droid\obj\Debug\android\assets\Mono.Android.dll.mdb
