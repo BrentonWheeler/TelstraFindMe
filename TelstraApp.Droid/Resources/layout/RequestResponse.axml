@@ -19,7 +19,7 @@
         android:background="#FFFFFF" />
     <TextView
         android:text="testing"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:textColor="#FFFFFF"
